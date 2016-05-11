@@ -10,49 +10,44 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import BackEnd.System;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  *
  * @author Asus
  */
 public class AddEntity extends javax.swing.JFrame {
-private System system;
-     PreparedStatement pst = null;
-    public AddEntity(System system) {
-        initComponents();
-        this.system = system;
-    }
-
-   public void add_entity(){
-            if("Credor".equals(Type.getSelectedItem())){
-            String query = "INSERT INTO `intervenients_entities`(`name_int`, `adress_int`, `total_debInt`, `nif_int`, `nib_pay`, `contact_int`, `num_law`) VALUES ('"+Name.getText()+"','"+Adress.getText()+"',,'"+Integer.valueOf(Nif.getText())+"','"+Integer.valueOf(IBAN.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
-            
-            try {           
-      
-            Connection c = DBClass.getConnection();
-        pst = c.prepareStatement(query);    
-               
-                pst.execute();
-         
-                   
-       }
-       catch(Exception e){
-   JOptionPane.showMessageDialog(null,e);}}
+    private System system;
+    PreparedStatement pst = null;
+        public AddEntity(System system) {
+            initComponents();
+            this.system = system;
+        }
+            public void add_entity(){
+                if("Credor".equals(Type.getSelectedItem())){
+                    String query = "INSERT INTO `intervenients_entities`(`name_int`, `adress_int`, `total_debInt`, `nif_int`, `nib_pay`, `contact_int`, `num_law`) VALUES ('"+Name.getText()+"','"+adress1.getText()+"','"+adress2.getText()+"','"+adress3.getText()+"','"+adress4.getText()+"','"+adress5.getText()+"','"+Integer.valueOf(nif.getText())+"','"+Integer.valueOf(iban.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
+                        try {           
+                        Connection c = DBClass.getConnection();
+                        pst = c.prepareStatement(query);    
+                        pst.execute();
+                        }
+                    catch(Exception e){
+                        JOptionPane.showMessageDialog(null,e);
+                    }
+                }
             else{
                 String query = "INSERT INTO `creditor`(`nif_cre`, `name_cre`, `address_cre`, `contact_cre`, `num_law`, `nib_pay`, `total_deb`) VALUES ('"+Name.getText()+"','"+Adress.getText()+"',,'"+Integer.valueOf(Nif.getText())+"','"+Integer.valueOf(IBAN.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
-            
-            try {           
-      
-            Connection c = DBClass.getConnection();
-        pst = c.prepareStatement(query);    
-               
-                pst.execute();
-         
-                   
-       }
-       catch(Exception e){
-   JOptionPane.showMessageDialog(null,e);}
-            }}
+                    try{           
+                        Connection c = DBClass.getConnection();
+                        pst = c.prepareStatement(query);    
+                        pst.execute();
+                    }
+                    catch(Exception e){
+                        JOptionPane.showMessageDialog(null,e);
+                    }
+            }
+}
    
 
     @SuppressWarnings("unchecked")
@@ -69,25 +64,28 @@ private System system;
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        Name2 = new javax.swing.JTextField();
-        Name3 = new javax.swing.JTextField();
-        Name4 = new javax.swing.JTextField();
-        Name5 = new javax.swing.JTextField();
-        Name6 = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
+        iban = new javax.swing.JTextField();
+        nif = new javax.swing.JTextField();
+        adress1 = new javax.swing.JTextField();
+        Contact = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         Name7 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         Name8 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
+        adress2 = new javax.swing.JTextField();
+        adress3 = new javax.swing.JTextField();
+        adress4 = new javax.swing.JTextField();
+        adress5 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         JPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        JPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entidade Interveniente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+        JPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entidade Interveniente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
         JPanel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         JPanel2.setOpaque(false);
 
@@ -112,57 +110,58 @@ private System system;
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Nome de entidade:");
+        jLabel3.setText("Nome da Entidade");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("NIF de Entidade:");
+        jLabel9.setText("NIF");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Contacto:");
+        jLabel10.setText("Contacto");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("IBAN:");
+        jLabel11.setText("IBAN");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Morada:");
+        jLabel13.setText("Morada");
 
-        Name2.addActionListener(new java.awt.event.ActionListener() {
+        Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name2ActionPerformed(evt);
+                NameActionPerformed(evt);
             }
         });
 
-        Name3.addActionListener(new java.awt.event.ActionListener() {
+        iban.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name3ActionPerformed(evt);
+                ibanActionPerformed(evt);
             }
         });
 
-        Name4.addActionListener(new java.awt.event.ActionListener() {
+        nif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name4ActionPerformed(evt);
+                nifActionPerformed(evt);
             }
         });
 
-        Name5.addActionListener(new java.awt.event.ActionListener() {
+        adress1.setText("(lugar, rua, bairro, estrada...)");
+        adress1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                adress1FocusGained(evt);
+            }
+        });
+        adress1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name5ActionPerformed(evt);
+                adress1ActionPerformed(evt);
             }
         });
 
-        Name6.addActionListener(new java.awt.event.ActionListener() {
+        Contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name6ActionPerformed(evt);
+                ContactActionPerformed(evt);
             }
         });
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Nome:");
+        jLabel15.setText("Nome");
 
         Name7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,8 +170,7 @@ private System system;
         });
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Morada:");
+        jLabel16.setText("Morada");
 
         Name8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,102 +179,151 @@ private System system;
         });
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Mandatário");
+        jLabel17.setText("                             Mandatário");
+
+        adress2.setText("(nº porta)");
+        adress2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                adress2FocusGained(evt);
+            }
+        });
+
+        adress3.setText("(andar)");
+        adress3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                adress3FocusGained(evt);
+            }
+        });
+
+        adress4.setText("(código postal)");
+        adress4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                adress4FocusGained(evt);
+            }
+        });
+        adress4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adress4ActionPerformed(evt);
+            }
+        });
+
+        adress5.setText("(cidade)");
+        adress5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                adress5FocusGained(evt);
+            }
+        });
+        adress5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adress5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanel2Layout = new javax.swing.GroupLayout(JPanel2);
         JPanel2.setLayout(JPanel2Layout);
         JPanel2Layout.setHorizontalGroup(
             JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel2Layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Name7, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                            .addComponent(Name8)))
                     .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
+                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(adress1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanel2Layout.createSequentialGroup()
+                                .addComponent(adress2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(adress3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPanel2Layout.createSequentialGroup()
+                                .addComponent(adress4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(adress5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JPanel2Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanel2Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))
-                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Name2, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                            .addComponent(Name4)
-                            .addComponent(Name6)
-                            .addComponent(Name5)
-                            .addComponent(Name3))))
-                .addContainerGap(214, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel17)
-                .addGap(331, 331, 331))
-            .addGroup(JPanel2Layout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
-                .addComponent(Save)
-                .addGap(119, 119, 119)
-                .addComponent(Cancel)
-                .addGap(224, 224, 224))
+                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanel2Layout.createSequentialGroup()
+                                .addComponent(Cancel)
+                                .addGap(18, 18, 18)
+                                .addComponent(Save))
+                            .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Name8)
+                                .addComponent(Name7, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)))))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         JPanel2Layout.setVerticalGroup(
             JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(Name2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(24, 24, 24)
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(Name6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addGap(24, 24, 24)
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Name))
+                .addGap(5, 5, 5)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addGroup(JPanel2Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adress1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adress2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adress3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adress4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adress5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addGap(9, 9, 9)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
                     .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(Name8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(102, 102, 102))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel2Layout.createSequentialGroup()
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Cancel)
-                            .addComponent(Save))
-                        .addGap(28, 28, 28))))
+                        .addGap(2, 2, 2)
+                        .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Name8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(35, 35, 35)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Cancel)
+                    .addComponent(Save))
+                .addGap(57, 57, 57))
         );
 
-        getContentPane().add(JPanel2);
-        JPanel2.setBounds(10, 0, 790, 460);
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 810, 470);
+        getContentPane().add(JPanel2, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jLabel5, java.awt.BorderLayout.PAGE_START);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
@@ -287,25 +334,25 @@ private System system;
         dispose();
     }//GEN-LAST:event_CancelActionPerformed
 
-    private void Name2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name2ActionPerformed
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name2ActionPerformed
+    }//GEN-LAST:event_NameActionPerformed
 
-    private void Name3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name3ActionPerformed
+    private void ibanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ibanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name3ActionPerformed
+    }//GEN-LAST:event_ibanActionPerformed
 
-    private void Name4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name4ActionPerformed
+    private void nifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nifActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name4ActionPerformed
+    }//GEN-LAST:event_nifActionPerformed
 
-    private void Name5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name5ActionPerformed
+    private void adress1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adress1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name5ActionPerformed
+    }//GEN-LAST:event_adress1ActionPerformed
 
-    private void Name6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name6ActionPerformed
+    private void ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name6ActionPerformed
+    }//GEN-LAST:event_ContactActionPerformed
 
     private void Name7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name7ActionPerformed
         // TODO add your handling code here:
@@ -315,22 +362,78 @@ private System system;
         // TODO add your handling code here:
     }//GEN-LAST:event_Name8ActionPerformed
 
+    private void adress1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress1FocusGained
+        adress1.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
+        @Override
+            public void mouseClicked(MouseEvent e) {
+                adress1.setText("");
+            }
+        });
+    }//GEN-LAST:event_adress1FocusGained
+
+    private void adress4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adress4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adress4ActionPerformed
+
+    private void adress2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress2FocusGained
+                adress2.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
+        @Override
+            public void mouseClicked(MouseEvent e) {
+                adress2.setText("");
+            }
+        });        
+    }//GEN-LAST:event_adress2FocusGained
+
+    private void adress3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress3FocusGained
+                adress3.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
+        @Override
+            public void mouseClicked(MouseEvent e) {
+                adress3.setText("");
+            }
+        });        
+    }//GEN-LAST:event_adress3FocusGained
+
+    private void adress4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress4FocusGained
+                adress4.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
+        @Override
+            public void mouseClicked(MouseEvent e) {
+                adress4.setText("");
+            }
+        });        
+    }//GEN-LAST:event_adress4FocusGained
+
+    private void adress5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adress5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adress5ActionPerformed
+
+    private void adress5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress5FocusGained
+                adress5.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
+        @Override
+            public void mouseClicked(MouseEvent e) {
+                adress5.setText("");
+            }
+        });     
+    }//GEN-LAST:event_adress5FocusGained
+
     /**
      * @param args the command line arguments
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
+    private javax.swing.JTextField Contact;
     private javax.swing.JPanel JPanel2;
-    private javax.swing.JTextField Name2;
-    private javax.swing.JTextField Name3;
-    private javax.swing.JTextField Name4;
-    private javax.swing.JTextField Name5;
-    private javax.swing.JTextField Name6;
+    private javax.swing.JTextField Name;
     private javax.swing.JTextField Name7;
     private javax.swing.JTextField Name8;
     private javax.swing.JButton Save;
+    private javax.swing.JTextField adress1;
+    private javax.swing.JTextField adress2;
+    private javax.swing.JTextField adress3;
+    private javax.swing.JTextField adress4;
+    private javax.swing.JTextField adress5;
     private datechooser.beans.DateChooserDialog dateChooserDialog1;
+    private javax.swing.JTextField iban;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -341,5 +444,6 @@ private System system;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField nif;
     // End of variables declaration//GEN-END:variables
 }
