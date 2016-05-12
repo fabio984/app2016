@@ -13,13 +13,16 @@ public class Main {
        
        System system = new System();
        
-   
-    AddEntity login = new AddEntity(system);
-    login.setVisible(true);
+    //LawsuitMenu login = new LawsuitMenu(system);
+    //login.setVisible(true);
+    //AdminMenu login = new AdminMenu(system);
+    //login.setVisible(true);
+    //AddEntity login = new AddEntity(system);
+    //login.setVisible(true);
     //AccessLawsuit login = new AccessLawsuit(system);
     //login.setVisible(true);
-    //   Login login = new Login(system);
-    //   login.setVisible(true);
+    Login login = new Login(system);
+    login.setVisible(true);
     }
     
 }

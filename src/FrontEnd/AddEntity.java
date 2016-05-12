@@ -24,9 +24,24 @@ public class AddEntity extends javax.swing.JFrame {
             initComponents();
             this.system = system;
         }
+        
             public void add_entity(){
                 if("Credor".equals(Type.getSelectedItem())){
-                    String query = "INSERT INTO `intervenients_entities`(`name_int`,`address_int`,`total_debInt`,`nif_int`,`nib_pay`,`contact_int`,`num_law`) VALUES ('"+Name.getText()+"','"+address.getText()+"','"+Integer.valueOf(nif.getText())+"','"+Integer.valueOf(iban.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
+                    String query = "INSERT INTO `intervenients_entities`(`name_int`,"
+                            + "`address_int`, "
+                            + "`nif_int`, "
+                            + "`nib_pay`, "
+                            + "`contact_int`, "
+                            + "`type`, "
+                            + "`name_mand`, "
+                            + "`address_mand`) "
+                            + "VALUES ('"+
+                            Name.getText()+"','"+
+                            address.getText()+"','"+
+                            Integer.valueOf(nif.getText())+"','"+
+                            Integer.valueOf(iban.getText())+"','"+
+                            Integer.valueOf(Contact.getText())+"','c', "
+                            + " '"+Name7.getText()+"', '"+Name8.getText()+"')";  
                         try {           
                         Connection c = DBClass.getConnection();
                         pst = c.prepareStatement(query);    
@@ -37,7 +52,21 @@ public class AddEntity extends javax.swing.JFrame {
                     }
                } 
             else{
-                String query = "INSERT INTO `creditor`(`nif_cre`, `name_cre`, `address_cre`, `contact_cre`, `num_law`, `nib_pay`, `total_deb`) VALUES ('"+Name.getText()+"','"+address.getText()+"','"+Integer.valueOf(nif.getText())+"','"+Integer.valueOf(iban.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
+                String query = "INSERT INTO `intervenients_entities`(`name_int`,"
+                            + "`address_int`, "
+                            + "`nif_int`, "
+                            + "`nib_pay`, "
+                            + "`contact_int`, "
+                            + "`type`, "
+                            + "`name_mand`, "
+                            + "`address_mand`) "
+                            + "VALUES ('"+
+                            Name.getText()+"','"+
+                            address.getText()+"','"+
+                            Integer.valueOf(nif.getText())+"','"+
+                            Integer.valueOf(iban.getText())+"','"+
+                            Integer.valueOf(Contact.getText())+"','d', "
+                            + " '"+Name7.getText()+"', '"+Name8.getText()+"')";     
                     try{           
                         Connection c = DBClass.getConnection();
                         pst = c.prepareStatement(query);    

@@ -23,10 +23,12 @@ public class Lawsuit {
     private int nif_cli;
     private String state_pro;
     private int num_emp;
-    private String pro_category;
+    private Date date_bankruptcy;
+    private String name_trib;
+    private String category_law;
     PreparedStatement pst = null;
 
-    public Lawsuit(int num_law, Date date_beg, Date date_end, Date date_ass, String name_judge, int nif_cli, String state_pro, int num_emp, String pro_category) {
+    public Lawsuit(int num_law, Date date_beg, Date date_end, Date date_ass, String name_judge, int nif_cli, String state_pro, int num_emp, Date date_bankruptcy, String name_trib, String category_law) {
         this.num_law = num_law;
         this.date_beg = date_beg;
         this.date_end = date_end;
@@ -35,13 +37,10 @@ public class Lawsuit {
         this.nif_cli = nif_cli;
         this.state_pro = state_pro;
         this.num_emp = num_emp;
-        this.pro_category = pro_category;
+        this.date_bankruptcy = date_bankruptcy;
+        this.name_trib = name_trib;
+        this.category_law = category_law;
     }
-
-
-   
-
-    
 
     public int getNum_law() {
         return num_law;
@@ -107,17 +106,36 @@ public class Lawsuit {
         this.num_emp = num_emp;
     }
 
-    public String getPro_category() {
-        return pro_category;
+    public Date getDate_bankruptcy() {
+        return date_bankruptcy;
     }
 
-    public void setPro_category(String pro_category) {
-        this.pro_category = pro_category;
+    public void setDate_bankruptcy(Date date_bankruptcy) {
+        this.date_bankruptcy = date_bankruptcy;
     }
+
+    public String getName_trib() {
+        return name_trib;
+    }
+
+    public void setName_trib(String name_trib) {
+        this.name_trib = name_trib;
+    }
+
+    public String getCategory_law() {
+        return category_law;
+    }
+
+    public void setCategory_law(String category_law) {
+        this.category_law = category_law;
+    }
+
+
+
 
     public void add_lawsuit(){
-        String query = "INSERT INTO `lawsuit`(`date_beg`, `name_judge`, `nif_cli`, `state_pro`, `num_adm`, `pro_category`)"
-                    + " VALUES ('"+date_beg+"','"+name_judge+"','"+nif_cli+"','"+state_pro+"','"+num_emp+"','"+pro_category+"')";    
+        String query = "INSERT INTO `lawsuit`(`num_law`, `date_beg`, `date_end`, `date_ass`, `name_judge`, `nif_cli`, `state_pro`, `num_adm`, `date_bankruptcy`, `name_trib`, `category_law`) VALUES"
+                + " ('"+num_law+"','"+date_beg+"','"+date_end+"','"+date_ass+"','"+name_judge+"','"+nif_cli+"','"+state_pro+"','"+num_emp+"','"+date_bankruptcy+"','"+name_trib+"','"+category_law+"',)";    
                         try {           
                             Connection c = DBClass.getConnection();
                             pst = c.prepareStatement(query);    
@@ -146,10 +164,12 @@ public class Lawsuit {
                         nif_cli = Integer.valueOf(rs.getString("nif_cli"));
                         state_pro = rs.getString("state_pro");
                         num_emp = Integer.valueOf(rs.getString("num_emp"));
-                        pro_category = rs.getString("pro_category");
-                        date_beg = format.parse(rs.getString("date_beg"));
+                        category_law = rs.getString("category_law"); 
+                       date_beg = format.parse(rs.getString("date_beg"));
                         date_end = format.parse(rs.getString("date_end"));
                         date_ass =  format.parse(rs.getString("date_ass"));
+                        name_trib = rs.getString("name_trib");
+                        date_bankruptcy = format.parse(rs.getString("date_bankruptcy"));
                     }
                 }
                 

@@ -93,7 +93,7 @@ import BackEnd.System;
         jScrollPane2 = new javax.swing.JScrollPane();
         cond = new javax.swing.JTextArea();
         type12 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        cur = new javax.swing.JButton();
         type13 = new javax.swing.JLabel();
         telep1 = new javax.swing.JTextField();
         type14 = new javax.swing.JLabel();
@@ -206,7 +206,7 @@ import BackEnd.System;
         type12.setForeground(new java.awt.Color(255, 255, 255));
         type12.setText("Currículo:");
 
-        jButton3.setText("Adicionar");
+        cur.setText("Adicionar");
 
         type13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         type13.setForeground(new java.awt.Color(255, 255, 255));
@@ -263,7 +263,7 @@ import BackEnd.System;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                                 .addComponent(type12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)
+                                .addComponent(cur)
                                 .addGap(213, 213, 213))
                             .addComponent(tele)
                             .addComponent(telep))
@@ -299,7 +299,7 @@ import BackEnd.System;
                         .addComponent(type4))
                     .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(type12)
-                        .addComponent(jButton3)))
+                        .addComponent(cur)))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(telep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -345,8 +345,6 @@ import BackEnd.System;
 
         getContentPane().add(JPanel);
         JPanel.setBounds(10, 10, 790, 510);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\yfcv.PNG")); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 810, 530);
 
@@ -402,12 +400,12 @@ import BackEnd.System;
     private javax.swing.JPanel JPanel;
     private javax.swing.JTextField address;
     private javax.swing.JTextArea cond;
+    private javax.swing.JButton cur;
     private javax.swing.JTextArea desc;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fax;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;

@@ -38,15 +38,16 @@ public class CreateLawsuit extends javax.swing.JFrame {
                     
            
          java.sql.Date date_beg = new java.sql.Date(Date_begin.getDate().getTime()); 
-            
-           String name_judge = Name_J.getText();
+           String name_trib = Name_T.getText();
+           String name_judge = Name_J.getSelectedItem().toString();
            int nif_cli = system.getClient().getNif_cli();
            String state_pro = "o";
-           String pro_category = Category.getText();
+           String category_law = Category.getSelectedItem().toString();
            Date date_end = null;
            Date date_ass = null;
-          int num_emp = system.getUser().getNum_emp();
-       
+           int num_emp = system.getUser().getNum_emp();
+           
+           Date date_bankruptcy = null;
            try{
                
           
@@ -64,7 +65,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
 
            
            
-                     Lawsuit l = new Lawsuit(num_law, date_beg, date_end, date_ass, name_judge, nif_cli, state_pro, num_emp, pro_category); 
+                     Lawsuit l = new Lawsuit( num_law, date_beg, date_end, date_ass, name_judge, nif_cli, state_pro, num_emp, date_bankruptcy, name_trib, category_law); 
                      
                      system.setLawsuit(l);
 
@@ -121,10 +122,10 @@ public class CreateLawsuit extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         Email_Cli = new javax.swing.JTextField();
         Date_begin = new com.toedter.calendar.JDateChooser();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        Category = new javax.swing.JComboBox<String>();
         jLabel8 = new javax.swing.JLabel();
-        Name_J1 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<String>();
+        Name_T = new javax.swing.JTextField();
+        Name_J = new javax.swing.JComboBox<String>();
         JPanel1 = new javax.swing.JPanel();
         patrimony = new javax.swing.JButton();
         entityes = new javax.swing.JButton();
@@ -139,15 +140,12 @@ public class CreateLawsuit extends javax.swing.JFrame {
         JPanel.setOpaque(false);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Data de início:");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Nome do Juíz:");
+        jLabel6.setText("Juíz");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Categoria:");
 
         cancel.setBackground(new java.awt.Color(255, 255, 255));
@@ -193,15 +191,18 @@ public class CreateLawsuit extends javax.swing.JFrame {
         jLabel27.setText("Nif:");
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Nome:");
 
+        Name_Cli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Name_CliActionPerformed(evt);
+            }
+        });
+
         jLabel29.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Mandatário");
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Cliente");
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -210,21 +211,20 @@ public class CreateLawsuit extends javax.swing.JFrame {
 
         Date_begin.setDateFormatString("yyyy-MM-dd");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PER" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        Category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PER" }));
+        Category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                CategoryActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Nome de Tribunal:");
+        jLabel8.setText("Tribunal");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mario José" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        Name_J.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mario José" }));
+        Name_J.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                Name_JActionPerformed(evt);
             }
         });
 
@@ -287,8 +287,8 @@ public class CreateLawsuit extends javax.swing.JFrame {
                                                     .addComponent(jLabel9))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(Name_J1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                    .addComponent(Category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(Name_T, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(JPanelLayout.createSequentialGroup()
                                         .addGap(255, 255, 255)
                                         .addComponent(jLabel29))))
@@ -296,7 +296,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
                                 .addGroup(JPanelLayout.createSequentialGroup()
                                     .addComponent(jLabel6)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Name_J, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(327, 327, 327))
                                 .addGroup(JPanelLayout.createSequentialGroup()
                                     .addComponent(jLabel4)
@@ -318,12 +318,12 @@ public class CreateLawsuit extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Name_J, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(Name_J1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Name_T, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(JPanelLayout.createSequentialGroup()
@@ -350,7 +350,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
                             .addComponent(jLabel25)))
                     .addGroup(JPanelLayout.createSequentialGroup()
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
                         .addGap(21, 21, 21)
                         .addComponent(jLabel29)
@@ -439,6 +439,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
         getContentPane().add(jLabel7, java.awt.BorderLayout.PAGE_END);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void entityesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entityesActionPerformed
@@ -480,13 +481,17 @@ public class CreateLawsuit extends javax.swing.JFrame {
        dispose();
     }//GEN-LAST:event_saveActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void CategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_CategoryActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void Name_JActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_JActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_Name_JActionPerformed
+
+    private void Name_CliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_CliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name_CliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -499,6 +504,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Adress_Cli;
+    private javax.swing.JComboBox<String> Category;
     private javax.swing.JTextField Contact_Cli;
     private javax.swing.JTextField Contact_Mand;
     private com.toedter.calendar.JDateChooser Date_begin;
@@ -506,15 +512,14 @@ public class CreateLawsuit extends javax.swing.JFrame {
     private javax.swing.JPanel JPanel;
     private javax.swing.JPanel JPanel1;
     private javax.swing.JTextField Name_Cli;
-    private javax.swing.JTextField Name_J1;
+    private javax.swing.JComboBox<String> Name_J;
     private javax.swing.JTextField Name_Mand;
+    private javax.swing.JTextField Name_T;
     private javax.swing.JTextField Nif_Cli;
     private javax.swing.JTextField Nif_Mand;
     private javax.swing.JButton cancel;
     private javax.swing.JButton complaint;
     private javax.swing.JButton entityes;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;

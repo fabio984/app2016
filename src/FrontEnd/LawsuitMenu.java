@@ -13,8 +13,8 @@ private System system;
         initComponents();
         this.system = system;
         
-       num.setText(system.getlawsuit().getNum_law() + "");
-       emp.setText(system.getClient().getName_cli() + "");
+       //num.setText(system.getlawsuit().getNum_law() + "");
+       //emp.setText(system.getClient().getName_cli() + "");
     }
     
     
@@ -112,8 +112,6 @@ private System system;
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\imagem.PNG")); // NOI18N
-
         num.setEditable(false);
         num.setBackground(new java.awt.Color(255, 255, 255));
         num.setOpaque(false);
@@ -157,6 +155,8 @@ private System system;
                     .addComponent(emp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 255));
         jMenuBar1.setForeground(new java.awt.Color(204, 204, 204));
@@ -346,20 +346,8 @@ private System system;
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
