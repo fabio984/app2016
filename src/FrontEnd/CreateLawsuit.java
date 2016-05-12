@@ -121,10 +121,10 @@ public class CreateLawsuit extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         Email_Cli = new javax.swing.JTextField();
         Date_begin = new com.toedter.calendar.JDateChooser();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel8 = new javax.swing.JLabel();
         Name_J1 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         JPanel1 = new javax.swing.JPanel();
         patrimony = new javax.swing.JButton();
         entityes = new javax.swing.JButton();
@@ -132,7 +132,6 @@ public class CreateLawsuit extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
         JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Criar Processos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -211,7 +210,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
 
         Date_begin.setDateFormatString("yyyy-MM-dd");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PER" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PER" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -222,7 +221,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nome de Tribunal:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mario José" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mario José" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -378,8 +377,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(JPanel);
-        JPanel.setBounds(10, 10, 770, 380);
+        getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
 
         JPanel1.setBackground(new java.awt.Color(255, 255, 255));
         JPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Páginas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -420,7 +418,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(patrimony)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(entityes)
                 .addGap(31, 31, 31)
                 .addComponent(complaint)
@@ -437,12 +435,8 @@ public class CreateLawsuit extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(JPanel1);
-        JPanel1.setBounds(10, 400, 770, 80);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\yfcv.PNG")); // NOI18N
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(-20, -50, 810, 542);
+        getContentPane().add(JPanel1, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jLabel7, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

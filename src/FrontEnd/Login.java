@@ -62,7 +62,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Utilizador:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
         JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -156,12 +156,10 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
-        getContentPane().add(JPanel);
-        JPanel.setBounds(10, 10, 790, 480);
+        getContentPane().add(JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 480));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/yfcv.PNG"))); // NOI18N
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 810, 510);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

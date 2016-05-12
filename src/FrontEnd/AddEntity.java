@@ -26,7 +26,7 @@ public class AddEntity extends javax.swing.JFrame {
         }
             public void add_entity(){
                 if("Credor".equals(Type.getSelectedItem())){
-                    String query = "INSERT INTO `intervenients_entities`(`name_int`, `adress_int`, `total_debInt`, `nif_int`, `nib_pay`, `contact_int`, `num_law`) VALUES ('"+Name.getText()+"','"+adress1.getText()+"','"+adress2.getText()+"','"+adress3.getText()+"','"+adress4.getText()+"','"+adress5.getText()+"','"+Integer.valueOf(nif.getText())+"','"+Integer.valueOf(iban.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
+                    String query = "INSERT INTO `intervenients_entities`(`name_int`,`address_int`,`total_debInt`,`nif_int`,`nib_pay`,`contact_int`,`num_law`) VALUES ('"+Name.getText()+"','"+address.getText()+"','"+Integer.valueOf(nif.getText())+"','"+Integer.valueOf(iban.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
                         try {           
                         Connection c = DBClass.getConnection();
                         pst = c.prepareStatement(query);    
@@ -35,9 +35,9 @@ public class AddEntity extends javax.swing.JFrame {
                     catch(Exception e){
                         JOptionPane.showMessageDialog(null,e);
                     }
-                }
+               } 
             else{
-                String query = "INSERT INTO `creditor`(`nif_cre`, `name_cre`, `address_cre`, `contact_cre`, `num_law`, `nib_pay`, `total_deb`) VALUES ('"+Name.getText()+"','"+Adress.getText()+"',,'"+Integer.valueOf(Nif.getText())+"','"+Integer.valueOf(IBAN.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
+                String query = "INSERT INTO `creditor`(`nif_cre`, `name_cre`, `address_cre`, `contact_cre`, `num_law`, `nib_pay`, `total_deb`) VALUES ('"+Name.getText()+"','"+address.getText()+"','"+Integer.valueOf(nif.getText())+"','"+Integer.valueOf(iban.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
                     try{           
                         Connection c = DBClass.getConnection();
                         pst = c.prepareStatement(query);    
@@ -67,17 +67,14 @@ public class AddEntity extends javax.swing.JFrame {
         Name = new javax.swing.JTextField();
         iban = new javax.swing.JTextField();
         nif = new javax.swing.JTextField();
-        adress1 = new javax.swing.JTextField();
         Contact = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         Name7 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         Name8 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        adress2 = new javax.swing.JTextField();
-        adress3 = new javax.swing.JTextField();
-        adress4 = new javax.swing.JTextField();
-        adress5 = new javax.swing.JTextField();
+        Type = new javax.swing.JComboBox();
+        address = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
@@ -130,6 +127,11 @@ public class AddEntity extends javax.swing.JFrame {
             }
         });
 
+        iban.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ibanMouseClicked(evt);
+            }
+        });
         iban.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ibanActionPerformed(evt);
@@ -139,18 +141,6 @@ public class AddEntity extends javax.swing.JFrame {
         nif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nifActionPerformed(evt);
-            }
-        });
-
-        adress1.setText("(lugar, rua, bairro, estrada...)");
-        adress1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                adress1FocusGained(evt);
-            }
-        });
-        adress1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adress1ActionPerformed(evt);
             }
         });
 
@@ -181,41 +171,10 @@ public class AddEntity extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel17.setText("                             Mandatário");
 
-        adress2.setText("(nº porta)");
-        adress2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                adress2FocusGained(evt);
-            }
-        });
-
-        adress3.setText("(andar)");
-        adress3.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                adress3FocusGained(evt);
-            }
-        });
-
-        adress4.setText("(código postal)");
-        adress4.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                adress4FocusGained(evt);
-            }
-        });
-        adress4.addActionListener(new java.awt.event.ActionListener() {
+        Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Credor", "Devedor" }));
+        Type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adress4ActionPerformed(evt);
-            }
-        });
-
-        adress5.setText("(cidade)");
-        adress5.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                adress5FocusGained(evt);
-            }
-        });
-        adress5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adress5ActionPerformed(evt);
+                TypeActionPerformed(evt);
             }
         });
 
@@ -235,19 +194,14 @@ public class AddEntity extends javax.swing.JFrame {
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(adress1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanel2Layout.createSequentialGroup()
+                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(JPanel2Layout.createSequentialGroup()
-                                .addComponent(adress2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(adress3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPanel2Layout.createSequentialGroup()
-                                .addComponent(adress4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(adress5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JPanel2Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -265,7 +219,7 @@ public class AddEntity extends javax.swing.JFrame {
                             .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(Name8)
                                 .addComponent(Name7, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)))))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         JPanel2Layout.setVerticalGroup(
             JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +227,9 @@ public class AddEntity extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Name))
+                    .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Name)
+                        .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(5, 5, 5)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
@@ -286,17 +242,9 @@ public class AddEntity extends javax.swing.JFrame {
                     .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(adress1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(adress2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adress3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(adress4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adress5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel13)
+                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(82, 82, 82)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -346,10 +294,6 @@ public class AddEntity extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nifActionPerformed
 
-    private void adress1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adress1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adress1ActionPerformed
-
     private void ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ContactActionPerformed
@@ -362,58 +306,13 @@ public class AddEntity extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Name8ActionPerformed
 
-    private void adress1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress1FocusGained
-        adress1.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
-        @Override
-            public void mouseClicked(MouseEvent e) {
-                adress1.setText("");
-            }
-        });
-    }//GEN-LAST:event_adress1FocusGained
+    private void ibanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ibanMouseClicked
+       // iban.setText(null);        // código para apagar texto colocado
+    }//GEN-LAST:event_ibanMouseClicked
 
-    private void adress4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adress4ActionPerformed
+    private void TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_adress4ActionPerformed
-
-    private void adress2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress2FocusGained
-                adress2.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
-        @Override
-            public void mouseClicked(MouseEvent e) {
-                adress2.setText("");
-            }
-        });        
-    }//GEN-LAST:event_adress2FocusGained
-
-    private void adress3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress3FocusGained
-                adress3.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
-        @Override
-            public void mouseClicked(MouseEvent e) {
-                adress3.setText("");
-            }
-        });        
-    }//GEN-LAST:event_adress3FocusGained
-
-    private void adress4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress4FocusGained
-                adress4.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
-        @Override
-            public void mouseClicked(MouseEvent e) {
-                adress4.setText("");
-            }
-        });        
-    }//GEN-LAST:event_adress4FocusGained
-
-    private void adress5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adress5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adress5ActionPerformed
-
-    private void adress5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adress5FocusGained
-                adress5.addMouseListener(new MouseAdapter() { // codigo para clicar e desaparecer texto
-        @Override
-            public void mouseClicked(MouseEvent e) {
-                adress5.setText("");
-            }
-        });     
-    }//GEN-LAST:event_adress5FocusGained
+    }//GEN-LAST:event_TypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -427,11 +326,8 @@ public class AddEntity extends javax.swing.JFrame {
     private javax.swing.JTextField Name7;
     private javax.swing.JTextField Name8;
     private javax.swing.JButton Save;
-    private javax.swing.JTextField adress1;
-    private javax.swing.JTextField adress2;
-    private javax.swing.JTextField adress3;
-    private javax.swing.JTextField adress4;
-    private javax.swing.JTextField adress5;
+    private javax.swing.JComboBox Type;
+    private javax.swing.JTextField address;
     private datechooser.beans.DateChooserDialog dateChooserDialog1;
     private javax.swing.JTextField iban;
     private javax.swing.JLabel jLabel10;
