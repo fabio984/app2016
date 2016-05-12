@@ -66,7 +66,7 @@ public class User {
 
            ResultSet rs = pst.executeQuery();
            if(rs.next()){
-           JOptionPane.showMessageDialog(null, "correct");
+           JOptionPane.showMessageDialog(null, "Dados corretos, prima OK para continuar");
            
            this.username = rs.getString("username");
           this.password = rs.getString("password");
@@ -74,7 +74,7 @@ public class User {
            num_emp = Integer.valueOf(rs.getString("num_emp"));
            
             }else{
-           JOptionPane.showMessageDialog(null, "incorrect");
+           JOptionPane.showMessageDialog(null, "Dados Incorretos, por favor introduzao os seus dados novamente");
            
   
             }}

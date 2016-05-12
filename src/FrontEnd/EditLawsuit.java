@@ -32,29 +32,34 @@ public class EditLawsuit extends javax.swing.JFrame {
        /*    this.setResizable(false);
         this.setLocationRelativeTo(null);*/
     }
-      public void add_l(){
+    public void add_l(){
 
            // String query = "INSERT INTO `lawsuit`(`date_beg`, `name_judge`, `nif_cli`, `state_pro`, `num_adm`, `pro_category`)"
                     
            
-         java.sql.Date date_beg = new java.sql.Date(Date_begin.getDate().getTime()); 
-            
-           String name_judge = Name_J.getText();
-           int nif_cli = Integer.valueOf(Nif_Cli.getText());
-           String state_pro = "o";
-           String pro_category = Category.getText();
-           Date date_end = null;
-           Date date_ass = null;
+        java.sql.Date date_beg = new java.sql.Date(Date_begin.getDate().getTime()); 
+        java.sql.Date date_end = new java.sql.Date(Date_end.getDate().getTime()); 
+        java.sql.Date date_ass = new java.sql.Date(Date_ass.getDate().getTime()); 
+        java.sql.Date date_bankruptcy = new java.sql.Date(Date_end.getDate().getTime()); 
+        String name_trib = Name_T.getText();
+        String name_judge = Name_J.getSelectedItem().toString();
+        int nif_cli = system.getClient().getNif_cli();
+        String state_pro = "o";
+        String category_law= category.getSelectedItem().toString();
+          
+
           int num_emp = system.getUser().getNum_emp();
-       
+
            try{
                
           
           String query = "SELECT `num_law` FROM `lawsuit` ORDER BY `num_law` DESC LIMIT 1";
            Connection c = DBClass.getConnection();
-         ResultSet rs = pst.executeQuery();
+            pst = c.prepareStatement(query);
+         ResultSet rs = pst.executeQuery(query);
                        while (rs.next()){
-           this.num_law = Integer.valueOf(rs.getString(1)) + 1;
+           num_law = Integer.valueOf(rs.getString("num_law")) + 1;
+           //num_law = num_law + 1;
             
                        }}
                   catch(Exception e){
@@ -62,7 +67,8 @@ public class EditLawsuit extends javax.swing.JFrame {
 
            
            
-                     Lawsuit l = new Lawsuit(num_law, date_beg, date_end, date_ass, name_judge, nif_cli, state_pro, num_emp, pro_category); 
+                     Lawsuit l = new Lawsuit( num_law,  date_beg,  date_end,  date_ass,  name_judge,  nif_cli,  state_pro,  num_emp,  date_bankruptcy,  name_trib,  category_law);
+
                      
                      system.setLawsuit(l);
 
@@ -95,11 +101,10 @@ public class EditLawsuit extends javax.swing.JFrame {
 
         JPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        Num_Law = new javax.swing.JTextField();
+        Name_T = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        Name_J = new javax.swing.JTextField();
         cancel = new javax.swing.JButton();
         save = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
@@ -122,12 +127,13 @@ public class EditLawsuit extends javax.swing.JFrame {
         Email_Cli = new javax.swing.JTextField();
         Date_begin = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
-        Date_begin1 = new com.toedter.calendar.JDateChooser();
-        Date_begin2 = new com.toedter.calendar.JDateChooser();
+        Date_ass = new com.toedter.calendar.JDateChooser();
+        Date_end = new com.toedter.calendar.JDateChooser();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        Date_begin3 = new com.toedter.calendar.JDateChooser();
+        category = new javax.swing.JComboBox<String>();
+        Date_br = new com.toedter.calendar.JDateChooser();
         jLabel10 = new javax.swing.JLabel();
+        Name_J = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,10 +148,10 @@ public class EditLawsuit extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nome de Tribunal:");
 
-        Num_Law.setEnabled(false);
-        Num_Law.addActionListener(new java.awt.event.ActionListener() {
+        Name_T.setEnabled(false);
+        Name_T.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Num_LawActionPerformed(evt);
+                Name_TActionPerformed(evt);
             }
         });
 
@@ -233,21 +239,28 @@ public class EditLawsuit extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Data de assembleia:");
 
-        Date_begin1.setDateFormatString("yyyy-MM-dd");
+        Date_ass.setDateFormatString("yyyy-MM-dd");
 
-        Date_begin2.setDateFormatString("yyyy-MM-dd");
+        Date_end.setDateFormatString("yyyy-MM-dd");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Data de encerramento:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PER" }));
+        category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PER" }));
 
-        Date_begin3.setDateFormatString("yyyy-MM-dd");
+        Date_br.setDateFormatString("yyyy-MM-dd");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Data de falência:");
+
+        Name_J.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mario José" }));
+        Name_J.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Name_JActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
         JPanel.setLayout(JPanelLayout);
@@ -259,7 +272,7 @@ public class EditLawsuit extends javax.swing.JFrame {
                         .addGap(7, 7, 7)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Date_begin2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Date_end, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(JPanelLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -279,13 +292,13 @@ public class EditLawsuit extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Date_begin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(Date_begin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Num_Law)))
+                                    .addComponent(Date_ass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Name_T)))
                             .addGroup(JPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel30)
                                 .addGap(100, 100, 100))))
                     .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGap(0, 36, Short.MAX_VALUE)
+                        .addGap(0, 37, Short.MAX_VALUE)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(JPanelLayout.createSequentialGroup()
@@ -305,7 +318,7 @@ public class EditLawsuit extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Date_begin3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Date_br, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,9 +348,10 @@ public class EditLawsuit extends javax.swing.JFrame {
                                             .addComponent(jLabel6))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Name_J, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(24, Short.MAX_VALUE))
+                                            .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Name_J, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(58, 58, 58)))))
+                        .addContainerGap(25, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel29)
@@ -348,20 +362,20 @@ public class EditLawsuit extends javax.swing.JFrame {
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name_J, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel1)
-                    .addComponent(Num_Law, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Name_T, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Name_J, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Date_begin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Date_begin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Date_ass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
@@ -387,11 +401,11 @@ public class EditLawsuit extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Date_begin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Date_end, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Date_begin3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Date_br, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel30)
@@ -420,8 +434,6 @@ public class EditLawsuit extends javax.swing.JFrame {
 
         getContentPane().add(JPanel);
         JPanel.setBounds(10, 0, 750, 440);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\12842488_1375781709114375_619237141_o.jpg")); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 1520, 880);
 
@@ -437,13 +449,17 @@ public class EditLawsuit extends javax.swing.JFrame {
          add_cl();
     }//GEN-LAST:event_saveActionPerformed
 
-    private void Num_LawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num_LawActionPerformed
+    private void Name_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_TActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Num_LawActionPerformed
+    }//GEN-LAST:event_Name_TActionPerformed
 
     private void Name_CliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_CliActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Name_CliActionPerformed
+
+    private void Name_JActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_JActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name_JActionPerformed
 
     /**
      * @param args the command line arguments
@@ -458,20 +474,20 @@ public class EditLawsuit extends javax.swing.JFrame {
     private javax.swing.JTextField Adress_Cli;
     private javax.swing.JTextField Contact_Cli;
     private javax.swing.JTextField Contact_Mand;
+    private com.toedter.calendar.JDateChooser Date_ass;
     private com.toedter.calendar.JDateChooser Date_begin;
-    private com.toedter.calendar.JDateChooser Date_begin1;
-    private com.toedter.calendar.JDateChooser Date_begin2;
-    private com.toedter.calendar.JDateChooser Date_begin3;
+    private com.toedter.calendar.JDateChooser Date_br;
+    private com.toedter.calendar.JDateChooser Date_end;
     private javax.swing.JTextField Email_Cli;
     private javax.swing.JPanel JPanel;
     private javax.swing.JTextField Name_Cli;
-    private javax.swing.JTextField Name_J;
+    private javax.swing.JComboBox<String> Name_J;
     private javax.swing.JTextField Name_Mand;
+    private javax.swing.JTextField Name_T;
     private javax.swing.JTextField Nif_Cli;
     private javax.swing.JTextField Nif_Mand;
-    private javax.swing.JTextField Num_Law;
     private javax.swing.JButton cancel;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> category;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel21;

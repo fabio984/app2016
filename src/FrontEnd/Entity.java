@@ -26,7 +26,7 @@ private System system;
    public void add_entity(){
            // if("Credor".equals(Type.getSelectedItem())){
             String query = "INSERT INTO `intervenients_entities`(`name_int`, `adress_int`, `total_debInt`, `nif_int`, `nib_pay`, `contact_int`, `num_law`) "
-                    + "VALUES ('"+Name.getText()+"','"+Adress.getText()+"',,'"+Integer.valueOf(Nif.getText())+"','"+Integer.valueOf(IBAN.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
+                    + "VALUES ('"+Name.getText()+"','"+Address.getText()+"',,'"+Integer.valueOf(nif.getText())+"','"+Integer.valueOf(iban.getText())+"','"+Integer.valueOf(contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
             
             try {           
       
@@ -74,11 +74,11 @@ private System system;
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        Name2 = new javax.swing.JTextField();
-        Name3 = new javax.swing.JTextField();
-        Name4 = new javax.swing.JTextField();
-        Name5 = new javax.swing.JTextField();
-        Name6 = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
+        iban = new javax.swing.JTextField();
+        nif = new javax.swing.JTextField();
+        Address = new javax.swing.JTextField();
+        contact = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         Name7 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -195,33 +195,33 @@ private System system;
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Morada:");
 
-        Name2.addActionListener(new java.awt.event.ActionListener() {
+        Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name2ActionPerformed(evt);
+                NameActionPerformed(evt);
             }
         });
 
-        Name3.addActionListener(new java.awt.event.ActionListener() {
+        iban.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name3ActionPerformed(evt);
+                ibanActionPerformed(evt);
             }
         });
 
-        Name4.addActionListener(new java.awt.event.ActionListener() {
+        nif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name4ActionPerformed(evt);
+                nifActionPerformed(evt);
             }
         });
 
-        Name5.addActionListener(new java.awt.event.ActionListener() {
+        Address.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name5ActionPerformed(evt);
+                AddressActionPerformed(evt);
             }
         });
 
-        Name6.addActionListener(new java.awt.event.ActionListener() {
+        contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name6ActionPerformed(evt);
+                contactActionPerformed(evt);
             }
         });
 
@@ -266,13 +266,13 @@ private System system;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addComponent(Name2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(JPanel2Layout.createSequentialGroup()
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Name5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Name6, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Name3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -283,7 +283,7 @@ private System system;
                             .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(63, 63, 63))
                     .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addComponent(Name4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel17)
                         .addGap(137, 137, 137))))
@@ -303,24 +303,23 @@ private System system;
                 .addGap(35, 35, 35)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(Name2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanel2Layout.createSequentialGroup()
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Name4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
                         .addGap(18, 18, 18)
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(Name6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Name5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Name3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -343,8 +342,6 @@ private System system;
 
         getContentPane().add(JPanel2);
         JPanel2.setBounds(10, 10, 790, 360);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\yfcv.PNG")); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 810, 470);
 
@@ -352,25 +349,16 @@ private System system;
     }// </editor-fold>//GEN-END:initComponents
 
     private void patrimonyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patrimonyActionPerformed
-        add_cl();
-        add_l();
-
         Patrimony p = new Patrimony(system);
         p.setVisible(true);
     }//GEN-LAST:event_patrimonyActionPerformed
 
     private void entityesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entityesActionPerformed
-        add_cl();
-        add_l();
-
         Entity e=new Entity(system);
         e.setVisible(true);
     }//GEN-LAST:event_entityesActionPerformed
 
     private void complaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintActionPerformed
-        add_cl();
-        add_l();
-
         Complaint c = new Complaint(system);
         c.setVisible(true);
     }//GEN-LAST:event_complaintActionPerformed
@@ -383,25 +371,25 @@ private System system;
         dispose();
     }//GEN-LAST:event_CancelActionPerformed
 
-    private void Name2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name2ActionPerformed
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name2ActionPerformed
+    }//GEN-LAST:event_NameActionPerformed
 
-    private void Name3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name3ActionPerformed
+    private void ibanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ibanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name3ActionPerformed
+    }//GEN-LAST:event_ibanActionPerformed
 
-    private void Name4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name4ActionPerformed
+    private void nifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nifActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name4ActionPerformed
+    }//GEN-LAST:event_nifActionPerformed
 
-    private void Name5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name5ActionPerformed
+    private void AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name5ActionPerformed
+    }//GEN-LAST:event_AddressActionPerformed
 
-    private void Name6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name6ActionPerformed
+    private void contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name6ActionPerformed
+    }//GEN-LAST:event_contactActionPerformed
 
     private void Name7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name7ActionPerformed
         // TODO add your handling code here:
@@ -416,20 +404,19 @@ private System system;
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Address;
     private javax.swing.JButton Cancel;
     private javax.swing.JPanel JPanel1;
     private javax.swing.JPanel JPanel2;
-    private javax.swing.JTextField Name2;
-    private javax.swing.JTextField Name3;
-    private javax.swing.JTextField Name4;
-    private javax.swing.JTextField Name5;
-    private javax.swing.JTextField Name6;
+    private javax.swing.JTextField Name;
     private javax.swing.JTextField Name7;
     private javax.swing.JTextField Name8;
     private javax.swing.JButton Save;
     private javax.swing.JButton complaint;
+    private javax.swing.JTextField contact;
     private datechooser.beans.DateChooserDialog dateChooserDialog1;
     private javax.swing.JButton entityes;
+    private javax.swing.JTextField iban;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -440,6 +427,7 @@ private System system;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField nif;
     private javax.swing.JButton patrimony;
     // End of variables declaration//GEN-END:variables
 }

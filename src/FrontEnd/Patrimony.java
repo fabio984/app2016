@@ -187,25 +187,16 @@ public class Patrimony extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void patrimonyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patrimonyActionPerformed
-        add_cl();
-        add_l();
-
         Patrimony p = new Patrimony(system);
         p.setVisible(true);
     }//GEN-LAST:event_patrimonyActionPerformed
 
     private void entityesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entityesActionPerformed
-        add_cl();
-        add_l();
-
         Entity e=new Entity(system);
         e.setVisible(true);
     }//GEN-LAST:event_entityesActionPerformed
 
     private void complaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintActionPerformed
-        add_cl();
-        add_l();
-
         Complaint c = new Complaint(system);
         c.setVisible(true);
     }//GEN-LAST:event_complaintActionPerformed

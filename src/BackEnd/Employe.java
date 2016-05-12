@@ -12,7 +12,7 @@ public class Employe {
     private int contact_emp;
     private String address_emp;
     private String description_emp;
-    private int nif_company;
+    private int nif_emp;
       PreparedStatement pst = null;
   ResultSet rs = null;
 
@@ -59,12 +59,12 @@ public class Employe {
         this.description_emp = description_emp;
     }
 
-    public int getNif_company() {
-        return nif_company;
+    public int getNif_emp() {
+        return nif_emp;
     }
 
-    public void setNif_company(int nif_company) {
-        this.nif_company = nif_company;
+    public void setNif_emp(int nif_emp) {
+        this.nif_emp = nif_emp;
     }
     
     public void add_emp(int num_emp){
@@ -75,7 +75,7 @@ public class Employe {
          ResultSet rs = pst.executeQuery();
          if(rs.next()){
              this.num_emp = num_emp;
-             nif_company = Integer.valueOf(rs.getString("nif_company"));
+             nif_emp = Integer.valueOf(rs.getString("nif_emp"));
              description_emp = rs.getString("description_emp");
              name_emp = rs.getString("name_emp");
              contact_emp = Integer.valueOf(rs.getString("contact_emp"));

@@ -101,7 +101,6 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         JPanel.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nome de Reclamação:");
 
         Name.addActionListener(new java.awt.event.ActionListener() {
@@ -469,8 +468,6 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
 
         getContentPane().add(JPanel2);
         JPanel2.setBounds(400, 0, 400, 360);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\yfcv.PNG")); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 810, 470);
 
@@ -487,29 +484,20 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
     }//GEN-LAST:event_NameActionPerformed
 
     private void patrimonyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patrimonyActionPerformed
-        add_cl();
-        add_l();
-
         Patrimony p = new Patrimony(system);
         p.setVisible(true);
 
     }//GEN-LAST:event_patrimonyActionPerformed
 
     private void entityesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entityesActionPerformed
-        add_cl();
-        add_l();
-
         Entity e=new Entity(system);
         e.setVisible(true);
 
     }//GEN-LAST:event_entityesActionPerformed
 
     private void complaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintActionPerformed
-        add_cl();
-        add_l();
-
-        Complaint c = new Complaint(system);
-        c.setVisible(true);
+       Complaint c = new Complaint(system);
+       c.setVisible(true);
 
     }//GEN-LAST:event_complaintActionPerformed
 
