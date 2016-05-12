@@ -14,8 +14,10 @@ public class Main {
        System system = new System();
        
    
-      AccessLawsuit login = new AccessLawsuit(system);
-      login.setVisible(true);
+    AddEntity login = new AddEntity(system);
+    login.setVisible(true);
+    //AccessLawsuit login = new AccessLawsuit(system);
+    //login.setVisible(true);
     //   Login login = new Login(system);
     //   login.setVisible(true);
     }
