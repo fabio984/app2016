@@ -13,35 +13,46 @@ import BackEnd.System;
 
 /**
  *
- * @author Asus
+ * @author Fábio Lima a75772
  */
 public class Add_Complaint extends javax.swing.JFrame {
-
     private System system;
-     PreparedStatement pst = null;
+    PreparedStatement pst = null;
     public Add_Complaint(System system) {
         initComponents();
         this.system = system;
     }
     
-     public void add_complaint(){
-java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime()); 
-            String query = "INSERT INTO `complaint`(`complaint_state`, `nif_cli`, `description_com`, `nif_company`, `num_law`, `date`, `value_recognize`, `value_proposal`) "
-                    + "VALUES ('"+"o"+"','"+system.getlawsuit().getNif_cli()+"','"+Desc.getText()+"','"+Integer.valueOf(Nif.getText())+"','"+system.getlawsuit().getNum_law()+"','"+date+"','"+0+"','"+Integer.valueOf(Value.getText())+"' )";    
-           try {           
+    public void add_complaint(){
+    java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime()); 
+        String query = "INSERT INTO `complaint`"
+                + "(`complaint_state`, "
+                + "`description_com`, "
+                + "`num_law`, `date`, "
+                + "`value_recognize`, "
+                + "`value_proposal`, "
+                + "`number_complaint`, "
+                + "`name_complaint`) "
+                + "VALUES ('"+
+                complaint_state.getText()+"','"+
+                description_com.getText()+"','"+
+                num_law.getText()+"','"+
+                date+"','"+
+                value_recongnize.getText()+"','"+
+                value_proposal.getText()+"','"+
+                number_complaint.getText()+"','"+
+                name_complaint.getText()+"')";
       
-            Connection c = DBClass.getConnection();
-        pst = c.prepareStatement(query);    
-               
+            try {           
+                Connection c = DBClass.getConnection();
+                pst = c.prepareStatement(query);    
                 pst.execute();
-         
-                   
-       }
-       catch(Exception e){
-   JOptionPane.showMessageDialog(null,e);}}
-
-   
-    @SuppressWarnings("unchecked")
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+    }
+        @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -50,17 +61,19 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         JPanel = new javax.swing.JPanel();
         jButton9 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        Name = new javax.swing.JTextField();
-        Nif = new javax.swing.JTextField();
+        name_complaint = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         Date_begin = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Desc = new javax.swing.JTextArea();
-        Value = new javax.swing.JTextField();
+        description_com = new javax.swing.JTextArea();
+        value_recongnize = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        number_complaint = new javax.swing.JTextField();
+        num_law = new javax.swing.JTextField();
+        complaint_state = new javax.swing.JTextField();
+        value_proposal = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
@@ -83,12 +96,12 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nome:");
+        jLabel1.setText("Nome");
 
-        Name.addActionListener(new java.awt.event.ActionListener() {
+        name_complaint.setText("name_complaint");
+        name_complaint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NameActionPerformed(evt);
+                name_complaintActionPerformed(evt);
             }
         });
 
@@ -103,26 +116,35 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Data de início:");
+        jLabel4.setText("Data de início");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Descrição:");
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Nif de empresa:");
+        jLabel12.setText("Comentários");
 
         Date_begin.setDateFormatString("yyyy-MM-dd");
 
-        Desc.setColumns(20);
-        Desc.setRows(5);
-        jScrollPane1.setViewportView(Desc);
+        description_com.setColumns(20);
+        description_com.setRows(5);
+        description_com.setText("description_com");
+        jScrollPane1.setViewportView(description_com);
+
+        value_recongnize.setText("value_recognize");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Valor:");
+        jLabel7.setText("Valor");
+
+        number_complaint.setText("number_complaint");
+
+        num_law.setText("num_law");
+
+        complaint_state.setText("complaint_state");
+        complaint_state.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                complaint_stateActionPerformed(evt);
+            }
+        });
+
+        value_proposal.setText("value_proposal");
 
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
         JPanel.setLayout(JPanelLayout);
@@ -131,80 +153,79 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jLabel12)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelLayout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(95, 95, 95)
-                                .addComponent(jButton9))
-                            .addGroup(JPanelLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(JPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Nif, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelLayout.createSequentialGroup()
-                            .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(JPanelLayout.createSequentialGroup()
-                                    .addGap(215, 215, 215)
-                                    .addComponent(jLabel4))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                                    .addGap(85, 85, 85)
-                                    .addComponent(jLabel1)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Date_begin, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(JPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Value, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(81, Short.MAX_VALUE))
+                                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JPanelLayout.createSequentialGroup()
+                                        .addGap(79, 79, 79)
+                                        .addComponent(jLabel1))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jLabel7)))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Date_begin, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(value_recongnize, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name_complaint, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(number_complaint, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(num_law, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(complaint_state, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(value_proposal, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JPanelLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jButton9)
+                        .addGap(75, 75, 75)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nif, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel1)
+                    .addComponent(name_complaint, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(value_proposal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Value, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel7)
+                    .addComponent(value_recongnize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Date_begin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(number_complaint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(num_law, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(complaint_state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel4))
-                    .addComponent(Date_begin, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel12)
-                        .addGap(51, 51, 51))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(28, 28, 28)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton10)
-                    .addComponent(jButton9))
-                .addGap(29, 29, 29))
+                    .addComponent(jButton9)
+                    .addComponent(jButton10))
+                .addGap(24, 24, 24))
         );
 
         getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
         getContentPane().add(jLabel5, java.awt.BorderLayout.PAGE_START);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -216,9 +237,13 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
+    private void name_complaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_complaintActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NameActionPerformed
+    }//GEN-LAST:event_name_complaintActionPerformed
+
+    private void complaint_stateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaint_stateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_complaint_stateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,12 +253,10 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser Date_begin;
-    private javax.swing.JTextArea Desc;
     private javax.swing.JPanel JPanel;
-    private javax.swing.JTextField Name;
-    private javax.swing.JTextField Nif;
-    private javax.swing.JTextField Value;
+    private javax.swing.JTextField complaint_state;
     private datechooser.beans.DateChooserDialog dateChooserDialog1;
+    private javax.swing.JTextArea description_com;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
@@ -241,8 +264,12 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField name_complaint;
+    private javax.swing.JTextField num_law;
+    private javax.swing.JTextField number_complaint;
+    private javax.swing.JTextField value_proposal;
+    private javax.swing.JTextField value_recongnize;
     // End of variables declaration//GEN-END:variables
 }
