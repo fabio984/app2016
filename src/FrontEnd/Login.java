@@ -77,6 +77,11 @@ public class Login extends javax.swing.JFrame {
                 LoginActionPerformed(evt);
             }
         });
+        Login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                LoginKeyPressed(evt);
+            }
+        });
 
         Close.setBackground(new java.awt.Color(255, 255, 255));
         Close.setText("Cancelar");
@@ -245,6 +250,10 @@ public class Login extends javax.swing.JFrame {
     private void Login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Login1ActionPerformed
+
+    private void LoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginKeyPressed
 
     /**
      * @param args the command line arguments

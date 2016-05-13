@@ -18,13 +18,22 @@ public class System {
     private User user;
     private Employe emp;
     private Online online;
+    private Intervening_entities inter;
      
     public System() {
 
     }
+    
+    public Intervening_entities getIntervening(){
+        return inter;
+    }
 
     public Online getOnline() {
         return online;
+    }
+    
+    public void setIntervening(Intervening_entities inter){
+        this.inter = inter;
     }
 
     public void setOnline(Online online) {

@@ -174,13 +174,13 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Name" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="name_int" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Address" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
-                              <Component id="contact" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                              <Component id="address_int" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                              <Component id="contact_int" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
                               <Component id="iban" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="167" max="32767" attributes="0"/>
@@ -190,13 +190,13 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Name8" min="-2" pref="146" max="-2" attributes="0"/>
-                              <Component id="Name7" min="-2" pref="146" max="-2" attributes="0"/>
+                              <Component id="name_mand" min="-2" pref="146" max="-2" attributes="0"/>
+                              <Component id="address_mand" min="-2" pref="146" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="nif" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="nif_int" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
@@ -224,22 +224,22 @@
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Name" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="name_int" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="nif" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="nif_int" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="contact" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="contact_int" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Address" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="address_int" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -258,12 +258,12 @@
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Name8" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="name_mand" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Name7" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                              <Component id="address_mand" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
                               <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
@@ -284,7 +284,6 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
-            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveActionPerformed"/>
@@ -299,7 +298,6 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
-            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelActionPerformed"/>
@@ -360,9 +358,9 @@
             <Property name="text" type="java.lang.String" value="Morada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Name">
+        <Component class="javax.swing.JTextField" name="name_int">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NameActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="name_intActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="iban">
@@ -370,19 +368,19 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ibanActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="nif">
+        <Component class="javax.swing.JTextField" name="nif_int">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nifActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nif_intActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="Address">
+        <Component class="javax.swing.JTextField" name="address_int">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddressActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="address_intActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="contact">
+        <Component class="javax.swing.JTextField" name="contact_int">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contact_intActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
@@ -396,9 +394,9 @@
             <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Name7">
+        <Component class="javax.swing.JTextField" name="address_mand">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Name7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="address_mandActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
@@ -412,9 +410,9 @@
             <Property name="text" type="java.lang.String" value="Morada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Name8">
+        <Component class="javax.swing.JTextField" name="name_mand">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Name8ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="name_mandActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
