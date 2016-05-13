@@ -99,7 +99,6 @@ public class Add_Complaint extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Nome");
 
-        name_complaint.setText("name_complaint");
         name_complaint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_complaintActionPerformed(evt);
@@ -129,23 +128,23 @@ public class Add_Complaint extends javax.swing.JFrame {
         description_com.setText("description_com");
         jScrollPane1.setViewportView(description_com);
 
-        value_recongnize.setText("value_recognize");
+        value_recongnize.setText("(float)");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Valor");
 
-        number_complaint.setText("number_complaint");
+        number_complaint.setText("(int 11)");
 
-        num_law.setText("num_law");
+        num_law.setText("(int 11)");
 
-        complaint_state.setText("complaint_state");
+        complaint_state.setText("(char 1)");
         complaint_state.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 complaint_stateActionPerformed(evt);
             }
         });
 
-        value_proposal.setText("value_proposal");
+        value_proposal.setText("(float)");
 
         jLabel3.setText("Valor");
 

@@ -179,9 +179,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="name_complaint">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="name_complaint"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="name_complaintActionPerformed"/>
           </Events>
@@ -240,7 +237,7 @@
         </Container>
         <Component class="javax.swing.JTextField" name="value_recongnize">
           <Properties>
-            <Property name="text" type="java.lang.String" value="value_recognize"/>
+            <Property name="text" type="java.lang.String" value="(float)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -253,17 +250,17 @@
         </Component>
         <Component class="javax.swing.JTextField" name="number_complaint">
           <Properties>
-            <Property name="text" type="java.lang.String" value="number_complaint"/>
+            <Property name="text" type="java.lang.String" value="(int 11)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="num_law">
           <Properties>
-            <Property name="text" type="java.lang.String" value="num_law"/>
+            <Property name="text" type="java.lang.String" value="(int 11)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="complaint_state">
           <Properties>
-            <Property name="text" type="java.lang.String" value="complaint_state"/>
+            <Property name="text" type="java.lang.String" value="(char 1)"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="complaint_stateActionPerformed"/>
@@ -271,7 +268,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="value_proposal">
           <Properties>
-            <Property name="text" type="java.lang.String" value="value_proposal"/>
+            <Property name="text" type="java.lang.String" value="(float)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
