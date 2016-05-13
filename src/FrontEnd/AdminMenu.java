@@ -102,11 +102,11 @@ public class AdminMenu extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 526, Short.MAX_VALUE))
+                .addGap(0, 777, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -114,6 +114,7 @@ public class AdminMenu extends javax.swing.JFrame {
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 255));
         jMenuBar1.setForeground(new java.awt.Color(204, 204, 204));
 
+        Lawsuit.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\script.png")); // NOI18N
         Lawsuit.setText("Processos");
         Lawsuit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +122,7 @@ public class AdminMenu extends javax.swing.JFrame {
             }
         });
 
+        Consult1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\script_add.png")); // NOI18N
         Consult1.setText("Criar Processo");
         Consult1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +131,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
         Lawsuit.add(Consult1);
 
+        Consult.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\script_code.png")); // NOI18N
         Consult.setText("Consultar Processos");
         Consult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +140,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
         Lawsuit.add(Consult);
 
+        Consult2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\script_link.png")); // NOI18N
         Consult2.setText("Visualizar Processos Aquivados");
         Consult2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +149,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
         Lawsuit.add(Consult2);
 
+        jMenuItem9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\script_edit.png")); // NOI18N
         jMenuItem9.setText("Adicionar Entidade Interveniente");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,8 +160,10 @@ public class AdminMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(Lawsuit);
 
+        online_data.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\table.png")); // NOI18N
         online_data.setText("Processar dados Online");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\table_add.png")); // NOI18N
         jMenuItem3.setText("Adicionar Anúncio de venda");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +172,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
         online_data.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\table_delete.png")); // NOI18N
         jMenuItem4.setText("Eliminar Anúncio de venda");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,8 +181,10 @@ public class AdminMenu extends javax.swing.JFrame {
         });
         online_data.add(jMenuItem4);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\table_edit.png")); // NOI18N
         jMenu3.setText("Editar informação");
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\table_refresh.png")); // NOI18N
         jMenuItem5.setText("Informação da empresa");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +193,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem5);
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\table_lightning.png")); // NOI18N
         jMenuItem7.setText("Links de website");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,6 +204,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
         online_data.add(jMenu3);
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\table_relationship.png")); // NOI18N
         jMenuItem8.setText("Propostas de compras");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,6 +213,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
         online_data.add(jMenuItem8);
 
+        jMenuItem10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\table_row_insert.png")); // NOI18N
         jMenuItem10.setText("Carregar documento");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +224,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(online_data);
 
+        jMenu7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\user.png")); // NOI18N
         jMenu7.setText("Gerir Utilizadores");
         jMenu7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,6 +232,7 @@ public class AdminMenu extends javax.swing.JFrame {
             }
         });
 
+        Create.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\user_add.png")); // NOI18N
         Create.setText("Criar Utilizador");
         Create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,6 +241,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
         jMenu7.add(Create);
 
+        Create1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\user_edit.png")); // NOI18N
         Create1.setText("Editar Permissões");
         Create1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,6 +250,7 @@ public class AdminMenu extends javax.swing.JFrame {
         });
         jMenu7.add(Create1);
 
+        Create2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\user_comment.png")); // NOI18N
         Create2.setText("Histórico de Utilizadores");
         Create2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,7 +261,8 @@ public class AdminMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
-        jMenu2.setText("Log out");
+        jMenu2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Fábio\\Documents\\NetBeansProjects\\Prototipo\\icones\\bullet_red.png")); // NOI18N
+        jMenu2.setText("Terminar Sessão");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
@@ -275,7 +293,7 @@ public class AdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_CreateActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        
+     
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
