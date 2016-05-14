@@ -188,7 +188,7 @@ public class Add_Complaint extends javax.swing.JFrame {
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,22 +236,22 @@ public class Add_Complaint extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void complaint_stateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaint_stateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_complaint_stateActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         add_complaint();
-        
+
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void name_complaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_complaintActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_name_complaintActionPerformed
 
-    private void complaint_stateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaint_stateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_complaint_stateActionPerformed
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
