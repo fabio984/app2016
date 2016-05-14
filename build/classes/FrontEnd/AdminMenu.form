@@ -117,7 +117,7 @@
         <Menu class="javax.swing.JMenu" name="Lawsuit">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\script.png"/>
+              <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\script.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Processos"/>
           </Properties>
@@ -128,7 +128,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="Consult1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\script_add.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\script_add.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Criar Processo"/>
               </Properties>
@@ -139,7 +139,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="Consult">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\script_code.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\script_code.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consultar Processos"/>
               </Properties>
@@ -150,7 +150,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="Consult2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\script_link.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\script_link.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Visualizar Processos Aquivados"/>
               </Properties>
@@ -161,7 +161,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\script_edit.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\script_edit.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Adicionar Entidade Interveniente"/>
               </Properties>
@@ -174,7 +174,7 @@
         <Menu class="javax.swing.JMenu" name="online_data">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\table.png"/>
+              <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\table.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Processar dados Online"/>
           </Properties>
@@ -182,7 +182,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\table_add.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\table_add.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Adicionar An&#xfa;ncio de venda"/>
               </Properties>
@@ -193,7 +193,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\table_delete.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\table_delete.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar An&#xfa;ncio de venda"/>
               </Properties>
@@ -204,7 +204,7 @@
             <Menu class="javax.swing.JMenu" name="jMenu3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\table_edit.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\table_edit.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Editar informa&#xe7;&#xe3;o"/>
               </Properties>
@@ -236,7 +236,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\table_relationship.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\table_relationship.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Propostas de compras"/>
               </Properties>
@@ -247,7 +247,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\table_row_insert.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\table_row_insert.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Carregar documento"/>
               </Properties>
@@ -260,7 +260,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\user.png"/>
+              <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\user.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Gerir Utilizadores"/>
           </Properties>
@@ -271,7 +271,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="Create">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\user_add.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\user_add.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Criar Utilizador"/>
               </Properties>
@@ -282,7 +282,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="Create1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\user_edit.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\user_edit.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Editar Permiss&#xf5;es"/>
               </Properties>
@@ -293,7 +293,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="Create2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\user_comment.png"/>
+                  <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\user_comment.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Hist&#xf3;rico de Utilizadores"/>
               </Properties>
@@ -306,7 +306,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\icones\bullet_red.png"/>
+              <Image iconType="2" name="C:\Users\F&#xe1;bio\Documents\NetBeansProjects\Prototipo\app2016\src\icones\bullet_red.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Terminar Sess&#xe3;o"/>
           </Properties>
