@@ -124,7 +124,7 @@ public class Intervenients_entities {
                     
                     
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"Entidade Interveniente não guardada!");
+                JOptionPane.showMessageDialog(null,"Entidade Interveniente não guardada, corriga os erros presentes!");
             }
     
     
