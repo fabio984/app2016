@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 
 public class Online {
-   private String cv_edit;
+  // private String cv_edit;
    private String email_company;
    private int phone_company;
    private String address_company;
@@ -21,8 +21,7 @@ public class Online {
    PreparedStatement pst = null;
    ResultSet rs=null;
 
-    public Online(String cv_edit, String email_company, int phone_company, String address_company, String description_comp, String postal_code_company, int fax_company, int telephone_company, String conditions) {
-        this.cv_edit = cv_edit;
+    public Online(String email_company, int phone_company, String address_company, String description_comp, String postal_code_company, int fax_company, int telephone_company, String conditions) {
         this.email_company = email_company;
         this.phone_company = phone_company;
         this.address_company = address_company;
@@ -32,15 +31,7 @@ public class Online {
         this.telephone_company = telephone_company;
         this.conditions = conditions;
     }
-
-    public String getCv_edit() {
-        return cv_edit;
-    }
-
-    public void setCv_edit(String cv_edit) {
-        this.cv_edit = cv_edit;
-    }
-
+    
     public String getEmail_company() {
         return email_company;
     }
@@ -109,14 +100,13 @@ public class Online {
             
            
     
-          String query = "INSERT INTO `online_information`(`cv_edit`, `email_company`, `phone_company`, `address_company`, `description_comp`, `postal_code_company`, `fax_company`, `telephone_company`, `conditions`)"
+          String query = "INSERT INTO `online_information`(`email_company`, `phone_company`, `address_company`, `description_comp`, `postal_code_company`, `fax_company`, `telephone_company`, `conditions`)"
                   + " VALUES(?,?,?,?,?,?,?,?,?)";    
             // por numero processo
             try {            
       
             Connection c = DBClass.getConnection();
-        pst = c.prepareStatement(query);       
-                   pst.setString(1, cv_edit);
+        pst = c.prepareStatement(query);  
            pst.setString(2, email_company);
            pst.setString(3, phone_company + "");
            pst.setString(4, address_company);
@@ -136,7 +126,7 @@ public class Online {
             
            
     
-          String query = "UPDATE `online_information` SET `cv_edit`='"+cv_edit+"',`email_company`='"+email_company+"',`phone_company`='"+phone_company+"',`address_company`='"+address_company+"',`description_comp`='"+description_comp+"',`postal_code_company`='"+postal_code_company+"',`fax_company`='"+fax_company+"',`telephone_company`='"+telephone_company+"',`conditions`='"+conditions+"'";    
+          String query = "UPDATE `online_information` SET `email_company`='"+email_company+"',`phone_company`='"+phone_company+"',`address_company`='"+address_company+"',`description_comp`='"+description_comp+"',`postal_code_company`='"+postal_code_company+"',`fax_company`='"+fax_company+"',`telephone_company`='"+telephone_company+"',`conditions`='"+conditions+"'";    
             // por numero processo
             try {            
       

@@ -31,7 +31,6 @@ import BackEnd.System;
             pst = c.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
            if(rs.next()){
-              cur.setText(rs.getString("cv_edit"));
               email.setText(rs.getString("email_company"));
               tele.setText(rs.getString("phone_company"));
               address.setText(rs.getString("address_company"));
@@ -58,9 +57,8 @@ import BackEnd.System;
     int fax_company = Integer.valueOf(fax.getText());
     int telephone_company = Integer.valueOf(telep.getText());
     String conditions = cond.getText();
-    String cv_edit = cur.getText();
     
-    Online o = new Online( cv_edit,  email_company,  phone_company,  address_company,  description_comp,  postal_code_company,  fax_company,  telephone_company,  conditions);
+    Online o = new Online( email_company,  phone_company,  address_company,  description_comp,  postal_code_company,  fax_company,  telephone_company,  conditions);
     system.setOnline(o);
     system.getOnline().edit_online_info();
     
@@ -92,8 +90,6 @@ import BackEnd.System;
         type11 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         cond = new javax.swing.JTextArea();
-        type12 = new javax.swing.JLabel();
-        cur = new javax.swing.JButton();
         type13 = new javax.swing.JLabel();
         telep1 = new javax.swing.JTextField();
         type14 = new javax.swing.JLabel();
@@ -111,7 +107,6 @@ import BackEnd.System;
         JPanel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         JPanel.setMinimumSize(new java.awt.Dimension(890, 610));
         JPanel.setOpaque(false);
-        JPanel.setSize(new java.awt.Dimension(890, 610));
 
         ButtonCancel.setBackground(new java.awt.Color(255, 255, 255));
         ButtonCancel.setText("Cancelar");
@@ -205,12 +200,6 @@ import BackEnd.System;
         cond.setRows(5);
         jScrollPane2.setViewportView(cond);
 
-        type12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        type12.setForeground(new java.awt.Color(255, 255, 255));
-        type12.setText("Currículo:");
-
-        cur.setText("Adicionar");
-
         type13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         type13.setForeground(new java.awt.Color(255, 255, 255));
         type13.setText("Link:");
@@ -263,11 +252,7 @@ import BackEnd.System;
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelLayout.createSequentialGroup()
                                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                                .addComponent(type12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cur)
-                                .addGap(213, 213, 213))
+                                .addGap(323, 452, Short.MAX_VALUE))
                             .addComponent(tele)
                             .addComponent(telep))
                         .addGap(27, 27, 27))))
@@ -295,14 +280,10 @@ import BackEnd.System;
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(type4))
-                    .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(type12)
-                        .addComponent(cur)))
+                .addGap(31, 31, 31)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(type4))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(telep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,7 +316,7 @@ import BackEnd.System;
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telep2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type13))
@@ -409,7 +390,6 @@ import BackEnd.System;
     private javax.swing.JPanel JPanel;
     private javax.swing.JTextField address;
     private javax.swing.JTextArea cond;
-    private javax.swing.JButton cur;
     private javax.swing.JTextArea desc;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fax;
@@ -424,7 +404,6 @@ import BackEnd.System;
     private javax.swing.JTextField telep2;
     private javax.swing.JLabel type10;
     private javax.swing.JLabel type11;
-    private javax.swing.JLabel type12;
     private javax.swing.JLabel type13;
     private javax.swing.JLabel type14;
     private javax.swing.JLabel type4;
