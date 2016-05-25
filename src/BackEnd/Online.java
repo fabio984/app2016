@@ -17,11 +17,13 @@ public class Online {
    private int fax_company;
    private int telephone_company;
    private String conditions;
+   private String nameLink;
+   private String linkDB;
    
    PreparedStatement pst = null;
    ResultSet rs=null;
 
-    public Online(String email_company, int phone_company, String address_company, String description_comp, String postal_code_company, int fax_company, int telephone_company, String conditions) {
+    public Online(String email_company, int phone_company, String address_company, String description_comp, String postal_code_company, int fax_company, int telephone_company, String conditions, String nameLink, String linkDB) {
         this.email_company = email_company;
         this.phone_company = phone_company;
         this.address_company = address_company;
@@ -30,6 +32,24 @@ public class Online {
         this.fax_company = fax_company;
         this.telephone_company = telephone_company;
         this.conditions = conditions;
+        this.nameLink= nameLink;
+        this.linkDB= linkDB;
+    }
+
+    public String getNameLink() {
+        return nameLink;
+    }
+
+    public void setNameLink(String nameLink) {
+        this.nameLink = nameLink;
+    }
+
+    public String getLinkDB() {
+        return linkDB;
+    }
+
+    public void setLinkDB(String linkDB) {
+        this.linkDB = linkDB;
     }
     
     public String getEmail_company() {
@@ -100,7 +120,7 @@ public class Online {
             
            
     
-          String query = "INSERT INTO `online_information`(`email_company`, `phone_company`, `address_company`, `description_comp`, `postal_code_company`, `fax_company`, `telephone_company`, `conditions`)"
+          String query = "INSERT INTO `online_information`(`email_company`, `phone_company`, `address_company`, `description_comp`, `postal_code_company`, `fax_company`, `telephone_company`, `conditions`, `name_link`, `link`)"
                   + " VALUES(?,?,?,?,?,?,?,?,?)";    
             // por numero processo
             try {            
@@ -115,6 +135,8 @@ public class Online {
            pst.setString(7,fax_company + "");
            pst.setString(8, telephone_company + "");
            pst.setString(9, conditions);
+           pst.setString(10, nameLink);
+           pst.setString(11, linkDB);
                                 
             pst.execute();
           
@@ -126,7 +148,8 @@ public class Online {
             
            
     
-          String query = "UPDATE `online_information` SET `email_company`='"+email_company+"',`phone_company`='"+phone_company+"',`address_company`='"+address_company+"',`description_comp`='"+description_comp+"',`postal_code_company`='"+postal_code_company+"',`fax_company`='"+fax_company+"',`telephone_company`='"+telephone_company+"',`conditions`='"+conditions+"'";    
+          String query = "UPDATE `online_information` SET `email_company`='"+email_company+"',`phone_company`='"+phone_company+"',`address_company`='"+address_company+"',`description_comp`='"+description_comp+"',`postal_code_company`='"+postal_code_company+"'"
+                  + ",`fax_company`='"+fax_company+"',`telephone_company`='"+telephone_company+"',`conditions`='"+conditions+"', `name_link`='"+nameLink+"', `link`='"+linkDB+"'";    
             // por numero processo
             try {            
       
