@@ -74,7 +74,7 @@ private System system;
         jLabel9 = new javax.swing.JLabel();
         Contact = new javax.swing.JTextField();
         IBAN = new javax.swing.JTextField();
-        Type = new javax.swing.JComboBox<String>();
+        Type = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
@@ -90,6 +90,7 @@ private System system;
         Save.setBackground(new java.awt.Color(255, 255, 255));
         Save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Save.setText("Editar");
+        Save.setOpaque(false);
         Save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveActionPerformed(evt);
@@ -99,6 +100,7 @@ private System system;
         Cancel.setBackground(new java.awt.Color(255, 255, 255));
         Cancel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Cancel.setText("Cancelar");
+        Cancel.setOpaque(false);
         Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelActionPerformed(evt);
@@ -126,7 +128,7 @@ private System system;
         jLabel9.setText("Morada:");
 
         Type.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Credor", "Devedor", "Trabalhadores" }));
+        Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Credor", "Devedor" }));
 
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
         JPanel.setLayout(JPanelLayout);
@@ -202,6 +204,8 @@ private System system;
 
         getContentPane().add(JPanel);
         JPanel.setBounds(10, 10, 790, 450);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\yfcv.PNG")); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 810, 470);
 
