@@ -103,7 +103,7 @@ public class Intervenients_entities {
     }
     
     public void addIntervenients(){
-        
+        //teste
         String query="INSERT INTO `intervenients_entities`(`name_int`, `address_int`, `nif_int`, `nib_pay`, `contact_int`, `type`, `name_mand`, `address_mand`) "
                 + "VALUES (?,?,?,?,?,?,?,?)";
     
