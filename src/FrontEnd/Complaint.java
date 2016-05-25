@@ -147,7 +147,6 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         jLabel2.setText("Utilizador:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
         JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Reclamação de crédito", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -247,7 +246,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
                     .addGroup(JPanelLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,7 +256,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
                     .addComponent(jLabel1))
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18))
                     .addGroup(JPanelLayout.createSequentialGroup()
@@ -290,8 +289,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
                 .addContainerGap())
         );
 
-        getContentPane().add(JPanel);
-        JPanel.setBounds(410, 10, 390, 360);
+        getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
 
         JPanel1.setBackground(new java.awt.Color(255, 255, 255));
         JPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Páginas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -332,7 +330,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(patrimony)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(entityes)
                 .addGap(31, 31, 31)
                 .addComponent(complaint)
@@ -349,10 +347,8 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
                 .addContainerGap())
         );
 
-        getContentPane().add(JPanel1);
-        JPanel1.setBounds(10, 370, 790, 80);
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 810, 470);
+        getContentPane().add(JPanel1, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jLabel5, java.awt.BorderLayout.PAGE_END);
 
         JPanel2.setBackground(new java.awt.Color(255, 255, 255));
         JPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entidade Interveniente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
@@ -527,8 +523,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
                 .addGap(126, 126, 126))
         );
 
-        getContentPane().add(JPanel2);
-        JPanel2.setBounds(0, 0, 400, 370);
+        getContentPane().add(JPanel2, java.awt.BorderLayout.LINE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

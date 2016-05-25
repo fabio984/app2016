@@ -98,9 +98,8 @@ import BackEnd.System;
 
         jLabel2.setText("Utilizador:");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(810, 510));
-        getContentPane().setLayout(null);
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
         JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inforamção da empresa", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -252,7 +251,7 @@ import BackEnd.System;
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelLayout.createSequentialGroup()
                                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(323, 452, Short.MAX_VALUE))
+                                .addGap(323, 553, Short.MAX_VALUE))
                             .addComponent(tele)
                             .addComponent(telep))
                         .addGap(27, 27, 27))))
@@ -316,7 +315,7 @@ import BackEnd.System;
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telep2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 725, Short.MAX_VALUE)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type13))
@@ -327,13 +326,11 @@ import BackEnd.System;
                 .addContainerGap())
         );
 
-        getContentPane().add(JPanel);
-        JPanel.setBounds(10, 10, 790, 510);
+        getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
         JPanel.getAccessibleContext().setAccessibleName("Informação da empresa"); // NOI18N
 
         jLabel5.setMinimumSize(new java.awt.Dimension(910, 600));
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 810, 530);
+        getContentPane().add(jLabel5, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -126,7 +126,6 @@ public void add_entity(){
         jLabel2.setText("Utilizador:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         JPanel2.setBackground(new java.awt.Color(255, 255, 255));
         JPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entidade Interveniente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
@@ -267,7 +266,7 @@ public void add_entity(){
                             .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         JPanel2Layout.setVerticalGroup(
             JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,8 +314,7 @@ public void add_entity(){
                 .addGap(126, 126, 126))
         );
 
-        getContentPane().add(JPanel2);
-        JPanel2.setBounds(0, 0, 810, 370);
+        getContentPane().add(JPanel2, java.awt.BorderLayout.CENTER);
 
         JPanel1.setBackground(new java.awt.Color(255, 255, 255));
         JPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Páginas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -357,7 +355,7 @@ public void add_entity(){
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(patrimony)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(entityes)
                 .addGap(31, 31, 31)
                 .addComponent(complaint)
@@ -374,10 +372,8 @@ public void add_entity(){
                 .addContainerGap())
         );
 
-        getContentPane().add(JPanel1);
-        JPanel1.setBounds(10, 370, 790, 80);
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 810, 470);
+        getContentPane().add(JPanel1, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jLabel5, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
