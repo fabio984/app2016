@@ -102,7 +102,7 @@ public class Intervenients_entities {
         this.address_mand = address_mand;
     }
     
-    public void addIntervenients(){
+    public void add_intervening(){
         
         String query="INSERT INTO `intervenients_entities`(`name_int`, `address_int`, `nif_int`, `nib_pay`, `contact_int`, `type`, `name_mand`, `address_mand`) "
                 + "VALUES (?,?,?,?,?,?,?,?)";

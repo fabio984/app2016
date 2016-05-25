@@ -362,7 +362,7 @@ private System system;
     }//GEN-LAST:event_complaintActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-       system.getIntervening().addIntervenients();
+       system.getIntervening().add_intervening();
         //add_entity();
     }//GEN-LAST:event_SaveActionPerformed
 
