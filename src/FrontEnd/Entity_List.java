@@ -5,7 +5,6 @@
  */
 package FrontEnd;
 import BackEnd.System1;
-import javax.swing.table.DefaultTableModel;
 
 
 public class Entity_List extends javax.swing.JFrame {
@@ -29,7 +28,7 @@ public class Entity_List extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         JPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableInt = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         image = new javax.swing.JLabel();
 
@@ -43,7 +42,7 @@ public class Entity_List extends javax.swing.JFrame {
         JPanel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         JPanel.setOpaque(false);
 
-        tableInt.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -57,8 +56,8 @@ public class Entity_List extends javax.swing.JFrame {
 
             }
         ));
-        tableInt.setOpaque(false);
-        jScrollPane1.setViewportView(tableInt);
+        jTable1.setOpaque(false);
+        jScrollPane1.setViewportView(jTable1);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("Voltar");
@@ -107,22 +106,6 @@ public class Entity_List extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-    private DefaultTableModel listEntities(){
-        DefaultTableModel dm= (DefaultTableModel)tableInt.getModel();
-        dm.setColumnCount(0);
-        dm.setRowCount(0);
-        
-        dm.addColumn("Nome");
-        dm.addColumn("NIF");
-        dm.addColumn("Morada");
-        dm.addColumn("NIB Pagamento");
-        dm.addColumn("Contacto");
-        dm.addColumn("Tipo");
-        dm.addColumn("Nome Mandatário");
-        dm.addColumn("Morada Mandatário");
-        
-        return dm;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel;
@@ -130,6 +113,6 @@ public class Entity_List extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableInt;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
