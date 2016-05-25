@@ -39,8 +39,6 @@ import BackEnd.System;
               fax.setText(rs.getString("fax_company"));
               telep.setText(rs.getString("telephone_company"));
               cond.setText(rs.getString("conditions"));
-              name_link.setText(rs.getString("name_link"));
-              linkDB.setText(rs.getString("link"));
            }
             
             
@@ -50,7 +48,7 @@ import BackEnd.System;
     }
  
     
-    public void editInfo(){
+    public void edit_info(){
     String email_company = email.getText();
     int phone_company = Integer.valueOf(tele.getText());
     String address_company = address.getText();
@@ -59,10 +57,8 @@ import BackEnd.System;
     int fax_company = Integer.valueOf(fax.getText());
     int telephone_company = Integer.valueOf(telep.getText());
     String conditions = cond.getText();
-    String nameLink= name_link.getText();
-    String link = linkDB.getText();
     
-    Online o = new Online( email_company,  phone_company,  address_company,  description_comp,  postal_code_company,  fax_company,  telephone_company,  conditions, nameLink, link);
+    Online o = new Online( email_company,  phone_company,  address_company,  description_comp,  postal_code_company,  fax_company,  telephone_company,  conditions);
     system.setOnline(o);
     system.getOnline().edit_online_info();
     
@@ -95,10 +91,9 @@ import BackEnd.System;
         jScrollPane2 = new javax.swing.JScrollPane();
         cond = new javax.swing.JTextArea();
         type13 = new javax.swing.JLabel();
-        linkDB = new javax.swing.JTextField();
+        telep1 = new javax.swing.JTextField();
         type14 = new javax.swing.JLabel();
-        name_link = new javax.swing.JTextField();
-        edit = new javax.swing.JButton();
+        telep2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
@@ -209,9 +204,9 @@ import BackEnd.System;
         type13.setForeground(new java.awt.Color(255, 255, 255));
         type13.setText("Link:");
 
-        linkDB.addActionListener(new java.awt.event.ActionListener() {
+        telep1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                linkDBActionPerformed(evt);
+                telep1ActionPerformed(evt);
             }
         });
 
@@ -219,16 +214,9 @@ import BackEnd.System;
         type14.setForeground(new java.awt.Color(255, 255, 255));
         type14.setText("Nome de Link:");
 
-        name_link.addActionListener(new java.awt.event.ActionListener() {
+        telep2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_linkActionPerformed(evt);
-            }
-        });
-
-        edit.setText("Editar");
-        edit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editActionPerformed(evt);
+                telep2ActionPerformed(evt);
             }
         });
 
@@ -236,6 +224,12 @@ import BackEnd.System;
         JPanel.setLayout(JPanelLayout);
         JPanelLayout.setHorizontalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelLayout.createSequentialGroup()
+                .addGap(201, 201, 201)
+                .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(241, 241, 241)
+                .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,18 +270,11 @@ import BackEnd.System;
                             .addComponent(type13, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(type14, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelLayout.createSequentialGroup()
-                                .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(108, 108, 108)
-                                .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(117, 117, 117)
-                                .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(name_link)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
-                                .addComponent(fax, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(linkDB)))))
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(telep2)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                            .addComponent(fax, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(telep1))))
                 .addGap(25, 25, 25))
         );
         JPanelLayout.setVerticalGroup(
@@ -327,23 +314,22 @@ import BackEnd.System;
                     .addComponent(type11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name_link, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telep2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(linkDB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type13))
                 .addGap(25, 25, 25)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         getContentPane().add(JPanel);
         JPanel.setBounds(10, 10, 790, 510);
-        JPanel.getAccessibleContext().setAccessibleName("Informação da empresa");
+        JPanel.getAccessibleContext().setAccessibleName("Informação da empresa"); // NOI18N
 
         jLabel5.setMinimumSize(new java.awt.Dimension(910, 600));
         getContentPane().add(jLabel5);
@@ -357,7 +343,7 @@ import BackEnd.System;
     }//GEN-LAST:event_ButtonCancelActionPerformed
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveActionPerformed
-    //edit_info();
+    edit_info();
     dispose();
     }//GEN-LAST:event_ButtonSaveActionPerformed
 
@@ -385,18 +371,13 @@ import BackEnd.System;
         // TODO add your handling code here:
     }//GEN-LAST:event_teleActionPerformed
 
-    private void linkDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkDBActionPerformed
+    private void telep1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telep1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_linkDBActionPerformed
+    }//GEN-LAST:event_telep1ActionPerformed
 
-    private void name_linkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_linkActionPerformed
+    private void telep2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telep2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_name_linkActionPerformed
-
-    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-        editInfo();
-        dispose();
-    }//GEN-LAST:event_editActionPerformed
+    }//GEN-LAST:event_telep2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,18 +391,17 @@ import BackEnd.System;
     private javax.swing.JTextField address;
     private javax.swing.JTextArea cond;
     private javax.swing.JTextArea desc;
-    private javax.swing.JButton edit;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fax;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField linkDB;
-    private javax.swing.JTextField name_link;
     private javax.swing.JTextField postal;
     private javax.swing.JTextField tele;
     private javax.swing.JTextField telep;
+    private javax.swing.JTextField telep1;
+    private javax.swing.JTextField telep2;
     private javax.swing.JLabel type10;
     private javax.swing.JLabel type11;
     private javax.swing.JLabel type13;
