@@ -40,7 +40,7 @@ PreparedStatement pst = null;
 
    String name_pro = NameText.getText();          
    int id_pro =Integer.valueOf(IdText.getText());     
-   int price_sale= Integer.valueOf(jTextField1.getText());
+   int price_pro = Integer.valueOf(jTextField1.getText());
 int purchase_state = Integer.valueOf(jTextField2.getText());
 String category = Category.getSelectedItem().toString();
 String district = jTextField5.getText();
@@ -53,9 +53,7 @@ String adress = jTextField9.getText();
 String description=Desc.getText();
 String locality = Local.getText();
 String image= file.getAbsolutePath();
-float price_evaluation = Float.parseFloat(jTextField9.getText());
-String sub_category = Category2.getSelectedItem().toString();
-   Asset a= new Asset( name_pro,  id_pro, price_sale,  purchase_state,  description,  category,  district,  num_law,  adress,  postal_code,  image,  locality,  price_evaluation,  sub_category);
+   Asset a= new Asset( name_pro,  id_pro,  price_pro,  purchase_state,  description,  category,  district,  num_law,  adress,  postal_code,  locality,  image);
       system.setAssets(a);
       system.getAssets().add_asset();    }
       
