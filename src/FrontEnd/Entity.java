@@ -218,6 +218,11 @@ public void add_entity(){
         jLabel17.setText("                             Mandatário");
 
         Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Credor", "Devedor" }));
+        Type.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                TypeItemStateChanged(evt);
+            }
+        });
         Type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TypeActionPerformed(evt);
@@ -432,6 +437,10 @@ public void add_entity(){
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         add_entity();
     }//GEN-LAST:event_SaveActionPerformed
+
+    private void TypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TypeItemStateChanged
+    
+    }//GEN-LAST:event_TypeItemStateChanged
 
     /**
      * @param args the command line arguments
