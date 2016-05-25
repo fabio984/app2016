@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author ricardo
  */
-public class Intervenients_entities {
+public class Intervenient_entitie {
     public String name_int;
     public String address_int;
     public int nif_int;
@@ -27,7 +27,7 @@ public class Intervenients_entities {
     PreparedStatement pst=null;
     
 
-    public Intervenients_entities(String name_int, String address_int, int nif_int, int nib_pay, int contact_int, String type, String name_mand, String address_mand) {
+    public Intervenient_entitie(String name_int, String address_int, int nif_int, int nib_pay, int contact_int, String type, String name_mand, String address_mand) {
         this.name_int = name_int;
         this.address_int = address_int;
         this.nif_int = nif_int;
