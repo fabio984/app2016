@@ -38,7 +38,7 @@ public void add_entity(){
                             Integer.valueOf(nif.getText())+"','"+
                             Integer.valueOf(iban.getText())+"','"+
                             Integer.valueOf(Contact.getText())+"','c', "
-                            + " '"+Name7.getText()+"', '"+Name8.getText()+"')";  
+                            + " '"+nameMand.getText()+"', '"+addressMand.getText()+"')";  
                         try {           
                         Connection c = DBClass.getConnection();
                         pst = c.prepareStatement(query);    
@@ -48,22 +48,11 @@ public void add_entity(){
                         JOptionPane.showMessageDialog(null,e);
                     }
                } 
-            else{
-                String query = "INSERT INTO `intervenients_entities`(`name_int`,"
-                            + "`address_int`, "
-                            + "`nif_int`, "
-                            + "`nib_pay`, "
-                            + "`contact_int`, "
-                            + "`type`, "
-                            + "`name_mand`, "
-                            + "`address_mand`) "
-                            + "VALUES ('"+
-                            Name.getText()+"','"+
-                            address.getText()+"','"+
-                            Integer.valueOf(nif.getText())+"','"+
-                            Integer.valueOf(iban.getText())+"','"+
-                            Integer.valueOf(Contact.getText())+"','d', "
-                            + " '"+Name7.getText()+"', '"+Name8.getText()+"')";     
+                else if("Juíz".equals(Type.getSelectedItem())){
+                    nif.setEnabled(false);
+                String query = "INSERT INTO `judge`(`name_judge`)"
+                            + "VALUES ('" + Name.getText() + "')"; 
+                            
                     try{           
                         Connection c = DBClass.getConnection();
                         pst = c.prepareStatement(query);    
@@ -111,9 +100,9 @@ public void add_entity(){
         nif = new javax.swing.JTextField();
         Contact = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        Name7 = new javax.swing.JTextField();
+        nameMand = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        Name8 = new javax.swing.JTextField();
+        addressMand = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         Type = new javax.swing.JComboBox();
         address = new javax.swing.JTextField();
@@ -135,7 +124,6 @@ public void add_entity(){
         Save.setBackground(new java.awt.Color(255, 255, 255));
         Save.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Save.setText("Guardar");
-        Save.setOpaque(false);
         Save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveActionPerformed(evt);
@@ -145,7 +133,6 @@ public void add_entity(){
         Cancel.setBackground(new java.awt.Color(255, 255, 255));
         Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Cancel.setText("Cancelar");
-        Cancel.setOpaque(false);
         Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelActionPerformed(evt);
@@ -199,25 +186,30 @@ public void add_entity(){
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel15.setText("Nome");
 
-        Name7.addActionListener(new java.awt.event.ActionListener() {
+        nameMand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name7ActionPerformed(evt);
+                nameMandActionPerformed(evt);
             }
         });
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel16.setText("Morada");
 
-        Name8.addActionListener(new java.awt.event.ActionListener() {
+        addressMand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name8ActionPerformed(evt);
+                addressMandActionPerformed(evt);
             }
         });
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel17.setText("                             Mandatário");
 
-        Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Credor", "Devedor" }));
+        Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Credor", "Devedor", "Juíz", "Advogado", "Funcionários" }));
+        Type.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                TypeItemStateChanged(evt);
+            }
+        });
         Type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TypeActionPerformed(evt);
@@ -247,8 +239,8 @@ public void add_entity(){
                                         .addGap(18, 18, 18)
                                         .addComponent(Save))
                                     .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(Name8)
-                                        .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(addressMand)
+                                        .addComponent(nameMand, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(JPanel2Layout.createSequentialGroup()
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -266,7 +258,7 @@ public void add_entity(){
                             .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         JPanel2Layout.setVerticalGroup(
             JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,10 +294,10 @@ public void add_entity(){
                     .addComponent(jLabel15)
                     .addGroup(JPanel2Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(nameMand, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressMand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addGap(35, 35, 35)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -417,13 +409,13 @@ public void add_entity(){
         // TODO add your handling code here:
     }//GEN-LAST:event_ContactActionPerformed
 
-    private void Name7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name7ActionPerformed
+    private void nameMandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameMandActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name7ActionPerformed
+    }//GEN-LAST:event_nameMandActionPerformed
 
-    private void Name8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name8ActionPerformed
+    private void addressMandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressMandActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name8ActionPerformed
+    }//GEN-LAST:event_addressMandActionPerformed
 
     private void TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypeActionPerformed
         // TODO add your handling code here:
@@ -432,6 +424,45 @@ public void add_entity(){
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         add_entity();
     }//GEN-LAST:event_SaveActionPerformed
+
+    private void TypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TypeItemStateChanged
+        if("Juíz".equals(Type.getSelectedItem())){
+                    nif.setEnabled(false);
+                    Contact.setEnabled(false);
+                    address.setEnabled(false);
+                    iban.setEnabled(false);
+                    nameMand.setEnabled(false);
+                    addressMand.setEnabled(false);
+                } else if("Credor".equals(Type.getSelectedItem())){
+                    nif.setEnabled(true);
+                    Contact.setEnabled(true);
+                    address.setEnabled(true);
+                    iban.setEnabled(true);
+                    nameMand.setEnabled(true);
+                    addressMand.setEnabled(true);
+                       } else if("Devedor".equals(Type.getSelectedItem())){
+                    nif.setEnabled(true);
+                    Contact.setEnabled(true);
+                    address.setEnabled(true);
+                    iban.setEnabled(true);
+                    nameMand.setEnabled(true);
+                    addressMand.setEnabled(true);
+                           } else if("Funcionários".equals(Type.getSelectedItem())){
+                    nif.setEnabled(true);
+                    Contact.setEnabled(true);
+                    address.setEnabled(true);
+                    iban.setEnabled(true);
+                    nameMand.setEnabled(true);
+                    addressMand.setEnabled(true);
+                                } else if("Advogado".equals(Type.getSelectedItem())){
+                    nif.setEnabled(true);
+                    Contact.setEnabled(true);
+                    address.setEnabled(true);
+                    iban.setEnabled(true);
+                    nameMand.setEnabled(true);
+                    addressMand.setEnabled(true);
+        }
+    }//GEN-LAST:event_TypeItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -443,11 +474,10 @@ public void add_entity(){
     private javax.swing.JPanel JPanel1;
     private javax.swing.JPanel JPanel2;
     private javax.swing.JTextField Name;
-    private javax.swing.JTextField Name7;
-    private javax.swing.JTextField Name8;
     private javax.swing.JButton Save;
     private javax.swing.JComboBox Type;
     private javax.swing.JTextField address;
+    private javax.swing.JTextField addressMand;
     private javax.swing.JButton complaint;
     private datechooser.beans.DateChooserDialog dateChooserDialog1;
     private javax.swing.JButton entityes;
@@ -462,6 +492,7 @@ public void add_entity(){
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField nameMand;
     private javax.swing.JTextField nif;
     private javax.swing.JButton patrimony;
     // End of variables declaration//GEN-END:variables
