@@ -51,7 +51,7 @@ String adress = jTextField9.getText();
 String description=Desc.getText();
 String locality = Local.getText();
 String image= file.getAbsolutePath();
-   Asset a= new Asset( name_pro,  id_pro, price_sale,  purchase_state,  description,  category,  district,  num_law,  adress,  postal_code,  image,  locality,  price_evaluation,  sub_category);
+   Asset a= new Asset( name_pro,  id_pro,  price_pro,  purchase_state,  description,  category,  district,  num_law,  adress,  postal_code,  locality,  image);
       system.setAssets(a);
       system.getAssets().add_asset();    }
       
