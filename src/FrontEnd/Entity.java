@@ -22,23 +22,59 @@ private System system;
         initComponents();
         this.system = system;
     }
-
-   public void add_entity(){
-           // if("Credor".equals(Type.getSelectedItem())){
-            String query = "INSERT INTO `intervenients_entities`(`name_int`, `adress_int`, `total_debInt`, `nif_int`, `nib_pay`, `contact_int`, `num_law`) "
-                    + "VALUES ('"+name_int.getText()+"','"+address_int.getText()+"',,'"+Integer.valueOf(nif_int.getText())+"','"+Integer.valueOf(iban.getText())+"','"+Integer.valueOf(contact_int.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
-            
-            try {           
-      
-            Connection c = DBClass.getConnection();
-        pst = c.prepareStatement(query);    
-               
-                pst.execute();
-         
-                   
-       }
-       catch(Exception e){
-   JOptionPane.showMessageDialog(null,e);}}
+public void add_entity(){
+                if("Credor".equals(Type.getSelectedItem())){
+                    String query = "INSERT INTO `intervenients_entities`(`name_int`,"
+                            + "`address_int`, "
+                            + "`nif_int`, "
+                            + "`nib_pay`, "
+                            + "`contact_int`, "
+                            + "`type`, "
+                            + "`name_mand`, "
+                            + "`address_mand`) "
+                            + "VALUES ('"+
+                            Name.getText()+"','"+
+                            address.getText()+"','"+
+                            Integer.valueOf(nif.getText())+"','"+
+                            Integer.valueOf(iban.getText())+"','"+
+                            Integer.valueOf(Contact.getText())+"','c', "
+                            + " '"+Name7.getText()+"', '"+Name8.getText()+"')";  
+                        try {           
+                        Connection c = DBClass.getConnection();
+                        pst = c.prepareStatement(query);    
+                        pst.execute();
+                        }
+                    catch(Exception e){
+                        JOptionPane.showMessageDialog(null,e);
+                    }
+               } 
+            else{
+                String query = "INSERT INTO `intervenients_entities`(`name_int`,"
+                            + "`address_int`, "
+                            + "`nif_int`, "
+                            + "`nib_pay`, "
+                            + "`contact_int`, "
+                            + "`type`, "
+                            + "`name_mand`, "
+                            + "`address_mand`) "
+                            + "VALUES ('"+
+                            Name.getText()+"','"+
+                            address.getText()+"','"+
+                            Integer.valueOf(nif.getText())+"','"+
+                            Integer.valueOf(iban.getText())+"','"+
+                            Integer.valueOf(Contact.getText())+"','d', "
+                            + " '"+Name7.getText()+"', '"+Name8.getText()+"')";     
+                    try{           
+                        Connection c = DBClass.getConnection();
+                        pst = c.prepareStatement(query);    
+                        pst.execute();
+                    }
+                    catch(Exception e){
+                        JOptionPane.showMessageDialog(null,e);
+                    }
+            }
+}
+   
            /* else{
                 String query = "INSERT INTO `creditor`(`nif_cre`, `name_cre`, `address_cre`, `contact_cre`, `num_law`, `nib_pay`, `total_deb`) VALUES ('"+Name.getText()+"','"+Adress.getText()+"',,'"+Integer.valueOf(Nif.getText())+"','"+Integer.valueOf(IBAN.getText())+"','"+Integer.valueOf(Contact.getText())+"','"+system.getlawsuit().getNum_law()+"')";    
             
@@ -62,10 +98,6 @@ private System system;
 
         jLabel2 = new javax.swing.JLabel();
         dateChooserDialog1 = new datechooser.beans.DateChooserDialog();
-        JPanel1 = new javax.swing.JPanel();
-        patrimony = new javax.swing.JButton();
-        entityes = new javax.swing.JButton();
-        complaint = new javax.swing.JButton();
         JPanel2 = new javax.swing.JPanel();
         Save = new javax.swing.JButton();
         Cancel = new javax.swing.JButton();
@@ -74,22 +106,217 @@ private System system;
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        name_int = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
         iban = new javax.swing.JTextField();
-        nif_int = new javax.swing.JTextField();
-        address_int = new javax.swing.JTextField();
-        contact_int = new javax.swing.JTextField();
+        nif = new javax.swing.JTextField();
+        Contact = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        address_mand = new javax.swing.JTextField();
+        Name7 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        name_mand = new javax.swing.JTextField();
+        Name8 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
+        Type = new javax.swing.JComboBox();
+        address = new javax.swing.JTextField();
+        JPanel1 = new javax.swing.JPanel();
+        patrimony = new javax.swing.JButton();
+        entityes = new javax.swing.JButton();
+        complaint = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        JPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        JPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entidade Interveniente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
+        JPanel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        JPanel2.setOpaque(false);
+
+        Save.setBackground(new java.awt.Color(255, 255, 255));
+        Save.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Save.setText("Guardar");
+        Save.setOpaque(false);
+        Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveActionPerformed(evt);
+            }
+        });
+
+        Cancel.setBackground(new java.awt.Color(255, 255, 255));
+        Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Cancel.setText("Cancelar");
+        Cancel.setOpaque(false);
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Nome da Entidade");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("NIF");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("Contacto");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("IBAN");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setText("Morada");
+
+        Name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameActionPerformed(evt);
+            }
+        });
+
+        iban.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ibanMouseClicked(evt);
+            }
+        });
+        iban.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ibanActionPerformed(evt);
+            }
+        });
+
+        nif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nifActionPerformed(evt);
+            }
+        });
+
+        Contact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContactActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setText("Nome");
+
+        Name7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Name7ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setText("Morada");
+
+        Name8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Name8ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel17.setText("                             Mandatário");
+
+        Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Credor", "Devedor" }));
+        Type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TypeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JPanel2Layout = new javax.swing.GroupLayout(JPanel2);
+        JPanel2.setLayout(JPanel2Layout);
+        JPanel2Layout.setHorizontalGroup(
+            JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanel2Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanel2Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel16))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JPanel2Layout.createSequentialGroup()
+                                        .addComponent(Cancel)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Save))
+                                    .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(Name8)
+                                        .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(JPanel2Layout.createSequentialGroup()
+                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanel2Layout.createSequentialGroup()
+                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+        JPanel2Layout.setVerticalGroup(
+            JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Name)
+                        .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addGroup(JPanel2Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(Contact, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addGap(9, 9, 9)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addGroup(JPanel2Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Name8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(35, 35, 35)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Cancel)
+                    .addComponent(Save))
+                .addGap(126, 126, 126))
+        );
+
+        getContentPane().add(JPanel2);
+        JPanel2.setBounds(0, 0, 810, 370);
 
         JPanel1.setBackground(new java.awt.Color(255, 255, 255));
         JPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Páginas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -149,197 +376,6 @@ private System system;
 
         getContentPane().add(JPanel1);
         JPanel1.setBounds(10, 370, 790, 80);
-
-        JPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        JPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entidade Interveniente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
-        JPanel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        JPanel2.setOpaque(false);
-
-        Save.setBackground(new java.awt.Color(255, 255, 255));
-        Save.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Save.setText("Guardar");
-        Save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveActionPerformed(evt);
-            }
-        });
-
-        Cancel.setBackground(new java.awt.Color(255, 255, 255));
-        Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Cancel.setText("Cancelar");
-        Cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Nome de entidade:");
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("NIF de Entidade:");
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Contacto:");
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("IBAN:");
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Morada:");
-
-        name_int.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_intActionPerformed(evt);
-            }
-        });
-
-        iban.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ibanActionPerformed(evt);
-            }
-        });
-
-        nif_int.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nif_intActionPerformed(evt);
-            }
-        });
-
-        address_int.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                address_intActionPerformed(evt);
-            }
-        });
-
-        contact_int.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contact_intActionPerformed(evt);
-            }
-        });
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Nome:");
-
-        address_mand.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                address_mandActionPerformed(evt);
-            }
-        });
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Morada:");
-
-        name_mand.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_mandActionPerformed(evt);
-            }
-        });
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Mandatário");
-
-        javax.swing.GroupLayout JPanel2Layout = new javax.swing.GroupLayout(JPanel2);
-        JPanel2.setLayout(JPanel2Layout);
-        JPanel2Layout.setHorizontalGroup(
-            JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addComponent(name_int, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(address_int, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contact_int, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(name_mand, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(address_mand, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(63, 63, 63))
-                    .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addComponent(nif_int, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel17)
-                        .addGap(137, 137, 137))))
-            .addGroup(JPanel2Layout.createSequentialGroup()
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(Cancel))
-                    .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(Save)))
-                .addGap(77, 77, 77))
-        );
-        JPanel2Layout.setVerticalGroup(
-            JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(name_int, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nif_int, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(contact_int, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(address_int, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Save)
-                            .addComponent(Cancel)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel2Layout.createSequentialGroup()
-                        .addGap(0, 17, Short.MAX_VALUE)
-                        .addComponent(jLabel17)
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(name_mand, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(address_mand, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16))
-                        .addGap(118, 118, 118)))
-                .addContainerGap())
-        );
-
-        getContentPane().add(JPanel2);
-        JPanel2.setBounds(10, 10, 790, 360);
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 810, 470);
 
@@ -361,42 +397,45 @@ private System system;
         c.setVisible(true);
     }//GEN-LAST:event_complaintActionPerformed
 
-    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-       system.getIntervening().add_intervening();
-        //add_entity();
-    }//GEN-LAST:event_SaveActionPerformed
-
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
         dispose();
     }//GEN-LAST:event_CancelActionPerformed
 
-    private void name_intActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_intActionPerformed
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_name_intActionPerformed
+    }//GEN-LAST:event_NameActionPerformed
+
+    private void ibanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ibanMouseClicked
+        // iban.setText(null);        // código para apagar texto colocado
+    }//GEN-LAST:event_ibanMouseClicked
 
     private void ibanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ibanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ibanActionPerformed
 
-    private void nif_intActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nif_intActionPerformed
+    private void nifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nifActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nif_intActionPerformed
+    }//GEN-LAST:event_nifActionPerformed
 
-    private void address_intActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_address_intActionPerformed
+    private void ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_address_intActionPerformed
+    }//GEN-LAST:event_ContactActionPerformed
 
-    private void contact_intActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contact_intActionPerformed
+    private void Name7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contact_intActionPerformed
+    }//GEN-LAST:event_Name7ActionPerformed
 
-    private void address_mandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_address_mandActionPerformed
+    private void Name8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_address_mandActionPerformed
+    }//GEN-LAST:event_Name8ActionPerformed
 
-    private void name_mandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_mandActionPerformed
+    private void TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_name_mandActionPerformed
+    }//GEN-LAST:event_TypeActionPerformed
+
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+        add_entity();
+    }//GEN-LAST:event_SaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -404,13 +443,16 @@ private System system;
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
+    private javax.swing.JTextField Contact;
     private javax.swing.JPanel JPanel1;
     private javax.swing.JPanel JPanel2;
+    private javax.swing.JTextField Name;
+    private javax.swing.JTextField Name7;
+    private javax.swing.JTextField Name8;
     private javax.swing.JButton Save;
-    private javax.swing.JTextField address_int;
-    private javax.swing.JTextField address_mand;
+    private javax.swing.JComboBox Type;
+    private javax.swing.JTextField address;
     private javax.swing.JButton complaint;
-    private javax.swing.JTextField contact_int;
     private datechooser.beans.DateChooserDialog dateChooserDialog1;
     private javax.swing.JButton entityes;
     private javax.swing.JTextField iban;
@@ -424,9 +466,7 @@ private System system;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField name_int;
-    private javax.swing.JTextField name_mand;
-    private javax.swing.JTextField nif_int;
+    private javax.swing.JTextField nif;
     private javax.swing.JButton patrimony;
     // End of variables declaration//GEN-END:variables
 }

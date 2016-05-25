@@ -300,7 +300,7 @@ public class AdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultActionPerformed
 
     private void CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateActionPerformed
-        User u = new User(system);
+        Userpage u = new Userpage(system);
         u.setVisible(true);
         
     }//GEN-LAST:event_CreateActionPerformed
