@@ -126,7 +126,6 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         complaint = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         JPanel2 = new javax.swing.JPanel();
-        Cancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -136,13 +135,16 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         iban = new javax.swing.JTextField();
         nif = new javax.swing.JTextField();
         Contact = new javax.swing.JTextField();
+        Type = new javax.swing.JComboBox();
+        address = new javax.swing.JTextField();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jLabel17 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         Name7 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         Name8 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        Type = new javax.swing.JComboBox();
-        address = new javax.swing.JTextField();
+        Cancel = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
 
@@ -246,7 +248,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
                     .addGroup(JPanelLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +258,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
                     .addComponent(jLabel1))
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18))
                     .addGroup(JPanelLayout.createSequentialGroup()
@@ -330,7 +332,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(patrimony)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(entityes)
                 .addGap(31, 31, 31)
                 .addComponent(complaint)
@@ -354,16 +356,6 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         JPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entidade Interveniente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24))); // NOI18N
         JPanel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         JPanel2.setOpaque(false);
-
-        Cancel.setBackground(new java.awt.Color(255, 255, 255));
-        Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Cancel.setText("Cancelar");
-        Cancel.setOpaque(false);
-        Cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Nome da Entidade");
@@ -409,9 +401,37 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
             }
         });
 
+        Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Credor", "Devedor" }));
+        Type.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TypeMouseClicked(evt);
+            }
+        });
+        Type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TypeActionPerformed(evt);
+            }
+        });
+
+        jRadioButton1.setText("Empresa");
+        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton1MouseClicked(evt);
+            }
+        });
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel17.setText("                             Mandatário");
+
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel15.setText("Nome");
 
+        Name7.setEnabled(false);
         Name7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Name7ActionPerformed(evt);
@@ -421,63 +441,66 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel16.setText("Morada");
 
+        Name8.setEnabled(false);
         Name8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Name8ActionPerformed(evt);
             }
         });
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel17.setText("                             Mandatário");
-
-        Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Credor", "Devedor" }));
-        Type.addActionListener(new java.awt.event.ActionListener() {
+        Cancel.setBackground(new java.awt.Color(255, 255, 255));
+        Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Cancel.setText("Cancelar");
+        Cancel.setOpaque(false);
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TypeActionPerformed(evt);
+                CancelActionPerformed(evt);
             }
         });
+
+        jLabel18.setText("Se for empresa, selecione:");
 
         javax.swing.GroupLayout JPanel2Layout = new javax.swing.GroupLayout(JPanel2);
         JPanel2.setLayout(JPanel2Layout);
         JPanel2Layout.setHorizontalGroup(
             JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(JPanel2Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel16))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(Name8, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Cancel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                        .addGap(117, 117, 117)
+                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Cancel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Name8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                            .addComponent(Name7, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton1))
+                            .addGroup(JPanel2Layout.createSequentialGroup()
+                                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
                                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(address, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Contact, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Name9)
-                                    .addComponent(nif, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
+                                    .addComponent(nif, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                                    .addComponent(iban))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(13, Short.MAX_VALUE))
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         JPanel2Layout.setVerticalGroup(
             JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,21 +529,23 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(iban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jLabel18))
+                .addGap(28, 28, 28)
                 .addComponent(jLabel17)
-                .addGap(9, 9, 9)
-                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addGroup(JPanel2Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(Name7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(JPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Name8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
                 .addComponent(Cancel)
-                .addGap(126, 126, 126))
+                .addGap(68, 68, 68))
         );
 
         getContentPane().add(JPanel2, java.awt.BorderLayout.LINE_END);
@@ -564,37 +589,50 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
         dispose();
     }//GEN-LAST:event_CancelActionPerformed
 
-    private void Name9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name9ActionPerformed
+    private void Name8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name9ActionPerformed
-
-    private void ibanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ibanMouseClicked
-        // iban.setText(null);        // código para apagar texto colocado
-    }//GEN-LAST:event_ibanMouseClicked
-
-    private void ibanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ibanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ibanActionPerformed
-
-    private void nifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nifActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nifActionPerformed
-
-    private void ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ContactActionPerformed
+    }//GEN-LAST:event_Name8ActionPerformed
 
     private void Name7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Name7ActionPerformed
 
-    private void Name8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Name8ActionPerformed
-
     private void TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TypeActionPerformed
+
+    private void TypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TypeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TypeMouseClicked
+
+    private void ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContactActionPerformed
+
+    private void nifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nifActionPerformed
+
+    private void ibanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ibanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ibanActionPerformed
+
+    private void ibanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ibanMouseClicked
+        // iban.setText(null);        // código para apagar texto colocado
+    }//GEN-LAST:event_ibanMouseClicked
+
+    private void Name9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name9ActionPerformed
+
+    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
+        Name7.setEnabled(true);
+        Name8.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton1MouseClicked
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -634,6 +672,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -642,6 +681,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nif;
     private javax.swing.JButton patrimony;
