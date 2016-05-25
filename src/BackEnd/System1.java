@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.util.Date;
 
 
-public class System {
+public class System1 {
 
     private static void exit(int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -20,7 +20,7 @@ public class System {
     private Online online;
     private Intervenient_entitie inter;
      
-    public System() {
+    public System1() {
 
     }
     
@@ -85,7 +85,7 @@ public class System {
     }
     
     public void end(){
-        System.exit(0);
+        System1.exit(0);
     }
   
     

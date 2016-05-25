@@ -4,15 +4,15 @@
  * and open the template in the editor.
  */
 package FrontEnd;
-import BackEnd.System;
+import BackEnd.System1;
 /**
  *
  * @author Asus
  */
 public class SecretaryMenu extends javax.swing.JFrame {
 
-private System system;
-    public SecretaryMenu(System system) {
+private System1 system;
+    public SecretaryMenu(System1 system) {
         initComponents();
         this.system = system;
     }

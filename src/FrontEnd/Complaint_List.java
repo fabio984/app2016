@@ -5,7 +5,7 @@
  */
 package FrontEnd;
 import BackEnd.DBClass;
-import BackEnd.System;
+import BackEnd.System1;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,10 +16,10 @@ import javax.swing.table.DefaultTableModel;
 public class Complaint_List extends javax.swing.JFrame {
 
     
-    private System system;
+    private System1 system;
       PreparedStatement pst = null;
   ResultSet rs = null;
-    public Complaint_List(System system) {
+    public Complaint_List(System1 system) {
         initComponents();
         this.system = system;
     }

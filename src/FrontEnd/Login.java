@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import BackEnd.System;
+import BackEnd.System1;
 import BackEnd.Employe;
 /**
  *
@@ -23,13 +23,13 @@ public class Login extends javax.swing.JFrame {
 
    Connection con = null;
    
-   private final System system;
+   private final System1 system;
     
     PreparedStatement pst = null;
     ResultSet rs = null;
      
     
-    public Login(System system) {
+    public Login(System1 system) {
        
        
         initComponents();

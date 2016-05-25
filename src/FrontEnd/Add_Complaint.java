@@ -9,16 +9,16 @@ import BackEnd.DBClass;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
-import BackEnd.System;
+import BackEnd.System1;
 
 /**
  *
  * @author Fábio Lima a75772
  */
 public class Add_Complaint extends javax.swing.JFrame {
-    private System system;
+    private System1 system;
     PreparedStatement pst = null;
-    public Add_Complaint(System system) {
+    public Add_Complaint(System1 system) {
         initComponents();
         this.system = system;
     }

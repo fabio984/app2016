@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package FrontEnd;
-import BackEnd.System;
+import BackEnd.System1;
 
 public class Attach extends javax.swing.JFrame {
 
-   private System system;
-    public Attach(System system) {
+   private System1 system;
+    public Attach(System1 system) {
         initComponents();
         this.system = system;
     }

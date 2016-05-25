@@ -5,11 +5,11 @@
  */
 package FrontEnd;
 
-import BackEnd.System;
+import BackEnd.System1;
 public class Attach_web extends javax.swing.JFrame {
 
-    private System system;
-    public Attach_web(System system) {
+    private System1 system;
+    public Attach_web(System1 system) {
         initComponents();
         this.system = system;
     }

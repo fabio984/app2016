@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 package FrontEnd;
-import BackEnd.System;
+import BackEnd.System1;
 
 
 public class PaymentMade extends javax.swing.JFrame {
 
-private System system;
-    public PaymentMade(System system) {
+private System1 system;
+    public PaymentMade(System1 system) {
         initComponents();
         this.system = system;
     }

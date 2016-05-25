@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package FrontEnd;
-import BackEnd.System;
+import BackEnd.System1;
 
 public class LawsuitMenu extends javax.swing.JFrame {
 
-private System system;
-    public LawsuitMenu(System system) {
+private System1 system;
+    public LawsuitMenu(System1 system) {
         initComponents();
         this.system = system;
         
@@ -482,7 +482,7 @@ private System system;
     private javax.swing.JMenu report5;
     // End of variables declaration//GEN-END:variables
 
-    private Entity_List Entity_List(System system) {
+    private Entity_List Entity_List(System1 system) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

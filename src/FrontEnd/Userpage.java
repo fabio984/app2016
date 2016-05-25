@@ -5,7 +5,7 @@
  */
 package FrontEnd;
 import BackEnd.DBClass;
-import BackEnd.System;
+import BackEnd.System1;
 
 
 import BackEnd.Lawsuit;
@@ -26,12 +26,12 @@ import javax.swing.table.DefaultTableModel;
 public class Userpage extends javax.swing.JFrame {
 private String type;
 private int num_emp;
-private System system;
+private System1 system;
     PreparedStatement pst = null;
   ResultSet rs = null;
   
      
-    public Userpage(System system) {
+    public Userpage(System1 system) {
         initComponents();
         this.type = type;
        // this.num_emp = num_emp;

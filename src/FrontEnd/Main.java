@@ -1,17 +1,17 @@
 
 package FrontEnd;
 
-import BackEnd.System;
+import BackEnd.System1;
 
 
 public class Main {
 
-        private System system;
+        private System1 system;
     
    
     public static void main(String[] args) {
        
-       System system = new System();
+       System1 system = new System1();
        
     //LawsuitMenu login = new LawsuitMenu(system);
     //login.setVisible(true);

@@ -13,20 +13,20 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import BackEnd.System;
+import BackEnd.System1;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class Add_Asset extends javax.swing.JFrame {
-private System system;
+private System1 system;
 
 PreparedStatement pst = null;
   ResultSet rs = null;
   private File file;
   
-    public Add_Asset(System system) {
+    public Add_Asset(System1 system) {
         initComponents();
      this.system = system;
            /*  this.setResizable(false);

@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package FrontEnd;
-import BackEnd.System;
+import BackEnd.System1;
 public class Lawyermenu extends javax.swing.JFrame {
 
- private System system;
-    public Lawyermenu(System system) {
+ private System1 system;
+    public Lawyermenu(System1 system) {
         initComponents();
         this.system= system;
     }

@@ -12,15 +12,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import BackEnd.System;
+import BackEnd.System1;
 
         public class Edit_InfoCompany extends javax.swing.JFrame {
 
-            private System system;
+            private System1 system;
   PreparedStatement pst = null;
   ResultSet rs = null;
   
-    public Edit_InfoCompany(System system) {
+    public Edit_InfoCompany(System1 system) {
         initComponents();
         this.system= system;
         //this.setResizable(false);

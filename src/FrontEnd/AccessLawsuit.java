@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import BackEnd.System;
+import BackEnd.System1;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,12 +33,12 @@ import javax.swing.SwingUtilities;
 
 public class AccessLawsuit extends javax.swing.JFrame {
 
-            private System system;
+            private System1 system;
   PreparedStatement pst = null;
   ResultSet rs = null;
     private Object textField;
   
-    public AccessLawsuit(System system) {
+    public AccessLawsuit(System1 system) {
         initComponents();
         this.system= system;
           DefaultTableModel dm= (DefaultTableModel)table.getModel();

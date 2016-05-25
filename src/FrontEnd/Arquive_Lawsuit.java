@@ -5,7 +5,7 @@
  */
 package FrontEnd;
 import BackEnd.DBClass;
-import BackEnd.System;
+import BackEnd.System1;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,10 +16,10 @@ import javax.swing.table.DefaultTableModel;
 public class Arquive_Lawsuit extends javax.swing.JFrame {
 
     
-    private System system;
+    private System1 system;
       PreparedStatement pst = null;
   ResultSet rs = null;
-    public Arquive_Lawsuit(System system) {
+    public Arquive_Lawsuit(System1 system) {
         initComponents();
         this.system = system;
         list_arq();

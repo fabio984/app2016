@@ -11,15 +11,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
-import BackEnd.System;
+import BackEnd.System1;
 
         public class Link extends javax.swing.JFrame {
 
-            private System system;
+            private System1 system;
   PreparedStatement pst = null;
   ResultSet rs = null;
   
-    public Link(System system) {
+    public Link(System1 system) {
         initComponents();
         this.system= system;
          //this.setResizable(false);

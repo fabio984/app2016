@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import BackEnd.System;
+import BackEnd.System1;
 import java.sql.ResultSet;
 import java.util.Date;
 
@@ -22,11 +22,11 @@ import java.util.Date;
  */
 public class Consult_pat extends javax.swing.JFrame {
  
-    private System system;
+    private System1 system;
       PreparedStatement pst = null;
       ResultSet rs = null;
       public int num_law;
-    public Consult_pat(System system) {
+    public Consult_pat(System1 system) {
         initComponents();
         this.system = system;
        /*    this.setResizable(false);

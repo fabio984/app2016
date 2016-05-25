@@ -5,7 +5,7 @@
  */
 package FrontEnd;
 import BackEnd.DBClass;
-import BackEnd.System;
+import BackEnd.System1;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,9 +17,9 @@ public class Arquive_List extends javax.swing.JFrame {
 
     
     
-    private System system;
+    private System1 system;
       PreparedStatement pst = null;
-  ResultSet rs = null;    public Arquive_List(System system) {
+  ResultSet rs = null;    public Arquive_List(System1 system) {
         initComponents();
         this.system = system;
         list_arq();

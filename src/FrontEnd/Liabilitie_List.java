@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package FrontEnd;
-import BackEnd.System;
+import BackEnd.System1;
 
 
 public class Liabilitie_List extends javax.swing.JFrame {
 
     
-    private System system;
-    public Liabilitie_List(System system) {
+    private System1 system;
+    public Liabilitie_List(System1 system) {
         initComponents();
         this.system = system;
     }

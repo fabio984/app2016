@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package FrontEnd;
-import BackEnd.System;
+import BackEnd.System1;
 
 
 public class Delete_Attach extends javax.swing.JFrame {
 
     
-    private System system;
-    public Delete_Attach(System system) {
+    private System1 system;
+    public Delete_Attach(System1 system) {
         initComponents();
         this.system = system;
     }

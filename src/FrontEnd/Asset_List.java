@@ -5,7 +5,7 @@
  */
 package FrontEnd;
 import BackEnd.DBClass;
-import BackEnd.System;
+import BackEnd.System1;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,8 +16,8 @@ import javax.swing.table.DefaultTableModel;
 public class Asset_List extends javax.swing.JFrame {
 
     PreparedStatement pst;
-    private System system;
-    public Asset_List(System system) {
+    private System1 system;
+    public Asset_List(System1 system) {
         initComponents();
         this.system = system;
         list_assets();
