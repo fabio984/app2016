@@ -90,10 +90,6 @@ import BackEnd.System1;
         type11 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         cond = new javax.swing.JTextArea();
-        type13 = new javax.swing.JLabel();
-        telep1 = new javax.swing.JTextField();
-        type14 = new javax.swing.JLabel();
-        telep2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
@@ -102,7 +98,7 @@ import BackEnd.System1;
         setMinimumSize(new java.awt.Dimension(810, 510));
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
-        JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inforamção da empresa", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+        JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informação da empresa", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
         JPanel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         JPanel.setMinimumSize(new java.awt.Dimension(890, 610));
         JPanel.setOpaque(false);
@@ -199,92 +195,75 @@ import BackEnd.System1;
         cond.setRows(5);
         jScrollPane2.setViewportView(cond);
 
-        type13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        type13.setForeground(new java.awt.Color(255, 255, 255));
-        type13.setText("Link:");
-
-        telep1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telep1ActionPerformed(evt);
-            }
-        });
-
-        type14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        type14.setForeground(new java.awt.Color(255, 255, 255));
-        type14.setText("Nome de Link:");
-
-        telep2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telep2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
         JPanel.setLayout(JPanelLayout);
         JPanelLayout.setHorizontalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelLayout.createSequentialGroup()
-                .addGap(201, 201, 201)
-                .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(241, 241, 241)
-                .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(JPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(type6)
-                            .addComponent(type7))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(address)
-                            .addComponent(jScrollPane1))
-                        .addGap(28, 28, 28))
-                    .addGroup(JPanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(type10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(type5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(type4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(type10, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelLayout.createSequentialGroup()
-                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(323, 553, Short.MAX_VALUE))
-                            .addComponent(tele)
-                            .addComponent(telep))
-                        .addGap(27, 27, 27))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(type4, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
-                        .addComponent(type8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(postal))
+                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(323, 549, Short.MAX_VALUE))
+                    .addComponent(tele)
+                    .addComponent(telep))
+                .addGap(27, 27, 27))
+            .addGroup(JPanelLayout.createSequentialGroup()
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(type8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(type9, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(type11, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(type13, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(type14, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(type7)
+                            .addComponent(type6))
+                        .addGap(8, 8, 8)))
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(address)
+                    .addComponent(jScrollPane1)
+                    .addGroup(JPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(postal)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                        .addComponent(type9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fax, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(143, 143, 143))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
+                        .addComponent(type11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(telep2)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
-                            .addComponent(fax, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(telep1))))
-                .addGap(25, 25, 25))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(137, 137, 137))))
+            .addGroup(JPanelLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(215, 215, 215)
+                .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type4))
                 .addGap(18, 18, 18)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type5))
                 .addGap(18, 18, 18)
@@ -300,30 +279,22 @@ import BackEnd.System1;
                     .addComponent(type7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(type8)
-                    .addComponent(postal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(postal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(type8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fax, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(type9))
+                    .addComponent(type9)
+                    .addComponent(fax, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(41, 41, 41)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telep2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(type14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 725, Short.MAX_VALUE)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(type13))
-                .addGap(25, 25, 25)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(764, Short.MAX_VALUE))
         );
 
         getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
@@ -368,14 +339,6 @@ import BackEnd.System1;
         // TODO add your handling code here:
     }//GEN-LAST:event_teleActionPerformed
 
-    private void telep1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telep1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_telep1ActionPerformed
-
-    private void telep2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telep2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_telep2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -397,12 +360,8 @@ import BackEnd.System1;
     private javax.swing.JTextField postal;
     private javax.swing.JTextField tele;
     private javax.swing.JTextField telep;
-    private javax.swing.JTextField telep1;
-    private javax.swing.JTextField telep2;
     private javax.swing.JLabel type10;
     private javax.swing.JLabel type11;
-    private javax.swing.JLabel type13;
-    private javax.swing.JLabel type14;
     private javax.swing.JLabel type4;
     private javax.swing.JLabel type5;
     private javax.swing.JLabel type6;
