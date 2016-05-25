@@ -106,7 +106,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Palavra-passe");
 
         Login1.setBackground(new java.awt.Color(255, 255, 255));
-        Login1.setText("Adicionar utilizador?!");
+        Login1.setText("Adicionar utilizador");
         Login1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Login1ActionPerformed(evt);
@@ -248,7 +248,25 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_UserTextActionPerformed
 
     private void Login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login1ActionPerformed
-        // TODO add your handling code here:
+             String sql = "Select * from user ";
+       try{
+           
+       Connection c = DBClass.getConnection();
+      
+
+           pst = c.prepareStatement(sql);
+           
+
+           ResultSet rs = pst.executeQuery();
+           if(rs.wasNull()){
+               
+                 Userpage a= new Userpage(system);
+           a.setVisible(true);  
+               
+                
+               }}
+       catch(Exception e){
+       JOptionPane.showMessageDialog(null,e);}
     }//GEN-LAST:event_Login1ActionPerformed
 
     private void LoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginKeyPressed

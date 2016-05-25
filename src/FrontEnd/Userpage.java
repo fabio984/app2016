@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Asus
  */
-public class User extends javax.swing.JFrame {
+public class Userpage extends javax.swing.JFrame {
 private String type;
 private int num_emp;
 private System system;
@@ -31,7 +31,7 @@ private System system;
   ResultSet rs = null;
   
      
-    public User(System system) {
+    public Userpage(System system) {
         initComponents();
         this.type = type;
        // this.num_emp = num_emp;
@@ -220,13 +220,13 @@ private System system;
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Utilizador", "Password", "Tipo"
+
             }
         ));
         jScrollPane1.setViewportView(table);

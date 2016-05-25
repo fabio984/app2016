@@ -6,6 +6,7 @@
 package FrontEnd;
 
 import BackEnd.DBClass;
+import BackEnd.Lawsuit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,36 +23,65 @@ import BackEnd.System;
     public Proposal(System system) {
         initComponents();
         this.system= system;
-        DefaultTableModel dm= (DefaultTableModel)table.getModel();
+      list_assets();
+    }
+      public DefaultTableModel list_assets(){
+              
+         DefaultTableModel dm= (DefaultTableModel)table.getModel();
              dm.setColumnCount(0);
        dm.setRowCount(0);
-              dm.addColumn("NºProcesso");
-         dm.addColumn("Nome de empresa");
-    dm.addColumn("Nif");
-         dm.addColumn("Data");
-
+         dm.addColumn("Nome de Produto");
+         dm.addColumn("Id");
+         dm.addColumn("Preço");
+         dm.addColumn("Estado");
+         dm.addColumn("Descrição");
+         dm.addColumn("Categoria");
+         dm.addColumn("Distrito");
+     
+         dm.addColumn("Número de Processo");
+         dm.addColumn("Morada");
+         dm.addColumn("Código Postal");
+         dm.addColumn("Imagem");
+         dm.addColumn("Localidade");
         
         try{
-      Connection c = DBClass.getConnection();
-        String sql = "select * from lawsuit a, client c where a.nif_cli=c.nif_cli";
+            //int num_l = system.getlawsuit().getNum_law();
+        Connection c = DBClass.getConnection();
+        String sql = "select * from financial_asset where num_law = '"+system.getlawsuit().getNum_law()+"'";
+       
          pst = c.prepareStatement(sql);
          ResultSet rs = pst.executeQuery();
-         
+     
          while (rs.next()){
-              String num_law= rs.getString("num_law");
-             String name_cli= rs.getString("name_cli");
-              String nif_cli= rs.getString("nif_cli");
-//               String date_beg= rs.getString("date_beg");
-
-               dm.addRow(new String[]{num_law,name_cli,nif_cli});
-        
+             String name= rs.getString(1);
+             String id= rs.getString(2);
+               String preco= rs.getString(3);
+               String estado= rs.getString(4);
+               String descricao= rs.getString(5);
+               String categoria= rs.getString(6);
+               String distrito= rs.getString(7);
+          
+               String num= rs.getString(8);
+               String adress= rs.getString(9);
+               String postal= rs.getString(10);
+               String image = rs.getString(11);
+               String locality = rs.getString(12);
+               
+               
+               dm.addRow(new String[]{name,id,preco,estado,descricao,categoria,distrito,num,adress,postal,image,locality});
+          
+                     
          }
+         
+           return dm;
    
     }
             catch(Exception e){
-       JOptionPane.showMessageDialog(null,e);} 
+       //JOptionPane.showMessageDialog(null,e);
+            } 
+    return null;
     }
-  
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -106,6 +136,11 @@ import BackEnd.System;
 
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(table);
 
         type4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -195,6 +230,28 @@ import BackEnd.System;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        
+        int row= table.getSelectedRow();
+        String table_click =(table.getModel().getValueAt(row, 0).toString());
+    
+    /*    String query = "INSERT INTO `proposal`(`name`, `email`, `price_proposal`, `id_pro`, `type_proposal`, `BI/CC`, `proposal_address`, `postal_code`, `telephone_pro`, `nipc`) VALUES"
+                + " ('"+"o"+"','"+system.getlawsuit().getNif_cli()+"','"+Desc.getText()+"','"+Integer.valueOf(Nif.getText())+"','"+system.getlawsuit().getNum_law()+"','"+date+"','"+0+"','"+Integer.valueOf(Value.getText())+"' )";    
+           try {           
+      
+            Connection c = DBClass.getConnection();
+        pst = c.prepareStatement(query);    
+               
+                pst.execute();
+         
+                   
+       }
+       catch(Exception e){
+   JOptionPane.showMessageDialog(null,e);}*/
+        
+        
+    }//GEN-LAST:event_tableMouseClicked
 
     /**
      * @param args the command line arguments

@@ -13,8 +13,8 @@ private System system;
         initComponents();
         this.system = system;
         
-       //num.setText(system.getlawsuit().getNum_law() + "");
-       //emp.setText(system.getClient().getName_cli() + "");
+       num.setText(system.getlawsuit().getNum_law() + "");
+       emp.setText(system.getClient().getName_cli() + "");
     }
     
     
@@ -139,7 +139,7 @@ private System system;
                     .addComponent(emp, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(110, 110, 110)
                 .addComponent(jLabel1)
-                .addContainerGap(505, Short.MAX_VALUE))
+                .addContainerGap(676, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

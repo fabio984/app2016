@@ -4,17 +4,71 @@
  * and open the template in the editor.
  */
 package FrontEnd;
+import BackEnd.DBClass;
 import BackEnd.System;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Complaint_List extends javax.swing.JFrame {
 
     
     private System system;
+      PreparedStatement pst = null;
+  ResultSet rs = null;
     public Complaint_List(System system) {
         initComponents();
         this.system = system;
     }
+    
+    public DefaultTableModel list_assets(){
+              
+         DefaultTableModel dm= (DefaultTableModel)table.getModel();
+             dm.setColumnCount(0);
+       dm.setRowCount(0);
+              dm.addColumn("Nome");
+         dm.addColumn("Nº");
+    
+         dm.addColumn("Valor rec");
+                  dm.addColumn("Valor prop");
+                  dm.addColumn("Data");
+                  dm.addColumn("Descrição");
+
+                try{
+      Connection c = DBClass.getConnection();
+        String sql = "select * from complaint where num_law = '"+system.getlawsuit().getNum_law()+"'";
+         pst = c.prepareStatement(sql);
+         ResultSet rs = pst.executeQuery();
+         
+         while (rs.next()){
+              String name= rs.getString("name_complaint");
+             String num= rs.getString("number_complaint");
+              String rec= rs.getString("value_recognize");
+ String prop= rs.getString("value_proposal");
+ String date= rs.getString("date");
+ String desc= rs.getString("description_com");
+ 
+
+               dm.addRow(new String[]{name,num,rec,prop,date,desc});
+
+
+           
+          
+                     
+         }
+         
+           return dm;
+   
+    }
+            catch(Exception e){
+       JOptionPane.showMessageDialog(null,e);} 
+        return null;
+        
+      
+            }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,7 +82,7 @@ public class Complaint_List extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         JPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         image = new javax.swing.JLabel();
 
@@ -43,7 +97,7 @@ public class Complaint_List extends javax.swing.JFrame {
         JPanel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         JPanel.setOpaque(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -57,8 +111,8 @@ public class Complaint_List extends javax.swing.JFrame {
                 "Nome de reclamação", "Nº de Reclamação", "NIF", "Valor Reclamação", "Valor Reconhecido", "Data de Reclamação", "Descrição"
             }
         ));
-        jTable1.setOpaque(false);
-        jScrollPane1.setViewportView(jTable1);
+        table.setOpaque(false);
+        jScrollPane1.setViewportView(table);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("Voltar");
@@ -116,6 +170,6 @@ public class Complaint_List extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }
