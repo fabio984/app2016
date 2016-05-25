@@ -58,7 +58,6 @@ public class Login extends javax.swing.JFrame {
         PassText = new javax.swing.JPasswordField();
         Login1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
 
@@ -139,11 +138,11 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(Close)
                                 .addGap(18, 18, 18)
                                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 373, Short.MAX_VALUE))
+                .addGap(373, 373, 373))
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,16 +162,81 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(Login))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Login1)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addGap(292, 292, 292))
         );
 
         getContentPane().add(JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 790, 490));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/yfcv.PNG"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 510));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Login1ActionPerformed
+
+    private void UserTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserTextActionPerformed
+
+    private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed
+        system.end();
+    }//GEN-LAST:event_CloseActionPerformed
+
+    private void LoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginKeyPressed
+
+    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
+        login();
+        String username = UserText.getText();
+        String password = PassText.getText();
+
+        User u = new User (username, password);
+        Employe e = new Employe();
+        system.setEmp(e);
+        system.setUser(u);
+        system.getUser().add_user(username, password);
+        system.getEmp().add_emp(system.getUser().getNum_emp());
+
+        if(system.getUser().getType().equals("a")){
+            AdminMenu a= new AdminMenu(system);
+            a.setVisible(true);}
+        else    if(system.getUser().getType().equals("s")){
+            SecretaryMenu s= new SecretaryMenu(system);
+            s.setVisible(true);}
+        else    if(system.getUser().getType().equals("l")){
+            Lawyermenu l= new Lawyermenu(system);
+            l.setVisible(true);}
+
+        /*  String sql = "Select * from user where username=? and password=? ";
+        try{
+
+            Connection c = DBClass.getConnection();
+
+            pst = c.prepareStatement(sql);
+
+            pst.setString(1, UserText.getText());
+            pst.setString(2, PassText.getText());
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "correct");
+
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String type = rs.getString("type");
+                int num_emp = Integer.valueOf(rs.getString("num_emp"));
+
+                else{
+                    JOptionPane.showMessageDialog(null, "incorrect");
+
+                }
+
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);}*/
+            dispose();
+    }//GEN-LAST:event_LoginActionPerformed
     private void login(){
         if(UserText.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Introduza nome de utilizador");
@@ -184,77 +248,6 @@ public class Login extends javax.swing.JFrame {
             PassText.requestFocus();
         }
     }
-    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-     login();
-     String username = UserText.getText();
-     String password = PassText.getText();
-     
-       
-           User u = new User (username, password);
-           Employe e = new Employe();
-           system.setEmp(e);
-           system.setUser(u);
-           system.getUser().add_user(username, password);
-           system.getEmp().add_emp(system.getUser().getNum_emp());
-        
-           if(system.getUser().getType().equals("a")){
-                  AdminMenu a= new AdminMenu(system);
-           a.setVisible(true);}
-            else    if(system.getUser().getType().equals("s")){
-                  SecretaryMenu s= new SecretaryMenu(system);
-           s.setVisible(true);}
-           else    if(system.getUser().getType().equals("l")){
-                  Lawyermenu l= new Lawyermenu(system);
-           l.setVisible(true);}
-      
-           /*  String sql = "Select * from user where username=? and password=? ";
-       try{
-           
-       Connection c = DBClass.getConnection();
-      
-
-           pst = c.prepareStatement(sql);
-           
-           pst.setString(1, UserText.getText());
-           pst.setString(2, PassText.getText());
-           ResultSet rs = pst.executeQuery();
-           if(rs.next()){
-           JOptionPane.showMessageDialog(null, "correct");
-           
-           String username = rs.getString("username");
-           String password = rs.getString("password");
-           String type = rs.getString("type");
-           int num_emp = Integer.valueOf(rs.getString("num_emp"));
-         
-   
-        
-           else{
-           JOptionPane.showMessageDialog(null, "incorrect");
-           
-           }
-                   
-       }
-       catch(Exception e){
-       JOptionPane.showMessageDialog(null,e);}*/
-       dispose();
-    }//GEN-LAST:event_LoginActionPerformed
-
-    private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed
-        system.end();
-    }//GEN-LAST:event_CloseActionPerformed
-
-    private void UserTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserTextActionPerformed
-
-    private void Login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Login1ActionPerformed
-
-    private void LoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LoginKeyPressed
-
     /**
      * @param args the command line arguments
      */
@@ -271,6 +264,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }
