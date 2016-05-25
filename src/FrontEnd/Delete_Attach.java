@@ -35,9 +35,8 @@ public class Delete_Attach extends javax.swing.JFrame {
 
         jLabel2.setText("Utilizador:");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 550));
-        getContentPane().setLayout(null);
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
         JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Documentos Anexados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -83,7 +82,7 @@ public class Delete_Attach extends javax.swing.JFrame {
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addGap(251, 251, 251)
@@ -101,15 +100,11 @@ public class Delete_Attach extends javax.swing.JFrame {
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
-        getContentPane().add(JPanel);
-        JPanel.setBounds(10, 10, 790, 480);
-
-        image.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\yfcv.PNG")); // NOI18N
-        getContentPane().add(image);
-        image.setBounds(0, 0, 850, 500);
+        getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
+        getContentPane().add(image, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

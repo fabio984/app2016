@@ -35,8 +35,7 @@ public class Patrimony extends javax.swing.JFrame {
 
         jLabel2.setText("Utilizador:");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
         JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registar Património", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -80,7 +79,7 @@ public class Patrimony extends javax.swing.JFrame {
                 .addComponent(jButton9)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                .addContainerGap(282, Short.MAX_VALUE)
+                .addContainerGap(300, Short.MAX_VALUE)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                         .addComponent(jButton2)
@@ -94,15 +93,14 @@ public class Patrimony extends javax.swing.JFrame {
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(57, 57, 57)
                 .addComponent(jButton9)
                 .addGap(43, 43, 43))
         );
 
-        getContentPane().add(JPanel);
-        JPanel.setBounds(10, 10, 790, 350);
+        getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
 
         JPanel1.setBackground(new java.awt.Color(255, 255, 255));
         JPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Páginas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -143,7 +141,7 @@ public class Patrimony extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(patrimony)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addComponent(entityes)
                 .addGap(31, 31, 31)
                 .addComponent(complaint)
@@ -160,12 +158,8 @@ public class Patrimony extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(JPanel1);
-        JPanel1.setBounds(10, 370, 790, 80);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\yfcv.PNG")); // NOI18N
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 810, 470);
+        getContentPane().add(JPanel1, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jLabel5, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

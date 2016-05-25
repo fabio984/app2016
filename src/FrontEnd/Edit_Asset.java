@@ -163,9 +163,8 @@ String image= file.getAbsolutePath();
 
         jLabel2.setText("Utilizador:");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 550));
-        getContentPane().setLayout(null);
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
         JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ativos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -302,7 +301,7 @@ String image= file.getAbsolutePath();
                                                 .addComponent(type5)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(Category2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 1, Short.MAX_VALUE))
+                                                .addGap(0, 36, Short.MAX_VALUE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,12 +343,12 @@ String image= file.getAbsolutePath();
                 .addGroup(JPanelLayout.createSequentialGroup()
                     .addGap(160, 160, 160)
                     .addComponent(type1)
-                    .addContainerGap(1030, Short.MAX_VALUE)))
+                    .addContainerGap(1049, Short.MAX_VALUE)))
             .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPanelLayout.createSequentialGroup()
                     .addGap(22, 22, 22)
                     .addComponent(type6)
-                    .addContainerGap(1166, Short.MAX_VALUE)))
+                    .addContainerGap(1185, Short.MAX_VALUE)))
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,12 +418,8 @@ String image= file.getAbsolutePath();
                     .addContainerGap(589, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(JPanel);
-        JPanel.setBounds(10, 10, 1280, 770);
-
-        image.setIcon(new javax.swing.ImageIcon("C:\\Users\\Asus\\Desktop\\12842488_1375781709114375_619237141_o.jpg")); // NOI18N
-        getContentPane().add(image);
-        image.setBounds(0, 0, 1300, 790);
+        getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
+        getContentPane().add(image, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

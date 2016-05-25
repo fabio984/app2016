@@ -122,17 +122,17 @@ public class CreateLawsuit extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         Email_Cli = new javax.swing.JTextField();
         Date_begin = new com.toedter.calendar.JDateChooser();
-        Category = new javax.swing.JComboBox<String>();
+        Category = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         Name_T = new javax.swing.JTextField();
-        Name_J = new javax.swing.JComboBox<String>();
+        Name_J = new javax.swing.JComboBox<>();
         JPanel1 = new javax.swing.JPanel();
         patrimony = new javax.swing.JButton();
         entityes = new javax.swing.JButton();
         complaint = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
         JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Criar Processos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -211,7 +211,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
 
         Date_begin.setDateFormatString("yyyy-MM-dd");
 
-        Category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PER" }));
+        Category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PER" }));
         Category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CategoryActionPerformed(evt);
@@ -221,7 +221,7 @@ public class CreateLawsuit extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Tribunal");
 
-        Name_J.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mario José" }));
+        Name_J.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mario José" }));
         Name_J.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Name_JActionPerformed(evt);
