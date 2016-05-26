@@ -97,10 +97,7 @@ public class Online {
     }
    
        public void add_online_info(){
-            
-           
-    
-          String query = "INSERT INTO `online_information`(`email_company`, `phone_company`, `address_company`, `description_comp`, `postal_code_company`, `fax_company`, `telephone_company`, `conditions`)"
+            String query = "INSERT INTO `online_information`(`email_company`, `phone_company`, `address_company`, `description_comp`, `postal_code_company`, `fax_company`, `telephone_company`, `conditions`)"
                   + " VALUES(?,?,?,?,?,?,?,?,?)";    
             // por numero processo
             try {            
@@ -123,19 +120,14 @@ public class Online {
        JOptionPane.showMessageDialog(null,e);} }
 
          public void edit_online_info(){
-            
-           
-    
-          String query = "UPDATE `online_information` SET `email_company`='"+email_company+"',`phone_company`='"+phone_company+"',`address_company`='"+address_company+"',`description_comp`='"+description_comp+"',`postal_code_company`='"+postal_code_company+"',`fax_company`='"+fax_company+"',`telephone_company`='"+telephone_company+"',`conditions`='"+conditions+"'";    
+          String query = "UPDATE `online_information` SET `email_company`='"+email_company+"',`phone_company`='"+phone_company+"',`address_company`='"+address_company+"'"
+                  + ",`description_comp`='"+description_comp+"',`postal_code_company`='"+postal_code_company+"'"
+                  + ",`fax_company`='"+fax_company+"',`telephone_company`='"+telephone_company+"',`conditions`='"+conditions+"'";    
             // por numero processo
             try {            
-      
             Connection c = DBClass.getConnection();
-        pst = c.prepareStatement(query);       
-        
-                                
+        pst = c.prepareStatement(query);                                  
             pst.execute();
-          
        }
        catch(Exception e){
        JOptionPane.showMessageDialog(null,e);} }

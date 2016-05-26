@@ -64,6 +64,30 @@ import BackEnd.System1;
     
   }
 
+    public void saveInfo(){
+    
+        String query = "INSERT INTO `online_information`( `email_company`, `phone_company`, `address_company`"
+                + ", `description_comp`, `postal_code_company`, `fax_company`, `telephone_company`, `conditions`)" 
+                + "VALUES ('"+
+                email.getText()+"','"+
+                tele.getText()+"','"+
+                address.getText()+"','"+
+                description+"','"+
+                postal.getText()+"','"+
+                fax.getText()+"','"+
+                telep.getText()+"','"+
+                cond.getText()+"')";
+      
+            try {           
+                Connection c = DBClass.getConnection();
+                pst = c.prepareStatement(query);    
+                pst.execute();
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);
+            }   
+  }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -71,7 +95,7 @@ import BackEnd.System1;
         jLabel2 = new javax.swing.JLabel();
         JPanel = new javax.swing.JPanel();
         ButtonCancel = new javax.swing.JButton();
-        ButtonSave = new javax.swing.JButton();
+        ButtonEdit = new javax.swing.JButton();
         email = new javax.swing.JTextField();
         type4 = new javax.swing.JLabel();
         telep = new javax.swing.JTextField();
@@ -85,11 +109,12 @@ import BackEnd.System1;
         type9 = new javax.swing.JLabel();
         tele = new javax.swing.JTextField();
         type10 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        description = new javax.swing.JScrollPane();
         desc = new javax.swing.JTextArea();
         type11 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         cond = new javax.swing.JTextArea();
+        ButtonSave = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
@@ -111,11 +136,11 @@ import BackEnd.System1;
             }
         });
 
-        ButtonSave.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonSave.setText("Gravar");
-        ButtonSave.addActionListener(new java.awt.event.ActionListener() {
+        ButtonEdit.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEdit.setText("Editar");
+        ButtonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSaveActionPerformed(evt);
+                ButtonEditActionPerformed(evt);
             }
         });
 
@@ -185,7 +210,7 @@ import BackEnd.System1;
 
         desc.setColumns(20);
         desc.setRows(5);
-        jScrollPane1.setViewportView(desc);
+        description.setViewportView(desc);
 
         type11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         type11.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,6 +220,13 @@ import BackEnd.System1;
         cond.setRows(5);
         jScrollPane2.setViewportView(cond);
 
+        ButtonSave.setText("Gravar");
+        ButtonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
         JPanel.setLayout(JPanelLayout);
         JPanelLayout.setHorizontalGroup(
@@ -202,9 +234,11 @@ import BackEnd.System1;
             .addGroup(JPanelLayout.createSequentialGroup()
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(215, 215, 215)
+                        .addGap(144, 144, 144)
+                        .addComponent(ButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104)
+                        .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101)
                         .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JPanelLayout.createSequentialGroup()
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +283,7 @@ import BackEnd.System1;
                                         .addComponent(postal, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(address, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)))))))
+                                        .addComponent(description, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)))))))
                 .addContainerGap(93, Short.MAX_VALUE))
         );
         JPanelLayout.setVerticalGroup(
@@ -274,7 +308,7 @@ import BackEnd.System1;
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(type7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(postal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,13 +323,13 @@ import BackEnd.System1;
                     .addComponent(type11))
                 .addGap(47, 47, 47)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(764, Short.MAX_VALUE))
         );
 
         getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
-        JPanel.getAccessibleContext().setAccessibleName("Informação da empresa"); // NOI18N
 
         jLabel5.setMinimumSize(new java.awt.Dimension(910, 600));
         getContentPane().add(jLabel5, java.awt.BorderLayout.PAGE_START);
@@ -307,10 +341,10 @@ import BackEnd.System1;
        dispose();
     }//GEN-LAST:event_ButtonCancelActionPerformed
 
-    private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveActionPerformed
+    private void ButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditActionPerformed
     edit_info();
     dispose();
-    }//GEN-LAST:event_ButtonSaveActionPerformed
+    }//GEN-LAST:event_ButtonEditActionPerformed
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
@@ -336,6 +370,11 @@ import BackEnd.System1;
         // TODO add your handling code here:
     }//GEN-LAST:event_teleActionPerformed
 
+    private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveActionPerformed
+        saveInfo();
+        dispose();
+    }//GEN-LAST:event_ButtonSaveActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -343,16 +382,17 @@ import BackEnd.System1;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCancel;
+    private javax.swing.JButton ButtonEdit;
     private javax.swing.JButton ButtonSave;
     private javax.swing.JPanel JPanel;
     private javax.swing.JTextField address;
     private javax.swing.JTextArea cond;
     private javax.swing.JTextArea desc;
+    private javax.swing.JScrollPane description;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fax;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField postal;
     private javax.swing.JTextField tele;
