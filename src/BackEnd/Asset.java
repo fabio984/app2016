@@ -6,61 +6,42 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 public class Asset {
-    public String name_pro;
-    public int id_pro;
-    public int price_pro;
-    public int purchase_state;
-    public String description;
-    public String category;
-    public String district;
+    private String name_pro;
+    private int id_pro;
+private float price_sale;
+    private int purchase_state;
+    private String description;
+    private String category;
+    private String district;
 
-    public int num_law;
-    public String adress;
-    public int postal_code;
-    public String image;
-    public String locality;
-
-
+    private int num_law;
+    private String adress;
+    private String postal_code;
+    private String image;
+    private String locality;
+    private float price_evaluation;
+    private String sub_category;
 
     
       PreparedStatement pst = null;
-    public Asset(String name_pro, int id_pro, int price_pro, int purchase_state, String description, String category, String district, int num_law, String adress, int postal_code, String locality, String image){
+
+    public Asset(String name_pro, int id_pro, float price_sale, int purchase_state, String description, String category, String district, int num_law, String adress, String postal_code, String image, String locality, float price_evaluation, String sub_category) {
         this.name_pro = name_pro;
-        this.id_pro= id_pro;
-        this.price_pro = price_pro;
+        this.id_pro = id_pro;
+        this.price_sale = price_sale;
         this.purchase_state = purchase_state;
         this.description = description;
         this.category = category;
         this.district = district;
-   
         this.num_law = num_law;
         this.adress = adress;
         this.postal_code = postal_code;
-        this.locality = locality;
         this.image = image;
-        
-    }
-
-    Asset() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getLocality() {
-        return locality;
-    }
-
-    public void setLocality(String locality) {
         this.locality = locality;
+        this.price_evaluation = price_evaluation;
+        this.sub_category = sub_category;
     }
 
-    
     public String getName_pro() {
         return name_pro;
     }
@@ -73,16 +54,16 @@ public class Asset {
         return id_pro;
     }
 
-    public void setId_pro(int Id_pro) {
-        this.id_pro = Id_pro;
+    public void setId_pro(int id_pro) {
+        this.id_pro = id_pro;
     }
 
-    public int getPrice_pro() {
-        return price_pro;
+    public float getPrice_sale() {
+        return price_sale;
     }
 
-    public void setPrice_pro(int price_pro) {
-        this.price_pro = price_pro;
+    public void setPrice_sale(float price_sale) {
+        this.price_sale = price_sale;
     }
 
     public int getPurchase_state() {
@@ -117,8 +98,6 @@ public class Asset {
         this.district = district;
     }
 
-  
-    
     public int getNum_law() {
         return num_law;
     }
@@ -135,13 +114,46 @@ public class Asset {
         this.adress = adress;
     }
 
-    public int getPostal_code() {
+    public String getPostal_code() {
         return postal_code;
     }
 
-    public void setPostal_code(int postal_code) {
+    public void setPostal_code(String postal_code) {
         this.postal_code = postal_code;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getLocality() {
+        return locality;
+    }
+
+    public void setLocality(String locality) {
+        this.locality = locality;
+    }
+
+    public float getPrice_evaluation() {
+        return price_evaluation;
+    }
+
+    public void setPrice_evaluation(float price_evaluation) {
+        this.price_evaluation = price_evaluation;
+    }
+
+    public String getSub_category() {
+        return sub_category;
+    }
+
+    public void setSub_category(String sub_category) {
+        this.sub_category = sub_category;
+    }
+  
              
     public void add_asset(){
     //Assets a = new Assets(name_pro,  id_pro,  price_pro,  purchase_state,  description,  category,  district,  price_min,  price_max,  num_law,  adress,  postal_code){
@@ -149,8 +161,8 @@ public class Asset {
             
            
     
-          String query = "INSERT INTO `financial_asset`(`name_pro`, `id_pro`, `price_pro`, `purchase_state`, `description`, `category`, `district`, `num_law`, `adress`, `postal_code`, `image`, `locality`)"
-                    + " values(?,?,?,?,?,?,?,?,?,?,?,?)";    
+          String query = "INSERT INTO `financial_asset`(`name_pro`, `id_pro`, `price_sale`, `purchase_state`, `description`, `category`, `district`, `num_law`, `address`,"
+                  + " `postal_code`, `image`, `locality`, `price_evaluation`, `sub_category`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";    
             // por numero processo
             try {            
       
@@ -158,7 +170,7 @@ public class Asset {
         pst = c.prepareStatement(query);       
                    pst.setString(1, name_pro);
            pst.setString(2, id_pro + "");
-           pst.setString(3, price_pro + "");
+           pst.setString(3, price_sale + "");
            pst.setString(4, purchase_state + "");
            pst.setString(5, description);
            pst.setString(6, category);
@@ -168,7 +180,8 @@ public class Asset {
            pst.setString(10, postal_code + "");
           pst.setString(11, image);
            pst.setString(12, locality);
-            
+           pst.setString(13, price_evaluation + "");
+               pst.setString(14, sub_category);
            
            
                                         
@@ -183,8 +196,53 @@ public class Asset {
        }
        catch(Exception e){
        JOptionPane.showMessageDialog(null,e);} }
-
-
-  
     
-}
+      public void update_asset(){
+            
+           
+    
+          String query = "UPDATE `financial_asset` SET `name_pro`='"+name_pro+"',`id_pro`='"+id_pro+"',`price_sale`='"+price_sale+"',`purchase_state`='"+purchase_state+"',`description`='"+description+"',`category`='"+category+"',`district`='"+district+"',`num_law`='"+num_law+"',`address`='"+adress+"',`postal_code`='"+postal_code+"',`image`='"+image+"',`locality`='"+locality+"',`price_evaluation`='"+price_evaluation+"',`sub_category`='"+sub_category+"' WHERE num_law='"+num_law+"'";    
+            // por numero processo
+            try {            
+      
+            Connection c = DBClass.getConnection();
+        pst = c.prepareStatement(query);       
+        
+                                
+            pst.execute();
+          
+       }
+       catch(Exception e){
+       JOptionPane.showMessageDialog(null,e);} }
+
+
+       public void select_asset(int id_pro){
+              String sql= "select * from financial_asset where id_pro = '"+id_pro+"'";
+                try{
+                    Connection c = DBClass.getConnection();
+                    pst = c.prepareStatement(sql);
+                    ResultSet rs = pst.executeQuery();
+                    if(rs.next()){
+  
+                        num_law = Integer.valueOf(rs.getString("num_law"));
+                        name_pro = rs.getString("name_pro");
+                        id_pro = Integer.valueOf(rs.getString("id_pro"));
+                        price_sale = Float.parseFloat(rs.getString("price_sale"));
+                        purchase_state = Integer.valueOf(rs.getString("purchase_state"));
+                        description = rs.getString("description"); 
+                       category = rs.getString("category");
+                        district = rs.getString("district");
+                        adress =  rs.getString("adress");
+                        postal_code = rs.getString("postal_code");
+                        image = rs.getString("date_bankruptcy");
+                        locality = rs.getString("locality");
+                        price_evaluation = Float.parseFloat(rs.getString("price_evaluation"));
+                        sub_category = rs.getString("sub_category");
+                    }
+                }
+                
+        catch(Exception e){
+         //JOptionPane.showMessageDialog(null, e);
+        }
+  
+  }}

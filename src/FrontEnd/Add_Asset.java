@@ -40,20 +40,27 @@ PreparedStatement pst = null;
 
    String name_pro = NameText.getText();          
    int id_pro =Integer.valueOf(IdText.getText());     
-   int price_pro = Integer.valueOf(jTextField1.getText());
-int purchase_state = Integer.valueOf(jTextField2.getText());
+   int price_sale= Integer.valueOf(jTextField1.getText());
+   int purchase_state = 0;
+   if("Em processo de venda".equals(Category.getSelectedItem())){
+        purchase_state = 0;
+
+   }
+//int purchase_state = Integer.valueOf(jTextField2.getText());
 String category = Category.getSelectedItem().toString();
 String district = jTextField5.getText();
 
 int num_law = system.getlawsuit().getNum_law();
 
-int postal_code = Integer.valueOf(jTextField10.getText());
+String postal_code = jTextField10.getText();
 
 String adress = jTextField9.getText();
 String description=Desc.getText();
 String locality = Local.getText();
 String image= file.getAbsolutePath();
-   Asset a= new Asset( name_pro,  id_pro,  price_pro,  purchase_state,  description,  category,  district,  num_law,  adress,  postal_code,  locality,  image);
+float price_evaluation = Float.parseFloat(jTextField9.getText());
+String sub_category = Category2.getSelectedItem().toString();
+   Asset a= new Asset( name_pro,  id_pro, price_sale,  purchase_state,  description,  category,  district,  num_law,  adress,  postal_code,  image,  locality,  price_evaluation,  sub_category);
       system.setAssets(a);
       system.getAssets().add_asset();    }
       
@@ -100,9 +107,11 @@ String image= file.getAbsolutePath();
                String postal= rs.getString(10);
                String image = rs.getString(11);
                String locality = rs.getString(12);
+               String price_e = rs.getString(13);
+               String sub = rs.getString(14);
                
                
-               dm.addRow(new String[]{name,id,preco,estado,descricao,categoria,distrito,num,adress,postal,image,locality});
+               dm.addRow(new String[]{name,id,preco,estado,descricao,categoria,distrito,num,adress,postal,image,locality,price_e,sub});
           
                      
          }

@@ -30,6 +30,8 @@ PreparedStatement pst = null;
      this.system = system;
            /*  this.setResizable(false);
         this.setLocationRelativeTo(null);*/
+           list_assets();
+           
 
 
     }     
@@ -38,22 +40,24 @@ PreparedStatement pst = null;
 
    String name_pro = NameText.getText();          
    int id_pro =Integer.valueOf(IdText.getText());     
-   int price_pro = Integer.valueOf(jTextField1.getText());
+   float price_sale = Float.parseFloat(jTextField1.getText());
 int purchase_state = Integer.valueOf(jTextField2.getText());
 String category = Category.getSelectedItem().toString();
 String district = jTextField5.getText();
 
 int num_law = system.getlawsuit().getNum_law();
 
-int postal_code = Integer.valueOf(jTextField10.getText());
+String postal_code = jTextField10.getText();
 
-String adress = jTextField9.getText();
+String adress = eval.getText();
 String description=Desc.getText();
 String locality = Local.getText();
 String image= file.getAbsolutePath();
-   Asset a= new Asset( name_pro,  id_pro,  price_pro,  purchase_state,  description,  category,  district,  num_law,  adress,  postal_code,  locality,  image);
+float price_evaluation = Float.parseFloat(eval.getText());
+String sub_category = sub.getSelectedItem().toString();
+   Asset a= new Asset( name_pro,  id_pro, price_sale,  purchase_state,  description,  category,  district,  num_law,  adress,  postal_code,  image,  locality,  price_evaluation,  sub_category);
       system.setAssets(a);
-      system.getAssets().add_asset();    }
+      system.getAssets().update_asset();    }
       
 
     
@@ -75,7 +79,8 @@ String image= file.getAbsolutePath();
          dm.addColumn("Código Postal");
          dm.addColumn("Imagem");
          dm.addColumn("Localidade");
-        
+         dm.addColumn("Preço avaliado");
+        dm.addColumn("Sub Categoria");
         try{
             //int num_l = system.getlawsuit().getNum_law();
         Connection c = DBClass.getConnection();
@@ -98,9 +103,12 @@ String image= file.getAbsolutePath();
                String postal= rs.getString(10);
                String image = rs.getString(11);
                String locality = rs.getString(12);
+               String price_e = rs.getString(13);
+               String sub = rs.getString(14);
                
                
-               dm.addRow(new String[]{name,id,preco,estado,descricao,categoria,distrito,num,adress,postal,image,locality});
+               
+               dm.addRow(new String[]{name,id,preco,estado,descricao,categoria,distrito,num,adress,postal,image,locality,price_e,sub});
           
                      
          }
@@ -135,7 +143,7 @@ String image= file.getAbsolutePath();
         IdText = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        eval = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -156,7 +164,7 @@ String image= file.getAbsolutePath();
         jButton1 = new javax.swing.JButton();
         Category1 = new javax.swing.JComboBox<>();
         type5 = new javax.swing.JLabel();
-        Category2 = new javax.swing.JComboBox<>();
+        sub = new javax.swing.JComboBox<>();
         jTextField2 = new javax.swing.JTextField();
         type9 = new javax.swing.JLabel();
         image = new javax.swing.JLabel();
@@ -208,6 +216,11 @@ String image= file.getAbsolutePath();
 
             }
         ));
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(table);
 
         type1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -266,7 +279,7 @@ String image= file.getAbsolutePath();
         type5.setForeground(new java.awt.Color(255, 255, 255));
         type5.setText("Subcategoria:");
 
-        Category2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apartamentos", "veículos" }));
+        sub.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apartamentos", "veículos" }));
 
         type9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         type9.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,7 +313,7 @@ String image= file.getAbsolutePath();
                                                 .addGap(138, 138, 138)
                                                 .addComponent(type5)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(Category2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(sub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 36, Short.MAX_VALUE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -310,7 +323,7 @@ String image= file.getAbsolutePath();
                                                     .addComponent(type9, javax.swing.GroupLayout.Alignment.TRAILING))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                                                    .addComponent(eval, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                                                     .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                                                     .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)))))
                                     .addComponent(jScrollPane3))
@@ -376,7 +389,7 @@ String image= file.getAbsolutePath();
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(type3)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(eval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(type9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -392,7 +405,7 @@ String image= file.getAbsolutePath();
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type7)
                     .addComponent(type5)
-                    .addComponent(Category2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Local, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -453,6 +466,33 @@ String image= file.getAbsolutePath();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        
+        int row= table.getSelectedRow();
+        int id_pro =Integer.valueOf(table.getModel().getValueAt(row, 1).toString());
+        Asset a = new Asset(null,0,0,0,null,null,null,0,null,null,null,null,0,null);
+        system.setAssets(a);
+        system.getAssets().select_asset(id_pro);
+          NameText.setText(system.getAssets().getName_pro());          
+   IdText.setText(Integer.toString(system.getAssets().getId_pro()));     
+ jTextField1.setText(Float.toString(system.getAssets().getPrice_sale()));
+jTextField2.setText(Integer.toString(system.getAssets().getPurchase_state()));
+//Category.set
+jTextField5.setText(system.getAssets().getDistrict());
+
+//system.getlawsuit().getNum_law();
+
+jTextField10.setText(system.getAssets().getPostal_code());
+ eval.setText(Float.toString(system.getAssets().getPrice_evaluation()));
+Desc.setText(system.getAssets().getDescription());
+ Local.setText(system.getAssets().getLocality());
+
+
+ //sub.getSelectedItem().toString();
+        
+
+    }//GEN-LAST:event_tableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -462,13 +502,13 @@ String image= file.getAbsolutePath();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Category;
     private javax.swing.JComboBox<String> Category1;
-    private javax.swing.JComboBox<String> Category2;
     private javax.swing.JTextArea Desc;
     private javax.swing.JTextField IdText;
     private javax.swing.JPanel JPanel;
     private javax.swing.JTextField Local;
     private javax.swing.JTextField NameText;
     private javax.swing.JButton cancel;
+    private javax.swing.JTextField eval;
     private javax.swing.JFileChooser fileChooser;
     private javax.swing.JLabel image;
     private javax.swing.JButton jButton1;
@@ -480,8 +520,8 @@ String image= file.getAbsolutePath();
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JButton register;
+    private javax.swing.JComboBox<String> sub;
     private javax.swing.JTable table;
     private javax.swing.JLabel type;
     private javax.swing.JLabel type1;
