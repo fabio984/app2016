@@ -45,6 +45,10 @@ import BackEnd.System1;
         }
           catch(Exception e){
        JOptionPane.showMessageDialog(null,e);}
+        
+        if(email.getText() != ""){
+            ButtonSave.setEnabled(false);
+        }
     }
  
     
