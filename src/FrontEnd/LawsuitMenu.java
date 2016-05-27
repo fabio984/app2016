@@ -409,7 +409,7 @@ private System1 system;
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem3ActionPerformed
-        AddEntity ae = new AddEntity(system);
+        Entity ae = new Entity(system);
         ae.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem3ActionPerformed
 

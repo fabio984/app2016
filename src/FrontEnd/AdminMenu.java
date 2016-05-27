@@ -345,7 +345,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
-        AddEntity a = new AddEntity(system);
+        Entity a = new Entity(system);
         a.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
