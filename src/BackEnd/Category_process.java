@@ -32,7 +32,7 @@ public class Category_process {
     
     public void add_category_process(){
         String query = "INSERT INTO `category_process`(`lawsuit`, ) VALUES"
-                + " ('"+lawsuit+"',)";    
+                + " ('"+lawsuit.getCategory_law()+"',)";    
                         try {           
                             Connection c = DBClass.getConnection();
                             pst = c.prepareStatement(query);    
