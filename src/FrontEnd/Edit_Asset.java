@@ -475,11 +475,11 @@ String sub_category = sub.getSelectedItem().toString();
           NameText.setText(system.getAssets().getName_pro());          
    IdText.setText(Integer.toString(system.getAssets().getId_pro()));     
  jTextField1.setText(Float.toString(system.getAssets().getPrice_sale()));
-jTextField2.getText();
-Category.getSelectedItem().toString();
-jTextField5.getText();
+jTextField2.setText(Integer.toString(system.getAssets().getPurchase_state()));
+//Category.set
+jTextField5.setText(system.getAssets().getDistrict());
 
-system.getlawsuit().getNum_law();
+//system.getlawsuit().getNum_law();
 
 jTextField10.getText();
  eval.getText();
