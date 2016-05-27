@@ -21,6 +21,8 @@ private System1 system;
     public Entity(System1 system) {
         initComponents();
         this.system = system;
+        
+        entities.setEnabled(false);
     }
 public void add_entity(){
                 if("Credor".equals(Type.getSelectedItem())){
@@ -108,7 +110,7 @@ public void add_entity(){
         address = new javax.swing.JTextField();
         JPanel1 = new javax.swing.JPanel();
         patrimony = new javax.swing.JButton();
-        entityes = new javax.swing.JButton();
+        entities = new javax.swing.JButton();
         complaint = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
@@ -322,12 +324,12 @@ public void add_entity(){
             }
         });
 
-        entityes.setBackground(new java.awt.Color(255, 255, 255));
-        entityes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        entityes.setText("Registar entidades intervenientes");
-        entityes.addActionListener(new java.awt.event.ActionListener() {
+        entities.setBackground(new java.awt.Color(255, 255, 255));
+        entities.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        entities.setText("Registar entidades intervenientes");
+        entities.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entityesActionPerformed(evt);
+                entitiesActionPerformed(evt);
             }
         });
 
@@ -347,9 +349,9 @@ public void add_entity(){
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(patrimony)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                .addComponent(entityes)
-                .addGap(31, 31, 31)
+                .addGap(49, 49, 49)
+                .addComponent(entities)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(complaint)
                 .addContainerGap())
         );
@@ -359,7 +361,7 @@ public void add_entity(){
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(complaint)
-                    .addComponent(entityes)
+                    .addComponent(entities)
                     .addComponent(patrimony))
                 .addContainerGap())
         );
@@ -375,10 +377,10 @@ public void add_entity(){
         p.setVisible(true);
     }//GEN-LAST:event_patrimonyActionPerformed
 
-    private void entityesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entityesActionPerformed
+    private void entitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entitiesActionPerformed
         Entity e=new Entity(system);
         e.setVisible(true);
-    }//GEN-LAST:event_entityesActionPerformed
+    }//GEN-LAST:event_entitiesActionPerformed
 
     private void complaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintActionPerformed
         Complaint c = new Complaint(system);
@@ -480,7 +482,7 @@ public void add_entity(){
     private javax.swing.JTextField addressMand;
     private javax.swing.JButton complaint;
     private datechooser.beans.DateChooserDialog dateChooserDialog1;
-    private javax.swing.JButton entityes;
+    private javax.swing.JButton entities;
     private javax.swing.JTextField iban;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -48,6 +48,8 @@ import BackEnd.System1;
         
         if(email.getText() != ""){
             ButtonSave.setEnabled(false);
+        }else if(email.getText().equals("")){
+            ButtonSave.setEnabled(true);
         }
     }
  

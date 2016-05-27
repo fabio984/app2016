@@ -346,9 +346,9 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="patrimony" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="105" max="32767" attributes="0"/>
-                  <Component id="entityes" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="entities" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="51" max="32767" attributes="0"/>
                   <Component id="complaint" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -360,7 +360,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="complaint" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="entityes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="entities" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="patrimony" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -383,7 +383,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="patrimonyActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="entityes">
+        <Component class="javax.swing.JButton" name="entities">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -394,7 +394,7 @@
             <Property name="text" type="java.lang.String" value="Registar entidades intervenientes"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entityesActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entitiesActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="complaint">
