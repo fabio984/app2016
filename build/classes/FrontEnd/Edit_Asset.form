@@ -88,7 +88,7 @@
                                                   <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                                                   <Component id="type5" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="Category2" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="sub" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
@@ -100,7 +100,7 @@
                                                   </Group>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jTextField9" alignment="1" pref="92" max="32767" attributes="0"/>
+                                                      <Component id="eval" alignment="1" pref="92" max="32767" attributes="0"/>
                                                       <Component id="jTextField10" alignment="1" pref="92" max="32767" attributes="0"/>
                                                       <Component id="jTextField2" alignment="1" max="32767" attributes="0"/>
                                                   </Group>
@@ -193,7 +193,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="type3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="eval" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="type9" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -214,7 +214,7 @@
                       <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="type7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="type5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Category2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sub" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -293,7 +293,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField5">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField9">
+        <Component class="javax.swing.JTextField" name="eval">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField10">
         </Component>
@@ -313,6 +313,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -484,7 +487,7 @@
             <Property name="text" type="java.lang.String" value="Subcategoria:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="Category2">
+        <Component class="javax.swing.JComboBox" name="sub">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">

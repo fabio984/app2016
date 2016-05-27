@@ -47,7 +47,7 @@ String district = jTextField5.getText();
 
 int num_law = system.getlawsuit().getNum_law();
 
-int postal_code = Integer.valueOf(jTextField10.getText());
+String postal_code = jTextField10.getText();
 
 String adress = jTextField9.getText();
 String description=Desc.getText();
@@ -102,9 +102,11 @@ String sub_category = Category2.getSelectedItem().toString();
                String postal= rs.getString(10);
                String image = rs.getString(11);
                String locality = rs.getString(12);
+               String price_e = rs.getString(13);
+               String sub = rs.getString(14);
                
                
-               dm.addRow(new String[]{name,id,preco,estado,descricao,categoria,distrito,num,adress,postal,image,locality});
+               dm.addRow(new String[]{name,id,preco,estado,descricao,categoria,distrito,num,adress,postal,image,locality,price_e,sub});
           
                      
          }
