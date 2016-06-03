@@ -45,7 +45,7 @@ import BackEnd.System1;
         }
           catch(Exception e){
        JOptionPane.showMessageDialog(null,e);}
-        
+        //verificar cenas do vila
         if(email.getText() != ""){
             ButtonSave.setEnabled(false);
         }else if(email.getText().equals("")){
@@ -310,7 +310,7 @@ import BackEnd.System1;
                     .addComponent(type7)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(postal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(type8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
