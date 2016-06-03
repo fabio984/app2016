@@ -21,7 +21,7 @@ public class Main {
     //login.setVisible(true);
     //AccessLawsuit login = new AccessLawsuit(system);
     //login.setVisible(true);
-    Entity login = new Entity(system);
+    Edit_InfoCompany login = new Edit_InfoCompany(system);
     login.setVisible(true);
     }
     
