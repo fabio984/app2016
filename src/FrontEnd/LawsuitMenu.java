@@ -399,12 +399,11 @@ private System1 system;
     }//GEN-LAST:event_jCheckBoxMenuItem8ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        PaymentReceived p = new PaymentReceived(system);
-        p.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-       PaymentMade p = new PaymentMade(system);
+       Add_Payment p = new Add_Payment(system);
        p.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 

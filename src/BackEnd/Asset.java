@@ -1,5 +1,7 @@
 package BackEnd;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +19,8 @@ private float price_sale;
     private int num_law;
     private String adress;
     private String postal_code;
-    private String image;
+    private FileInputStream image1;
+    private int image2;
     private String locality;
     private float price_evaluation;
     private String sub_category;
@@ -25,7 +28,7 @@ private float price_sale;
     
       PreparedStatement pst = null;
 
-    public Asset(String name_pro, int id_pro, float price_sale, int purchase_state, String description, String category, String district, int num_law, String adress, String postal_code, String image, String locality, float price_evaluation, String sub_category) {
+    public Asset(String name_pro, int id_pro, float price_sale, int purchase_state, String description, String category, String district, int num_law, String adress, String postal_code, FileInputStream image1, int image2, String locality, float price_evaluation, String sub_category) {
         this.name_pro = name_pro;
         this.id_pro = id_pro;
         this.price_sale = price_sale;
@@ -36,7 +39,8 @@ private float price_sale;
         this.num_law = num_law;
         this.adress = adress;
         this.postal_code = postal_code;
-        this.image = image;
+        this.image1 = image1;
+        this.image2 = image2;
         this.locality = locality;
         this.price_evaluation = price_evaluation;
         this.sub_category = sub_category;
@@ -122,12 +126,20 @@ private float price_sale;
         this.postal_code = postal_code;
     }
 
-    public String getImage() {
-        return image;
+    public FileInputStream getImage1() {
+        return image1;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage1(FileInputStream image1) {
+        this.image1 = image1;
+    }
+
+    public int getImage2() {
+        return image2;
+    }
+
+    public void setImage2(int image2) {
+        this.image2 = image2;
     }
 
     public String getLocality() {
@@ -153,7 +165,16 @@ private float price_sale;
     public void setSub_category(String sub_category) {
         this.sub_category = sub_category;
     }
-  
+
+    public PreparedStatement getPst() {
+        return pst;
+    }
+
+    public void setPst(PreparedStatement pst) {
+        this.pst = pst;
+    }
+
+    
              
     public void add_asset(){
     //Assets a = new Assets(name_pro,  id_pro,  price_pro,  purchase_state,  description,  category,  district,  price_min,  price_max,  num_law,  adress,  postal_code){
@@ -178,7 +199,8 @@ private float price_sale;
            pst.setString(8, num_law + "");
            pst.setString(9, adress);
            pst.setString(10, postal_code + "");
-          pst.setString(11, image);
+         pst.setBinaryStream(11, image1, image2);
+          
            pst.setString(12, locality);
            pst.setString(13, price_evaluation + "");
                pst.setString(14, sub_category);
@@ -224,20 +246,20 @@ private float price_sale;
                     ResultSet rs = pst.executeQuery();
                     if(rs.next()){
   
-                        num_law = Integer.valueOf(rs.getString("num_law"));
-                        name_pro = rs.getString("name_pro");
-                        id_pro = Integer.valueOf(rs.getString("id_pro"));
-                        price_sale = Float.parseFloat(rs.getString("price_sale"));
-                        purchase_state = Integer.valueOf(rs.getString("purchase_state"));
-                        description = rs.getString("description"); 
-                       category = rs.getString("category");
-                        district = rs.getString("district");
-                        adress =  rs.getString("adress");
-                        postal_code = rs.getString("postal_code");
-                        image = rs.getString("date_bankruptcy");
-                        locality = rs.getString("locality");
-                        price_evaluation = Float.parseFloat(rs.getString("price_evaluation"));
-                        sub_category = rs.getString("sub_category");
+                        num_law = Integer.valueOf(rs.getString(8));
+                        name_pro = rs.getString(1);
+                        this.id_pro = Integer.valueOf(rs.getString(2));
+                        price_sale = Float.parseFloat(rs.getString(3));
+                        purchase_state = Integer.valueOf(rs.getString(4));
+                        description = rs.getString(5); 
+                       category = rs.getString(6);
+                        district = rs.getString(7);
+                        adress =  rs.getString(9);
+                        postal_code = rs.getString(10);
+                      //  image = Integer.valueOf(rs.getString(11));
+                        locality = rs.getString(12);
+                        price_evaluation = Float.parseFloat(rs.getString(13));
+                        sub_category = rs.getString(14);
                     }
                 }
                 

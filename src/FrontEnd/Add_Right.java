@@ -7,6 +7,7 @@ package FrontEnd;
 
 import BackEnd.DBClass;
 import BackEnd.Debt;
+import BackEnd.Right;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,79 +19,58 @@ import BackEnd.System1;
  *
  * @author Asus
  */
-public final class Liabilitie extends javax.swing.JFrame {
+public final class Add_Right extends javax.swing.JFrame {
 private System1 system;
-   PreparedStatement pst = null;
-    public Liabilitie(System1 system) {
+     PreparedStatement pst = null;
+    ResultSet rs = null;
+    public Add_Right(System1 system) {
         initComponents();
         this.system = system;
-        list_debt();
-        nif();
-        
+        list_right();
+       
         
     }
 
-    public void add_debt(){
+    public void add_r(){
   
-        float value_debts = Float.parseFloat(Value.getText());
-        int nif_int = Integer.valueOf(NIF.getSelectedItem().toString());
-        //int pay_ref = Integer.valueOf(Ref.getText());
-        String description_debt = Desc.getText();
-        Debt d = new Debt(value_debts, description_debt,nif_int);
-        system.setDebt(d);
-        system.getDebt().add_debt();
+float total_pay= Float.parseFloat(Total.getText());
+         java.sql.Date date = new java.sql.Date(Date.getDate().getTime()); 
+         String description_right= Desc.getText();
+        Right d = new Right(date, total_pay,description_right);
+        system.setRight(d);
+        system.getRight().add_right();
     
     
     }
     
-    public void nif(){
-                 
-
-            String query = "SELECT  `nif_int` FROM `intervenients_entities` ";
-           try {           
-      
-            Connection c = DBClass.getConnection();
-        pst = c.prepareStatement(query);    
-               
-                ResultSet rs = pst.executeQuery();
-                    if(rs.next()){
-               
-                       NIF.addItem(rs.getString("nif_int"));
-                 
-                    }
-         
-                   
-       }
-       catch(Exception e){
-   }
-    }
+  
     
-    public DefaultTableModel list_debt(){
+    public DefaultTableModel list_right(){
               
          DefaultTableModel dm= (DefaultTableModel)table.getModel();
              dm.setColumnCount(0);
        dm.setRowCount(0);
-       dm.addColumn("Valor");
-         dm.addColumn("NIF");
+       dm.addColumn("Data");
+         dm.addColumn("Total");
+         //dm.addColumn("N");
          dm.addColumn("Referência");
-         dm.addColumn("Descrição");
          
          
         
         try{
         Connection c = DBClass.getConnection();
-        String sql = "select * from debt where num_law='"+system.getlawsuit().getNum_law()+"'";
+        String sql = "select * from right where num_law='"+system.getlawsuit().getNum_law()+"'";
          pst = c.prepareStatement(sql);
          ResultSet rs = pst.executeQuery();
          
          while (rs.next()){
              String value= rs.getString(1);
-             String nif= rs.getString(3);
+             String nif= rs.getString(2);
                String ref= rs.getString(4);
-               String desc = rs.getString(5);
+              // String desc = rs.getString(5);
                
                
-               dm.addRow(new String[]{value,nif,ref,desc});
+               dm.addRow(new String[]{value,nif,ref,});
           
                      
          }
@@ -112,15 +92,15 @@ private System1 system;
         JPanel = new javax.swing.JPanel();
         register = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
-        type2 = new javax.swing.JLabel();
         type3 = new javax.swing.JLabel();
-        Value = new javax.swing.JTextField();
+        Total = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         type5 = new javax.swing.JLabel();
+        Date = new com.toedter.calendar.JDateChooser();
+        type6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Desc = new javax.swing.JTextArea();
-        NIF = new javax.swing.JComboBox<>();
         image = new javax.swing.JLabel();
 
         jLabel2.setText("Utilizador:");
@@ -129,7 +109,7 @@ private System1 system;
         setMinimumSize(new java.awt.Dimension(800, 550));
 
         JPanel.setBackground(new java.awt.Color(255, 255, 255));
-        JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dívidas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+        JPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Direitos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 24), new java.awt.Color(255, 255, 255))); // NOI18N
         JPanel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         JPanel.setOpaque(false);
 
@@ -149,13 +129,9 @@ private System1 system;
             }
         });
 
-        type2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        type2.setForeground(new java.awt.Color(255, 255, 255));
-        type2.setText("Descrição:");
-
         type3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         type3.setForeground(new java.awt.Color(255, 255, 255));
-        type3.setText("NIF:");
+        type3.setText("Data:");
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -173,6 +149,10 @@ private System1 system;
         type5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         type5.setForeground(new java.awt.Color(255, 255, 255));
         type5.setText("Valor:");
+
+        type6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        type6.setForeground(new java.awt.Color(255, 255, 255));
+        type6.setText("Descrição:");
 
         Desc.setColumns(20);
         Desc.setRows(5);
@@ -193,16 +173,16 @@ private System1 system;
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(JPanelLayout.createSequentialGroup()
                         .addComponent(type3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NIF, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(type2)
-                            .addComponent(type5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Value, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2))))
+                        .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelLayout.createSequentialGroup()
+                        .addComponent(type5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelLayout.createSequentialGroup()
+                        .addComponent(type6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(8, 8, 8))
@@ -213,26 +193,24 @@ private System1 system;
                 .addGap(45, 45, 45)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(160, 160, 160)
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JPanelLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(type3)
-                            .addComponent(NIF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(88, 88, 88)
+                            .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(89, 89, 89)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Value, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(type5))
+                        .addGap(40, 40, 40)
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JPanelLayout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(type2))
-                            .addGroup(JPanelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(107, 107, 107)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(type6)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -243,9 +221,9 @@ private System1 system;
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
-       add_debt();
+       add_r();
        
-       list_debt();
+       list_right();
         
      
     }//GEN-LAST:event_registerActionPerformed
@@ -260,10 +238,10 @@ private System1 system;
        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser Date;
     private javax.swing.JTextArea Desc;
     private javax.swing.JPanel JPanel;
-    private javax.swing.JComboBox<String> NIF;
-    private javax.swing.JTextField Value;
+    private javax.swing.JTextField Total;
     private javax.swing.JButton cancel;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel2;
@@ -271,8 +249,8 @@ private System1 system;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton register;
     private javax.swing.JTable table;
-    private javax.swing.JLabel type2;
     private javax.swing.JLabel type3;
     private javax.swing.JLabel type5;
+    private javax.swing.JLabel type6;
     // End of variables declaration//GEN-END:variables
 }

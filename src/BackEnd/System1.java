@@ -19,10 +19,39 @@ public class System1 {
     private Employe emp;
     private Online online;
     private Intervenient_entitie inter;
+    private Payment payment;
+    private Debt debt;
+    private Right right;
      
     public System1() {
 
     }
+
+    public Right getRight() {
+        return right;
+    }
+
+    public void setRight(Right right) {
+        this.right = right;
+    }
+    
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
+    public Debt getDebt() {
+        return debt;
+    }
+
+    public void setDebt(Debt debt) {
+        this.debt = debt;
+    }
+    
     
     public Intervenient_entitie getIntervening(){
         return inter;
