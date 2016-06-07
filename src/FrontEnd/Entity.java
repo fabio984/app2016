@@ -375,16 +375,19 @@ public void add_entity(){
     private void patrimonyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patrimonyActionPerformed
         Patrimony p = new Patrimony(system);
         p.setVisible(true);
+        dispose();
     }//GEN-LAST:event_patrimonyActionPerformed
 
     private void entitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entitiesActionPerformed
         Entity e=new Entity(system);
         e.setVisible(true);
+        dispose();
     }//GEN-LAST:event_entitiesActionPerformed
 
     private void complaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintActionPerformed
         Complaint c = new Complaint(system);
         c.setVisible(true);
+        dispose();
     }//GEN-LAST:event_complaintActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed

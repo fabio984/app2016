@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+//OLA prinln
+//mensagem teste bitbucket
+
+
 package BackEnd;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,7 +38,7 @@ public class Category_process {
     
     public void add_category_process(){
         String query = "INSERT INTO `category_process`(`lawsuit`, ) VALUES"
-                + " ('"+lawsuit+"',)";    
+                + " ('"+lawsuit.getCategory_law()+"',)";    
                         try {           
                             Connection c = DBClass.getConnection();
                             pst = c.prepareStatement(query);    
