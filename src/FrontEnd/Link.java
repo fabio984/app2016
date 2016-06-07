@@ -137,7 +137,8 @@ import BackEnd.System1;
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-                  String query = "INSERT INTO `link`(`name`, `link`)" + "VALUES ('"+
+        if(!"".equals(nameLink.getText()) & !"".equals(link.getText())){          
+            String query = "INSERT INTO `link`(`name_link`, `link`)" + "VALUES ('"+
                             nameLink.getText()+"','"+ link.getText() + "')";    
             // por numero processo
             try {            
@@ -145,12 +146,15 @@ import BackEnd.System1;
             Connection c = DBClass.getConnection();
         pst = c.prepareStatement(query);       
         pst.execute();
-          
+          JOptionPane.showMessageDialog(null,"Link adicionado com sucesso");
        }
        catch(Exception e){
-       JOptionPane.showMessageDialog(null,e);}
+       JOptionPane.showMessageDialog(null,"Link adicionado com sucesso");}
+        }else{
+            JOptionPane.showMessageDialog(this, "Campos vazios, por favor corriga-os!!");
+        }
     }//GEN-LAST:event_addButtonActionPerformed
-
+ 
     private void nameLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameLinkActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameLinkActionPerformed
