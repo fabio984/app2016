@@ -23,10 +23,11 @@ public class Right {
   PreparedStatement pst = null;
     ResultSet rs = null;
     private String description_right;
-    public Right(Date date, float total_pay,String description_right) {
+    public Right(Date date, float total_pay,String description_right, Lawsuit l) {
         this.date = date;
         this.total_pay = total_pay;
         this.description_right=description_right;
+        this.l=l;
     }
 
     public String getDescription_right() {
