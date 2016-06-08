@@ -13,6 +13,7 @@ package BackEnd;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 /**
@@ -23,8 +24,9 @@ public class Category_process {
    private String lawsuit_category;
     private Lawsuit lawsuit;
     PreparedStatement pst = null;
+      ResultSet rs = null;
 
-    public Category_process(/*Lawsuit lawsuit*/ String lawsuit_category) {
+    public Category_process() {
        // this.lawsuit = lawsuit;
        this.lawsuit_category=lawsuit_category;
     }
@@ -46,7 +48,7 @@ public class Category_process {
     }
     
     
-    public void add_category_process(){
+    public void add_category_process(String lawsuit_category){
         String query = "INSERT INTO `category_process`(`lawsuit`, ) VALUES"
                 + " ('"+lawsuit_category+"',)";    
                         try {           
@@ -79,17 +81,12 @@ public class Category_process {
 
          
   
-         contact_cli = Integer.valueOf(rs.getString("contact_cli"));
-          name_cli = rs.getString("name_cli");
+         lawsuit_category = rs.getString("lawsuit_category");
          
-          nif_cli = Integer.valueOf(rs.getString("nif_cli"));
-          name_mand = rs.getString("name_mand");
-          contact_mand = Integer.valueOf(rs.getString("contact_mand"));
-          email_cli = rs.getString("email_cli");
-          address_cli = rs.getString("address_cli");
           
          }} catch(Exception e){
            //JOptionPane.showMessageDialog(null, e);
-       }}
+       } 
+              }
 
 }
