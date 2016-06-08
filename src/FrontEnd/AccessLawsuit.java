@@ -210,7 +210,7 @@ public class AccessLawsuit extends javax.swing.JFrame {
         JPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         Filter = new javax.swing.JTextField();
-        filter = new javax.swing.JComboBox<String>();
+        filter = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -248,7 +248,7 @@ public class AccessLawsuit extends javax.swing.JFrame {
         });
 
         filter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        filter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar", "NIF", "Nome de empresa", "Data Registo", "Número de Processo" }));
+        filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar(Pré-def.)", "NIF", "Nome Empresa", "Data Registo", "Número Processo" }));
         filter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filterActionPerformed(evt);

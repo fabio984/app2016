@@ -136,11 +136,11 @@
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
-                <StringItem index="0" value="Filtrar"/>
+                <StringItem index="0" value="Filtrar(Pr&#xe9;-def.)"/>
                 <StringItem index="1" value="NIF"/>
-                <StringItem index="2" value="Nome de empresa"/>
+                <StringItem index="2" value="Nome Empresa"/>
                 <StringItem index="3" value="Data Registo"/>
-                <StringItem index="4" value="N&#xfa;mero de Processo"/>
+                <StringItem index="4" value="N&#xfa;mero Processo"/>
               </StringArray>
             </Property>
           </Properties>
