@@ -177,4 +177,23 @@ public class Lawsuit {
          //JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    
+     public void update_lawsuit(){
+            
+           
+    
+          String query = "UPDATE `lawsuit` SET `num_law`='"+num_law+"',`date_beg`='"+date_beg+"',`date_end`='"+date_end+"',`date_ass`='"+date_ass+"',`name_judge`='"+name_judge+"',`nif_cli`='"+nif_cli+"',`state_pro`='"+state_pro+"',`num_adm`='"+num_emp+"',`date_bankruptcy`='"+date_bankruptcy+"',`name_trib`='"+name_trib+"',`category_law`='"+category_law+"' WHERE `num_law`='"+num_law+"'";    
+            // por numero processo
+            try {            
+      
+            Connection c = DBClass.getConnection();
+        pst = c.prepareStatement(query);       
+        
+                                
+            pst.execute();
+          
+       }
+       catch(Exception e){
+       JOptionPane.showMessageDialog(null,e);} }
 }

@@ -22,10 +22,20 @@ public class System1 {
     private Payment payment;
     private Debt debt;
     private Right right;
+    private Category_process category;
      
     public System1() {
 
     }
+
+    public Category_process getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category_process category) {
+        this.category = category;
+    }
+    
 
     public Right getRight() {
         return right;

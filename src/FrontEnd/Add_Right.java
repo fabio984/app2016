@@ -7,6 +7,7 @@ package FrontEnd;
 
 import BackEnd.DBClass;
 import BackEnd.Debt;
+import BackEnd.Lawsuit;
 import BackEnd.Right;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,7 +37,9 @@ private System1 system;
 float total_pay= Float.parseFloat(Total.getText());
          java.sql.Date date = new java.sql.Date(Date.getDate().getTime()); 
          String description_right= Desc.getText();
-        Right d = new Right(date, total_pay,description_right);
+                 Lawsuit l = system.getlawsuit();
+
+        Right d = new Right(date, total_pay,description_right,l);
         system.setRight(d);
         system.getRight().add_right();
     

@@ -6,12 +6,20 @@
 package FrontEnd;
 import BackEnd.DBClass;
 import BackEnd.Debt;
+import BackEnd.Lawsuit;
 import BackEnd.Payment;
 import BackEnd.Right;
 import BackEnd.System1;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,6 +59,7 @@ private System1 system;
          dm.addColumn("Total");
          //dm.addColumn("N");
          dm.addColumn("Referência");
+         dm.addColumn("Descrição");
          
          
         
@@ -64,10 +73,10 @@ private System1 system;
              String value= rs.getString(1);
              String nif= rs.getString(2);
                String ref= rs.getString(4);
-              // String desc = rs.getString(5);
+               String desc = rs.getString(5);
                
                
-               dm.addRow(new String[]{value,nif,ref,});
+               dm.addRow(new String[]{value,nif,ref,desc});
           
                      
          }
@@ -308,7 +317,10 @@ private System1 system;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-           system.getDebt().update_ref();
+           add_p();
+        
+        system.getDebt().update_ref();
+           system.getRight().update_ref();
         
         list_right();
         list_debt();
@@ -323,7 +335,8 @@ private System1 system;
         float value_debts =Float.parseFloat(table.getModel().getValueAt(row, 0).toString());
         int nif_int = Integer.valueOf(table.getModel().getValueAt(row, 1).toString());
         String description_debt = table.getModel().getValueAt(row, 3).toString();
-        Debt a = new Debt(value_debts,description_debt,nif_int);
+           Lawsuit l = system.getlawsuit();
+        Debt a = new Debt(value_debts,description_debt,nif_int,l);
 
         system.setDebt(a);
         
@@ -331,13 +344,23 @@ private System1 system;
     }//GEN-LAST:event_tableMouseClicked
 
     private void table1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table1MouseClicked
-            int row= table.getSelectedRow();
-        float value_debts =Float.parseFloat(table.getModel().getValueAt(row, 0).toString());
-        int nif_int = Integer.valueOf(table.getModel().getValueAt(row, 1).toString());
-        String description_debt = table.getModel().getValueAt(row, 3).toString();
-        Debt a = new Debt(value_debts,description_debt,nif_int);
+       
+    try {
+        Date date;
+        int row= table.getSelectedRow();
+        DateFormat format = new SimpleDateFormat("YYYY-MM-dd", Locale.ENGLISH);
+        date = format.parse(table.getModel().getValueAt(row, 1).toString());
+            float total_pay =Float.parseFloat(table.getModel().getValueAt(row, 1).toString());
+                          
+         String description_right = table.getModel().getValueAt(row, 3).toString();
+         Lawsuit l = system.getlawsuit();
+        Right a = new Right(date,total_pay,description_right,l);
 
-        system.setDebt(a);
+        system.setRight(a);
+    } catch (ParseException ex) {
+        Logger.getLogger(Add_Payment.class.getName()).log(Level.SEVERE, null, ex);
+    }
+       
     }//GEN-LAST:event_table1MouseClicked
 
     /**

@@ -20,11 +20,12 @@ public class Debt {
     private String description_debt;
        PreparedStatement pst = null;
 
-    public Debt(float value_debts, String description_debt,int nif_int) {
+    public Debt(float value_debts, String description_debt,int nif_int, Lawsuit l) {
         this.value_debts = value_debts;
      //   this.pay_ref = pay_ref;
         this.description_debt = description_debt;
         this.nif_int=nif_int;
+        this.l=l;
     }
 
     public float getValue_debts() {

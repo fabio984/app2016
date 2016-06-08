@@ -32,7 +32,7 @@ public class EditLawsuit extends javax.swing.JFrame {
        /*    this.setResizable(false);
         this.setLocationRelativeTo(null);*/
     }
-    public void add_l(){
+    public void update_l(){
 
            // String query = "INSERT INTO `lawsuit`(`date_beg`, `name_judge`, `nif_cli`, `state_pro`, `num_adm`, `pro_category`)"
                     
@@ -72,7 +72,7 @@ public class EditLawsuit extends javax.swing.JFrame {
                      
                      system.setLawsuit(l);
 
-           system.getlawsuit().add_lawsuit();
+           system.getlawsuit().update_lawsuit();
       }
       
          public void add_cl(){
@@ -442,7 +442,7 @@ public class EditLawsuit extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        add_l();
+        update_l();
          add_cl();
     }//GEN-LAST:event_saveActionPerformed
 

@@ -7,6 +7,7 @@ package FrontEnd;
 
 import BackEnd.DBClass;
 import BackEnd.Debt;
+import BackEnd.Lawsuit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,7 +37,8 @@ private System1 system;
         int nif_int = Integer.valueOf(NIF.getSelectedItem().toString());
         //int pay_ref = Integer.valueOf(Ref.getText());
         String description_debt = Desc.getText();
-        Debt d = new Debt(value_debts, description_debt,nif_int);
+        Lawsuit l = system.getlawsuit();
+        Debt d = new Debt(value_debts, description_debt,nif_int,l );
         system.setDebt(d);
         system.getDebt().add_debt();
     
