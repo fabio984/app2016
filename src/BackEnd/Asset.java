@@ -244,7 +244,7 @@ private float price_sale;
                     Connection c = DBClass.getConnection();
                     pst = c.prepareStatement(sql);
                     ResultSet rs = pst.executeQuery();
-                    if(rs.next()){
+                    while(rs.next()){
   
                         num_law = Integer.valueOf(rs.getString(8));
                         name_pro = rs.getString(1);

@@ -60,6 +60,7 @@ private System1 system;
          //dm.addColumn("N");
          dm.addColumn("Referência");
          dm.addColumn("Descrição");
+         dm.addColumn("ID");
          
          
         
@@ -74,9 +75,10 @@ private System1 system;
              String nif= rs.getString(2);
                String ref= rs.getString(4);
                String desc = rs.getString(5);
+               String id = rs.getString("id_right");
                
                
-               dm.addRow(new String[]{value,nif,ref,desc});
+               dm.addRow(new String[]{value,nif,ref,desc,id});
           
                      
          }
@@ -98,7 +100,7 @@ private System1 system;
          dm.addColumn("NIF");
          dm.addColumn("Referência");
          dm.addColumn("Descrição");
-         
+         dm.addColumn("ID");
          
         
         try{
@@ -112,9 +114,9 @@ private System1 system;
              String nif= rs.getString(3);
                String ref= rs.getString(4);
                String desc = rs.getString(5);
+               String id = rs.getString("id_debt");
                
-               
-               dm.addRow(new String[]{value,nif,ref,desc});
+               dm.addRow(new String[]{value,nif,ref,desc,id});
           
                      
          }
@@ -336,7 +338,8 @@ private System1 system;
         int nif_int = Integer.valueOf(table.getModel().getValueAt(row, 1).toString());
         String description_debt = table.getModel().getValueAt(row, 3).toString();
            Lawsuit l = system.getlawsuit();
-        Debt a = new Debt(value_debts,description_debt,nif_int,l);
+           int id_debt = Integer.valueOf(table.getModel().getValueAt(row, 4).toString());
+        Debt a = new Debt(value_debts,description_debt,nif_int,id_debt,l);
 
         system.setDebt(a);
         
@@ -353,8 +356,10 @@ private System1 system;
             float total_pay =Float.parseFloat(table.getModel().getValueAt(row, 1).toString());
                           
          String description_right = table.getModel().getValueAt(row, 3).toString();
+         //int id_right = 
          Lawsuit l = system.getlawsuit();
-        Right a = new Right(date,total_pay,description_right,l);
+          int id_right = Integer.valueOf(table.getModel().getValueAt(row, 4).toString());
+        Right a = new Right(date,total_pay,description_right,id_right,l);
 
         system.setRight(a);
     } catch (ParseException ex) {

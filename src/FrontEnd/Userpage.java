@@ -300,12 +300,7 @@ private System1 system;
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
        // add_user
        int row= table.getSelectedRow();
-           int table_click =Integer.valueOf(table.getModel().getValueAt(row, 0).toString());
-      
-          
-          
-           
-           
+           int table_click =Integer.valueOf(table.getModel().getValueAt(row, 0).toString());           
            /* try{
                  Connection c = system.getConnection();
 

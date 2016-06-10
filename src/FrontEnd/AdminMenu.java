@@ -332,7 +332,7 @@ public class AdminMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu7ActionPerformed
 
     private void Consult1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Consult1ActionPerformed
-        CreateLawsuit c = new CreateLawsuit(system);
+        Create_Lawsuit c = new Create_Lawsuit(system);
         c.setVisible(true);
     }//GEN-LAST:event_Consult1ActionPerformed
 
@@ -361,7 +361,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
-        Entity a = new Entity(system);
+        Add_Entity a = new Add_Entity(system);
         a.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 

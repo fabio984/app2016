@@ -15,12 +15,13 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import BackEnd.System1;
+import java.util.Random;
 
 /**
  *
  * @author Asus
  */
-public final class Add_Right extends javax.swing.JFrame {
+public  class Add_Right extends javax.swing.JFrame {
 private System1 system;
      PreparedStatement pst = null;
     ResultSet rs = null;
@@ -28,6 +29,7 @@ private System1 system;
         initComponents();
         this.system = system;
         list_right();
+       
        
         
     }
@@ -38,8 +40,11 @@ float total_pay= Float.parseFloat(Total.getText());
          java.sql.Date date = new java.sql.Date(Date.getDate().getTime()); 
          String description_right= Desc.getText();
                  Lawsuit l = system.getlawsuit();
+                  Random ran = new Random();
+    int n = 999999999;
+    int id_right = ran.nextInt(n + 1);
 
-        Right d = new Right(date, total_pay,description_right,l);
+        Right d = new Right(date, total_pay,description_right,id_right,l);
         system.setRight(d);
         system.getRight().add_right();
     
@@ -53,16 +58,18 @@ float total_pay= Float.parseFloat(Total.getText());
          DefaultTableModel dm= (DefaultTableModel)table.getModel();
              dm.setColumnCount(0);
        dm.setRowCount(0);
+  dm.addColumn("ID");
+         
        dm.addColumn("Data");
          dm.addColumn("Total");
-         //dm.addColumn("N");
+        
          dm.addColumn("Referência");
-         
+          dm.addColumn("Descrição");
          
         
         try{
         Connection c = DBClass.getConnection();
-        String sql = "select * from right where num_law='"+system.getlawsuit().getNum_law()+"'";
+        String sql = "SELECT * FROM `right` WHERE `num_law` = '"+system.getlawsuit().getNum_law()+"'";
          pst = c.prepareStatement(sql);
          ResultSet rs = pst.executeQuery();
          
@@ -70,11 +77,11 @@ float total_pay= Float.parseFloat(Total.getText());
              String value= rs.getString(1);
              String nif= rs.getString(2);
                String ref= rs.getString(4);
-              // String desc = rs.getString(5);
+               String desc = rs.getString(5);
+               String id = rs.getString(7);
                
                
-               dm.addRow(new String[]{value,nif,ref,});
-          
+               dm.addRow(new String[]{id,value,nif,ref,desc});
                      
          }
          
@@ -82,7 +89,7 @@ float total_pay= Float.parseFloat(Total.getText());
    
     }
             catch(Exception e){
-       JOptionPane.showMessageDialog(null,e);} 
+       /*JOptionPane.showMessageDialog(null,e);*/} 
         return null;
     }
   
@@ -117,7 +124,7 @@ float total_pay= Float.parseFloat(Total.getText());
         JPanel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         JPanel.setOpaque(false);
 
-        register.setBackground(new java.awt.Color(0, 0, 0));
+        register.setBackground(new java.awt.Color(255, 255, 255));
         register.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         register.setText("Guardar");
         register.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +133,7 @@ float total_pay= Float.parseFloat(Total.getText());
             }
         });
 
-        cancel.setBackground(new java.awt.Color(0, 0, 0));
+        cancel.setBackground(new java.awt.Color(255, 255, 255));
         cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cancel.setText("Cancelar");
         cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -229,6 +236,10 @@ float total_pay= Float.parseFloat(Total.getText());
        add_r();
        
        list_right();
+     Total.setText("");
+     Date.setDate(null); 
+     
+       Desc.setText("");
         
      
     }//GEN-LAST:event_registerActionPerformed

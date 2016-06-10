@@ -18,7 +18,7 @@ public class System1 {
     private User user;
     private Employe emp;
     private Online online;
-    private Intervenient_entitie inter;
+    private Intervenient_Entity inter;
     private Payment payment;
     private Debt debt;
     private Right right;
@@ -63,7 +63,7 @@ public class System1 {
     }
     
     
-    public Intervenient_entitie getIntervening(){
+    public Intervenient_Entity getIntervening(){
         return inter;
     }
 
@@ -71,7 +71,7 @@ public class System1 {
         return online;
     }
     
-    public void setIntervening(Intervenient_entitie inter){
+    public void setIntervening(Intervenient_Entity inter){
         this.inter = inter;
     }
 

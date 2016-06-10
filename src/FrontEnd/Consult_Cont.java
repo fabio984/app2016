@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import BackEnd.System1;
 import java.sql.ResultSet;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,62 +33,83 @@ public class Consult_Cont extends javax.swing.JFrame {
        /*    this.setResizable(false);
         this.setLocationRelativeTo(null);*/
     }
-      /*public void add_l(){
-
-           // String query = "INSERT INTO `lawsuit`(`date_beg`, `name_judge`, `nif_cli`, `state_pro`, `num_adm`, `pro_category`)"
-                    
-           
-         java.sql.Date date_beg = new java.sql.Date(Date_begin.getDate().getTime()); 
-            
-           String name_judge = Name_J.getText();
-           int nif_cli = Integer.valueOf(Nif_Cli.getText());
-           String state_pro = "o";
-           String pro_category = Category.getText();
-           Date date_end = null;
-           Date date_ass = null;
-          int num_emp = system.getUser().getNum_emp();
-       
-           try{
-               
-          
-          String query = "SELECT `num_law` FROM `lawsuit` ORDER BY `num_law` DESC LIMIT 1";
-           Connection c = DBClass.getConnection();
-         ResultSet rs = pst.executeQuery();
-                       while (rs.next()){
-           this.num_law = Integer.valueOf(rs.getString(1)) + 1;
-            
-                       }}
-                  catch(Exception e){
-       JOptionPane.showMessageDialog(null,e);}
-
-           
-           
-                     Lawsuit l = new Lawsuit(num_law, date_beg, date_end, date_ass, name_judge, nif_cli, state_pro, num_emp, pro_category); 
-                     
-                     system.setLawsuit(l);
-
-           system.getlawsuit().add_lawsuit();
-      }
-      
-         public void add_cl(){
-
-          int nif_cli = Integer.valueOf(Nif_Cli.getText());
-         String name_cli = Name_Cli.getText();
-         String adress_cli = Adress_Cli.getText();
-          int contact_cli = Integer.valueOf(Contact_Cli.getText());
-          int nif_mand = Integer.valueOf(Nif_Mand.getText());
-         String name_mand =Name_Mand.getText();
-       int contact_mand = Integer.valueOf(Contact_Mand.getText());
-         String email_cli = Email_Cli.getText();
+          public DefaultTableModel list_right(){
+              
+         DefaultTableModel dm= (DefaultTableModel)table1.getModel();
+             dm.setColumnCount(0);
+       dm.setRowCount(0);
+       dm.addColumn("Data");
+         dm.addColumn("Total");
+         //dm.addColumn("N");
+         dm.addColumn("Referência");
+         dm.addColumn("Descrição");
+         
+         
         
+        try{
+        Connection c = DBClass.getConnection();
+        String sql = "select * from right where num_law='"+system.getlawsuit().getNum_law()+"'";
+         pst = c.prepareStatement(sql);
+         ResultSet rs = pst.executeQuery();
          
-         Client c = new Client(name_cli, nif_cli, contact_cli, nif_mand, name_mand, adress_cli, contact_mand, email_cli);
+         while (rs.next()){
+             String value= rs.getString(1);
+             String nif= rs.getString(2);
+               String ref= rs.getString(4);
+               String desc = rs.getString(5);
+               
+               
+               dm.addRow(new String[]{value,nif,ref,desc});
+          
+                     
+         }
          
-      system.setClient(c);
+           return dm;
+   
+    }
+            catch(Exception e){
+       JOptionPane.showMessageDialog(null,e);} 
+        return null;
+    }
 
-          system.getClient().add_client();
+        public DefaultTableModel list_debt(){
+              
+         DefaultTableModel dm= (DefaultTableModel)table.getModel();
+             dm.setColumnCount(0);
+       dm.setRowCount(0);
+       dm.addColumn("Valor");
+         dm.addColumn("NIF");
+         dm.addColumn("Referência");
+         dm.addColumn("Descrição");
          
-      }*/
+         
+        
+        try{
+        Connection c = DBClass.getConnection();
+        String sql = "select * from debt where num_law='"+system.getlawsuit().getNum_law()+"'";
+         pst = c.prepareStatement(sql);
+         ResultSet rs = pst.executeQuery();
+         
+         while (rs.next()){
+             String value= rs.getString(1);
+             String nif= rs.getString(3);
+               String ref= rs.getString(4);
+               String desc = rs.getString(5);
+               
+               
+               dm.addRow(new String[]{value,nif,ref,desc});
+          
+                     
+         }
+         
+           return dm;
+   
+    }
+            catch(Exception e){
+       JOptionPane.showMessageDialog(null,e);} 
+        return null;
+    }
+             
         
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -97,9 +119,9 @@ public class Consult_Cont extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        table1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -114,13 +136,13 @@ public class Consult_Cont extends javax.swing.JFrame {
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel31.setText("Pagamentos Recebidos");
+        jLabel31.setText("Direitos");
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Balanço Final:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -131,9 +153,9 @@ public class Consult_Cont extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        table1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -144,7 +166,7 @@ public class Consult_Cont extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(table1);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("Voltar");
@@ -156,7 +178,7 @@ public class Consult_Cont extends javax.swing.JFrame {
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("Pagamentos Efetuados");
+        jLabel33.setText("Dívidas");
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -175,44 +197,40 @@ public class Consult_Cont extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
             .addGroup(JPanelLayout.createSequentialGroup()
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel31))
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGap(366, 366, 366)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(366, 366, 366)
+                .addComponent(jLabel32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                    .addContainerGap(823, Short.MAX_VALUE)
-                    .addComponent(jLabel33)
-                    .addGap(107, 107, 107)))
+            .addGroup(JPanelLayout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel33)
+                .addGap(209, 209, 209))
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addGap(31, 31, 31)
+                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(JPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JPanelLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel33)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(jButton1)
                 .addGap(29, 29, 29))
-            .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(JPanelLayout.createSequentialGroup()
-                    .addGap(41, 41, 41)
-                    .addComponent(jLabel33)
-                    .addContainerGap(376, Short.MAX_VALUE)))
         );
 
         getContentPane().add(JPanel, java.awt.BorderLayout.CENTER);
@@ -243,8 +261,8 @@ public class Consult_Cont extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable table;
+    private javax.swing.JTable table1;
     // End of variables declaration//GEN-END:variables
 }
