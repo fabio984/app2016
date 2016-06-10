@@ -498,6 +498,35 @@ District.setText("");
         system.setAssets(a);
         system.getAssets().select_asset(id_pro);
         
+         Postal.setText(system.getAssets().getPostal_code());
+ eval.setText(Float.toString(system.getAssets().getPrice_evaluation()));
+Desc.setText(system.getAssets().getDescription());
+ Local.setText(system.getAssets().getLocality());
+ 
+ if(system.getAssets().getPurchase_state() == 0){
+    State.setSelectedItem("Em processo de venda");
+ }else if(system.getAssets().getPurchase_state() == 1){
+     State.setSelectedItem("Vendido");
+ }else if(system.getAssets().getPurchase_state() == 2){
+     State.setSelectedItem("Desaparecido");
+ }else if(system.getAssets().getPurchase_state() == 3){
+     State.setSelectedItem("Em averiguação");
+ }
+ 
+ 
+
+                //image.setIcon(new ImageIcon(ImageIO.read(system.getAssets().getImage())));
+        
+          NameText.setText(system.getAssets().getName_pro());          
+   IdText.setText(Integer.toString(system.getAssets().getId_pro()));     
+ Price.setText(Float.toString(system.getAssets().getPrice_sale()));
+Address.setText(system.getAssets().getAdress());
+Category.setSelectedItem(system.getAssets().getCategory());
+District.setText(system.getAssets().getDistrict());
+
+       sub.setSelectedItem(system.getAssets().getSub_category());
+       
+  imagel.setIcon(null);
         
 
     }//GEN-LAST:event_tableMouseClicked

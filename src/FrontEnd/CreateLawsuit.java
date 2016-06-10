@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package FrontEnd;
-import BackEnd.Category_process;
 import BackEnd.Client;
 
 import BackEnd.DBClass;
@@ -32,10 +31,6 @@ public class CreateLawsuit extends javax.swing.JFrame {
         this.system = system;
        //   this.setResizable(false);
         this.setLocationRelativeTo(null);
-        Category_process category = new Category_process();
-        system.setCategory(category);
-        system.getCategory().select_j();
-        Name_J.addItem(system.getCategory().getLawsuit_category());
     }
       public void add_l(){
 

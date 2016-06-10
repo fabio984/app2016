@@ -75,7 +75,7 @@ public class Category_process {
            pst = c.prepareStatement(sql);
      
          ResultSet rs = pst.executeQuery();
-         if(rs.next()){
+         while(rs.next()){
              
        // DateFormat format = new SimpleDateFormat("YYYY-MM-dd", Locale.ENGLISH);
 

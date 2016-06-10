@@ -76,7 +76,7 @@ public class AccessLawsuit extends javax.swing.JFrame {
     }
     
   
-  public DefaultTableModel list_assets(){
+  public DefaultTableModel list_lawsuit(){
               
          DefaultTableModel dm= (DefaultTableModel)table.getModel();
              dm.setColumnCount(0);
@@ -338,7 +338,7 @@ public class AccessLawsuit extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        list_assets();
+        list_lawsuit();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

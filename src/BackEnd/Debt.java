@@ -7,6 +7,7 @@ package BackEnd;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 
@@ -19,13 +20,15 @@ public class Debt {
     private Payment pay;
     private String description_debt;
        PreparedStatement pst = null;
+       private int id_debt;
 
-    public Debt(float value_debts, String description_debt,int nif_int, Lawsuit l) {
+    public Debt(float value_debts, String description_debt,int nif_int, int id_debt,Lawsuit l) {
         this.value_debts = value_debts;
      //   this.pay_ref = pay_ref;
         this.description_debt = description_debt;
         this.nif_int=nif_int;
         this.l=l;
+        this.id_debt=id_debt;
     }
 
     public float getValue_debts() {
@@ -73,8 +76,12 @@ public class Debt {
 
      public void add_debt(){
 
-            String query = "INSERT INTO `debt`(`value_debts`, `num_law`, `nif_int`, `pay_refer`, `description_debt`) VALUES"
-                    + " ('"+value_debts+"','"+l.getNum_law()+"','"+nif_int+"',,'"+description_debt+"')";            
+         Random ran = new Random();
+    int n = 999999999;
+    id_debt = ran.nextInt(n + 1);
+
+            String query = "INSERT INTO `debt`(`value_debts`, `num_law`, `nif_int`, `pay_refer`, `description_debt`,`id_debt`) VALUES"
+                    + " ('"+value_debts+"','"+l.getNum_law()+"',,,'"+description_debt+"','"+id_debt+"')";            
             try {           
       
             Connection c = DBClass.getConnection();

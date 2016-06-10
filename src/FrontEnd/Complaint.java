@@ -545,7 +545,7 @@ java.sql.Date date = new java.sql.Date(Date_begin.getDate().getTime());
     }//GEN-LAST:event_patrimonyActionPerformed
 
     private void entityesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entityesActionPerformed
-        Entity e=new Entity(system);
+        Add_Entity e=new Add_Entity(system);
         e.setVisible(true);
 
     }//GEN-LAST:event_entityesActionPerformed

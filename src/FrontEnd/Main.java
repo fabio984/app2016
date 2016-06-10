@@ -22,7 +22,7 @@ public class Main {
     //AccessLawsuit login = new AccessLawsuit(system);
     //login.setVisible(true);
   //  Link login = new Link(system);
-    Liabilitie login = new Liabilitie(system);
+    Login login = new Login(system);
     login.setVisible(true);
     }
     

@@ -56,6 +56,9 @@ private System1 system;
         jMenu3 = new javax.swing.JMenu();
         jCheckBoxMenuItem7 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem8 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem11 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem12 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem13 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jCheckBoxMenuItem5 = new javax.swing.JCheckBoxMenuItem();
@@ -113,16 +116,12 @@ private System1 system;
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         num.setEditable(false);
-        num.setBackground(new java.awt.Color(255, 255, 255));
-        num.setOpaque(false);
 
         jLabel2.setText("Nº de processo");
 
         jLabel3.setText("Nome de empresa");
 
         emp.setEditable(false);
-        emp.setBackground(new java.awt.Color(255, 255, 255));
-        emp.setOpaque(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -215,6 +214,33 @@ private System1 system;
             }
         });
         jMenu3.add(jCheckBoxMenuItem8);
+
+        jCheckBoxMenuItem11.setSelected(true);
+        jCheckBoxMenuItem11.setText("Registar Direito");
+        jCheckBoxMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jCheckBoxMenuItem11);
+
+        jCheckBoxMenuItem12.setSelected(true);
+        jCheckBoxMenuItem12.setText("Editar Direito");
+        jCheckBoxMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jCheckBoxMenuItem12);
+
+        jCheckBoxMenuItem13.setSelected(true);
+        jCheckBoxMenuItem13.setText("Editar Direito");
+        jCheckBoxMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem13ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jCheckBoxMenuItem13);
 
         report.add(jMenu3);
 
@@ -370,7 +396,7 @@ private System1 system;
     }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
 
     private void jCheckBoxMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem6ActionPerformed
-        Edit_Liabilitie e = new Edit_Liabilitie(system);
+        Edit_Debt e = new Edit_Debt(system);
         e.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem6ActionPerformed
 
@@ -394,7 +420,7 @@ private System1 system;
     }//GEN-LAST:event_jCheckBoxMenuItem7ActionPerformed
 
     private void jCheckBoxMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem8ActionPerformed
-        Liabilitie l = new Liabilitie(system);
+        Add_Debt l = new Add_Debt(system);
         l.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem8ActionPerformed
 
@@ -408,7 +434,7 @@ private System1 system;
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem3ActionPerformed
-        Entity ae = new Entity(system);
+        Add_Entity ae = new Add_Entity(system);
         ae.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem3ActionPerformed
 
@@ -426,6 +452,21 @@ private System1 system;
         el.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem4ActionPerformed
 
+    private void jCheckBoxMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem11ActionPerformed
+            Add_Right e = new Add_Right(system);
+        e.setVisible(true);
+    }//GEN-LAST:event_jCheckBoxMenuItem11ActionPerformed
+
+    private void jCheckBoxMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem12ActionPerformed
+        Edit_Right e = new Edit_Right(system);
+        e.setVisible(true);
+    }//GEN-LAST:event_jCheckBoxMenuItem12ActionPerformed
+
+    private void jCheckBoxMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem13ActionPerformed
+        Right_List r = new Right_List(system);
+        r.setVisible(true);
+    }//GEN-LAST:event_jCheckBoxMenuItem13ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -437,6 +478,9 @@ private System1 system;
     private javax.swing.JMenu close_process;
     private javax.swing.JTextField emp;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem10;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem11;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem12;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem13;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem4;

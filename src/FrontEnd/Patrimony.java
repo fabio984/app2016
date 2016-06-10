@@ -171,7 +171,7 @@ public class Patrimony extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Liabilitie d = new Liabilitie(system);
+        Add_Debt d = new Add_Debt(system);
         d.setVisible(true);
         
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -186,7 +186,7 @@ public class Patrimony extends javax.swing.JFrame {
     }//GEN-LAST:event_patrimonyActionPerformed
 
     private void entityesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entityesActionPerformed
-        Entity e=new Entity(system);
+        Add_Entity e=new Add_Entity(system);
         e.setVisible(true);
     }//GEN-LAST:event_entityesActionPerformed
 
