@@ -40,7 +40,6 @@ public class AdminMenu extends javax.swing.JFrame {
         Consult1 = new javax.swing.JMenuItem();
         Consult = new javax.swing.JMenuItem();
         Consult2 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
         online_data = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -94,6 +93,9 @@ public class AdminMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(getMaximumSize());
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -161,15 +163,6 @@ public class AdminMenu extends javax.swing.JFrame {
             }
         });
         Lawsuit.add(Consult2);
-
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/script_code.png"))); // NOI18N
-        jMenuItem9.setText("Adicionar Entidade Interveniente");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        Lawsuit.add(jMenuItem9);
 
         jMenuBar1.add(Lawsuit);
 
@@ -359,12 +352,6 @@ public class AdminMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Create2ActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
-        Add_Entity a = new Add_Entity(system);
-        a.setVisible(true);
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Add_Complaint ac = new Add_Complaint(system);
         ac.setVisible(true);
@@ -408,7 +395,6 @@ public class AdminMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JMenu online_data;

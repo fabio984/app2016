@@ -112,6 +112,7 @@ private System1 system;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -155,7 +156,7 @@ private System1 system;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanel2);
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 255));
         jMenuBar1.setForeground(new java.awt.Color(204, 204, 204));
